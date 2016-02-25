@@ -1,0 +1,36 @@
+var instruData = {
+    "instrument": [{
+        name: "Acoustic Grand Piano",
+	    value: "acoustic_grand_piano",
+    },
+    {   name: "Bird Tweet",
+        value: "bird_tweet",
+    },
+    {	name: "Choir (aahs)",
+	    value: "choir_aahs",
+    },
+    {	name: "Church Organ",
+	    value: "church_organ",
+    },
+    {	name: "Flute",
+	    value: "flute",
+    },
+    {	name: "Harmonica",
+	    value: "harmonica",
+    },
+    {	name: "Viola",
+	    value: "viola",
+    },
+    {	name: "Violin",
+	    value: "violin",
+    },
+    {	name: "Voice (oohs)",
+	    value: "voice_oohs",
+    },
+    {	name: "Whistle",
+	    value: "whistle",
+    },
+    ]
+};
+
+myInstruments(instruData);

@@ -1,0 +1,2205 @@
+﻿
+.container#searchWell {
+    width: 100%;
+    margin : 20px;
+    padding: 20px;
+}
+
+/*ul.nav > li {
+    width: 20%;
+    text-align: center;
+}*/
+
+.btnInput
+{
+    width: 22.2%;
+    height: 50px;
+    text-align:center;
+}
+
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+}
+
+#input div{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#input div p{
+    margin: -10px;
+}
+
+.fab-menu.one{
+    z-index: 1000;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    transform: scale(1);
+    transition: all 0.2s;
+}
+
+.fab-menu.one.out{
+    z-index: 1000;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    transform: scale(0);
+    transition: all 0.2s;
+}
+
+.fab-menu.two{
+    z-index: 1000;
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    transform: scale(1);
+    transition: all 0.2s;
+}
+
+.fab-menu.two.out{
+    z-index: 1000;
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    transform: scale(0);
+    transition: all 0.2s;
+}
+
+.nav-tabs{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+#lyrics{
+    font-size: 21px;
+}
+
+.popover-content{
+    background-color: transparent;
+}
+
+#searchInput{
+    height: 56px;
+}
+
+.tab-pane{
+    padding-top: 50px;
+    z-index: 3;
+}
+
+.list-group-item .slider{
+    padding: 1px 0 0;
+    margin: 20px 0 0;
+}
+
+body.inverse .list-group .list-group-item .list-group-item-heading,
+body.inverse .list-group .list-group-item .list-group-item-text {
+  background: #333333 !important;
+  color: rgba(255, 255, 255, 0.84) !important;
+  outline: 10px solid rgba(51, 51, 51, 0.15) !important;
+}
+
+body.inverse option, body.inverse select{
+    background: #333333 !important;
+}
+
+body.inverse .list-group .list-group-item:hover, 
+body.inverse .list-group .list-group-item:focus {
+  background: #333333 !important;
+  color: rgba(255, 255, 255, 0.84) !important;
+}
+
+body.inverse .btn-default i{
+    color: rgba(255, 255, 255, 0.84) !important;
+}
+
+body.inverse .modal-header,
+body.inverse .modal-title,
+body.inverse .modal-body,
+body.inverse .modal-footer{
+    background-color: #454545 !important;
+}
+
+body.inverse .modal .modal-content,
+body.inverse .modal button{
+    color: rgba(255, 255, 255, 0.84) !important;
+}
+
+body.inverse .panel-body{
+    transition: background-color 0.4s ease;
+    background-color: #454545 !important;
+    color: rgba(255, 255, 255, 0.84) !important;
+    padding: 5px 5px !important;
+}
+
+body:not(.inverse) .panel-body{
+    padding: 5px 5px !important;
+}
+
+.form-group.row .control-label, .form-group.row .input[type="checkbox"]{
+    margin: 10px 0 0;
+}
+
+.form-group.row .slider{
+    margin: 10px 10px 0;
+}
+
+.panel-body .form-group{
+    margin: 5px !important;
+}
+
+.side-collapse{
+    background: #EEEEEE;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
+    font-weight: bold;
+    background-color: inherit !important;
+}
+
+body:not(.inverse) .nav-pills li a{
+    color: #333333;
+}
+
+body.inverse .nav-pills li a{
+    color: rgba(255, 255, 255, 0.84)
+}
+
+body:not(.inverse) .side-collapse{
+    background-color: #EEEEEE;
+}
+
+body.inverse .side-collapse{
+    background-color: #454545;
+}
+
+.navbar{
+    box-shadow: 1px 7px 26px 3px rgba(150,148,150,0.43);
+}
+
+.navbar .pull-left{
+    margin-left: 20px;
+}
+
+.navbar .pull-right{
+    margin-right: 20px;
+}
+
+.navbar-btn{
+    background-color: inherit;
+    border: none;
+    margin: 2px 7px;
+}
+
+.nav-pills > li > a{
+    border-radius: 0;
+    font-size: 18px;                
+}
+
+.color-palette {
+    display: inline-block;                
+}
+
+.color-palette .color {
+    width: 25px;
+    height: 25px;
+    display: inline-block;                
+}
+
+body:not(.inverse) .color-palette .color:not(.active) {
+    border: none;
+}
+
+body:not(.inverse) .color-palette .color.active {
+    border: 3px solid #333333;
+}
+
+body.inverse .color-palette .color:not(.active) {
+    border: none;
+}
+
+body.inverse .color-palette .color.active {
+    border: 3px solid #EEEEEE;
+}
+
+body.inverse .form-group .checkbox .text {
+    color: #EEEEEE;
+}
+
+body.inverse .form-group .togglebutton .text {
+    color: #EEEEEE;
+}
+
+body.inverse .form-group .radio label {
+    color: #EEEEEE;
+}
+
+.side-collapse.in {
+    width: 200px;
+    z-index: 2000;
+    left: 0;
+    top: 0px;
+    height: 2500px;
+    position: fixed;
+    transition: left .4s;
+    box-shadow: 10px 10px 63px -12px rgba(0,0,0,0.75);
+}
+
+.side-collapse:not(.in) {
+    width: 200px;
+    z-index: 2000;
+    left: -200px;
+    top: 0px;
+    height: 2500px;
+    position: fixed;
+    transition: left .4s;
+}
+
+.my-icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin-top: 7px;
+  border-radius: 1px;
+  background-color: white;
+}
+.my-icon-bar + .my-icon-bar {
+  margin-top: 4px;
+}
+
+.black-overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.7;
+    display: none;
+    z-index: 1500;
+}
+
+#bkmkAddRemove, #searchPhrase{
+    transform: scale(1);
+    transition: all 0.4s;
+}
+
+#bkmkAddRemove.out, #searchPhrase.out{
+    transform: scale(0);
+    transition: all 0.4s;
+}
+
+#mySettings .container{
+    margin-top: 5px;
+}
+
+#about ul li, .revision{
+    line-height: 5px;
+}
+
+.side-collapse li a .text{
+    padding-left: 37px;
+}
+
+.side-collapse li + li{
+    margin-top: 8px;
+}
+
+/* line 440, ../sass/index.scss */
+.panel-material-lime .panel-heading,
+.panel-material-light-blue .panel-heading,
+.panel-material-yellow .panel-heading,
+.panel-material-amber .panel-heading,
+.panel-material-cyan .panel-heading {
+  color: #000000;
+}
+
+/* line 448, ../sass/index.scss */
+.navbar-material-lime .my-icon-bar,
+.navbar-material-light-blue .my-icon-bar,
+.navbar-material-yellow .my-icon-bar,
+.navbar-material-amber .my-icon-bar,
+.navbar-material-cyan .my-icon-bar {
+  background: #000000;
+}
+
+.panel-body{
+    transition: background-color 0.4s ease;
+}
+
+/* line 43, ../sass/index.scss */
+.text-primary, body:not(inverse) .side-collapse-primary li:not(active) a:hover, body:not(inverse) .side-collapse-primary li:not(active) a:focus, body:not(inverse) .side-collapse-primary li.active a, body.inverse .side-collapse-primary li:not(active) a:hover, body.inverse .side-collapse-primary li:not(active) a:focus, body.inverse .side-collapse-primary li.active a {
+  color: #009688;
+}
+
+/* line 47, ../sass/index.scss */
+.text-material-red, body:not(inverse) .side-collapse-material-red li:not(active) a:hover, body:not(inverse) .side-collapse-material-red li:not(active) a:focus, body:not(inverse) .side-collapse-material-red li.active a, body.inverse .side-collapse-material-red li:not(active) a:hover, body.inverse .side-collapse-material-red li:not(active) a:focus, body.inverse .side-collapse-material-red li.active a {
+  color: #f44336;
+}
+
+/* line 21, ../sass/_typography.scss */
+/* line 52, ../sass/index.scss */
+.text-material-pink, body:not(inverse) .side-collapse-material-pink li:not(active) a:hover, body:not(inverse) .side-collapse-material-pink li:not(active) a:focus, body:not(inverse) .side-collapse-material-pink li.active a, body.inverse .side-collapse-material-pink li:not(active) a:hover, body.inverse .side-collapse-material-pink li:not(active) a:focus, body.inverse .side-collapse-material-pink li.active a {
+  color: #e91e63;
+}
+
+/* line 24, ../sass/_typography.scss */
+/* line 57, ../sass/index.scss */
+.text-material-purple, body:not(inverse) .side-collapse-material-purple li:not(active) a:hover, body:not(inverse) .side-collapse-material-purple li:not(active) a:focus, body:not(inverse) .side-collapse-material-purple li.active a, body.inverse .side-collapse-material-purple li:not(active) a:hover, body.inverse .side-collapse-material-purple li:not(active) a:focus, body.inverse .side-collapse-material-purple li.active a {
+  color: #9c27b0;
+}
+
+/* line 27, ../sass/_typography.scss */
+/* line 62, ../sass/index.scss */
+.text-material-deep-purple, body:not(inverse) .side-collapse-material-deep-purple li:not(active) a:hover, body:not(inverse) .side-collapse-material-deep-purple li:not(active) a:focus, body:not(inverse) .side-collapse-material-deep-purple li.active a, body.inverse .side-collapse-material-deep-purple li:not(active) a:hover, body.inverse .side-collapse-material-deep-purple li:not(active) a:focus, body.inverse .side-collapse-material-deep-purple li.active a {
+  color: #673ab7;
+}
+
+/* line 30, ../sass/_typography.scss */
+/* line 67, ../sass/index.scss */
+.text-material-indigo, body:not(inverse) .side-collapse-material-indigo li:not(active) a:hover, body:not(inverse) .side-collapse-material-indigo li:not(active) a:focus, body:not(inverse) .side-collapse-material-indigo li.active a, body.inverse .side-collapse-material-indigo li:not(active) a:hover, body.inverse .side-collapse-material-indigo li:not(active) a:focus, body.inverse .side-collapse-material-indigo li.active a {
+  color: #3f51b5;
+}
+
+/* line 33, ../sass/_typography.scss */
+/* line 72, ../sass/index.scss */
+.text-material-blue, body:not(inverse) .side-collapse-material-blue li:not(active) a:hover, body:not(inverse) .side-collapse-material-blue li:not(active) a:focus, body:not(inverse) .side-collapse-material-blue li.active a, body.inverse .side-collapse-material-blue li:not(active) a:hover, body.inverse .side-collapse-material-blue li:not(active) a:focus, body.inverse .side-collapse-material-blue li.active a {
+  color: #2196f3;
+}
+
+/* line 36, ../sass/_typography.scss */
+/* line 77, ../sass/index.scss */
+.text-material-light-blue, body:not(inverse) .side-collapse-material-light-blue li:not(active) a:hover, body:not(inverse) .side-collapse-material-light-blue li:not(active) a:focus, body:not(inverse) .side-collapse-material-light-blue li.active a, body.inverse .side-collapse-material-light-blue li:not(active) a:hover, body.inverse .side-collapse-material-light-blue li:not(active) a:focus, body.inverse .side-collapse-material-light-blue li.active a {
+  color: #03a9f4;
+}
+
+/* line 39, ../sass/_typography.scss */
+/* line 82, ../sass/index.scss */
+.text-material-cyan, body:not(inverse) .side-collapse-material-cyan li:not(active) a:hover, body:not(inverse) .side-collapse-material-cyan li:not(active) a:focus, body:not(inverse) .side-collapse-material-cyan li.active a, body.inverse .side-collapse-material-cyan li:not(active) a:hover, body.inverse .side-collapse-material-cyan li:not(active) a:focus, body.inverse .side-collapse-material-cyan li.active a {
+  color: #00bcd4;
+}
+
+/* line 42, ../sass/_typography.scss */
+/* line 87, ../sass/index.scss */
+.text-material-teal, body:not(inverse) .side-collapse-material-teal li:not(active) a:hover, body:not(inverse) .side-collapse-material-teal li:not(active) a:focus, body:not(inverse) .side-collapse-material-teal li.active a, body.inverse .side-collapse-material-teal li:not(active) a:hover, body.inverse .side-collapse-material-teal li:not(active) a:focus, body.inverse .side-collapse-material-teal li.active a {
+  color: #009688;
+}
+
+/* line 45, ../sass/_typography.scss */
+/* line 92, ../sass/index.scss */
+.text-material-green, body:not(inverse) .side-collapse-material-green li:not(active) a:hover, body:not(inverse) .side-collapse-material-green li:not(active) a:focus, body:not(inverse) .side-collapse-material-green li.active a, body.inverse .side-collapse-material-green li:not(active) a:hover, body.inverse .side-collapse-material-green li:not(active) a:focus, body.inverse .side-collapse-material-green li.active a {
+  color: #4caf50;
+}
+
+/* line 49, ../sass/_typography.scss */
+/* line 97, ../sass/index.scss */
+body .text-material-light-green, body .side-collapse-material-light-green li:not(active) a:hover, body .side-collapse-material-light-green li:not(active) a:focus, body .side-collapse-material-light-green li.active a, body.inverse .side-collapse-material-light-green li:not(active) a:hover, body.inverse .side-collapse-material-light-green li:not(active) a:focus, body.inverse .side-collapse-material-light-green li.active a {
+  color: #000000;
+}
+
+/* line 52, ../sass/_typography.scss */
+/* line 101, ../sass/index.scss */
+body .text-material-lime, body .side-collapse-material-lime li:not(active) a:hover, body .side-collapse-material-lime li:not(active) a:focus, body .side-collapse-material-lime li.active a, body.inverse .side-collapse-material-lime li:not(active) a:hover, body.inverse .side-collapse-material-lime li:not(active) a:focus, body.inverse .side-collapse-material-lime li.active a {
+  color: #000000;
+}
+
+/* line 55, ../sass/_typography.scss */
+/* line 105, ../sass/index.scss */
+body .text-material-yellow, body .side-collapse-material-yellow li:not(active) a:hover, body .side-collapse-material-yellow li:not(active) a:focus, body .side-collapse-material-yellow li.active a, body.inverse .side-collapse-material-yellow li:not(active) a:hover, body.inverse .side-collapse-material-yellow li:not(active) a:focus, body.inverse .side-collapse-material-yellow li.active a {
+  color: #000000;
+}
+
+/* line 58, ../sass/_typography.scss */
+/* line 109, ../sass/index.scss */
+body .text-material-amber, body .side-collapse-material-amber li:not(active) a:hover, body .side-collapse-material-amber li:not(active) a:focus, body .side-collapse-material-amber li.active a, body.inverse .side-collapse-material-amber li:not(active) a:hover, body.inverse .side-collapse-material-amber li:not(active) a:focus, body.inverse .side-collapse-material-amber li.active a {
+  color: #000000;
+}
+
+/* line 61, ../sass/_typography.scss */
+/* line 113, ../sass/index.scss */
+body .text-material-blue-grey, body .side-collapse-material-blue-grey li:not(active) a:hover, body .side-collapse-material-blue-grey li:not(active) a:focus, body .side-collapse-material-blue-grey li.active a, body.inverse .side-collapse-material-blue-grey li:not(active) a:hover, body.inverse .side-collapse-material-blue-grey li:not(active) a:focus, body.inverse .side-collapse-material-blue-grey li.active a {
+  color: #607d8b;
+}
+
+/* line 66, ../sass/_typography.scss */
+/* line 118, ../sass/index.scss */
+body.inverse .text-material-light-green, body.inverse .side-collapse-material-light-green li:not(active) a:hover, body.inverse .side-collapse-material-light-green li:not(active) a:focus, body.inverse .side-collapse-material-light-green li.active a {
+  color: #8bc34a;
+}
+
+/* line 69, ../sass/_typography.scss */
+/* line 122, ../sass/index.scss */
+body.inverse .text-material-lime, body.inverse .side-collapse-material-lime li:not(active) a:hover, body.inverse .side-collapse-material-lime li:not(active) a:focus, body.inverse .side-collapse-material-lime li.active a {
+  color: #cddc39;
+}
+
+/* line 72, ../sass/_typography.scss */
+/* line 126, ../sass/index.scss */
+body.inverse .text-material-yellow, body.inverse .side-collapse-material-yellow li:not(active) a:hover, body.inverse .side-collapse-material-yellow li:not(active) a:focus, body.inverse .side-collapse-material-yellow li.active a {
+  color: #ffeb3b;
+}
+
+/* line 75, ../sass/_typography.scss */
+/* line 130, ../sass/index.scss */
+body.inverse .text-material-amber, body.inverse .side-collapse-material-amber li:not(active) a:hover, body.inverse .side-collapse-material-amber li:not(active) a:focus, body.inverse .side-collapse-material-amber li.active a {
+  color: #ffc107;
+}
+
+/* line 78, ../sass/_typography.scss */
+/* line 134, ../sass/index.scss */
+body.inverse .text-material-blue-grey, body.inverse .side-collapse-material-blue-grey li:not(active) a:hover, body.inverse .side-collapse-material-blue-grey li:not(active) a:focus, body.inverse .side-collapse-material-blue-grey li.active a, body.inverse .text-material-grey, body.inverse .side-collapse-material-grey li:not(active) a:hover, body.inverse .side-collapse-material-grey li:not(active) a:focus, body.inverse .side-collapse-material-grey li.active a {
+  color: #ffffff;
+}
+
+/* line 81, ../sass/_typography.scss */
+/* line 138, ../sass/index.scss */
+body.inverse .text-material-deep-purple, body.inverse .side-collapse-material-deep-purple li:not(active) a:hover, body.inverse .side-collapse-material-deep-purple li:not(active) a:focus, body.inverse .side-collapse-material-deep-purple li.active a, body.inverse .text-material-indigo, body.inverse .side-collapse-material-indigo li:not(active) a:hover, body.inverse .side-collapse-material-indigo li:not(active) a:focus, body.inverse .side-collapse-material-indigo li.active a {
+  color: #ffffff;
+}
+
+/* line 89, ../sass/_typography.scss */
+/* line 143, ../sass/index.scss */
+.text-material-orange, body:not(inverse) .side-collapse-material-orange li:not(active) a:hover, body:not(inverse) .side-collapse-material-orange li:not(active) a:focus, body:not(inverse) .side-collapse-material-orange li.active a, body.inverse .side-collapse-material-orange li:not(active) a:hover, body.inverse .side-collapse-material-orange li:not(active) a:focus, body.inverse .side-collapse-material-orange li.active a {
+  color: #ff9800;
+}
+
+/* line 92, ../sass/_typography.scss */
+/* line 148, ../sass/index.scss */
+.text-material-deep-orange, body:not(inverse) .side-collapse-material-deep-orange li:not(active) a:hover, body:not(inverse) .side-collapse-material-deep-orange li:not(active) a:focus, body:not(inverse) .side-collapse-material-deep-orange li.active a, body.inverse .side-collapse-material-deep-orange li:not(active) a:hover, body.inverse .side-collapse-material-deep-orange li:not(active) a:focus, body.inverse .side-collapse-material-deep-orange li.active a {
+  color: #ff5722;
+}
+
+/* line 95, ../sass/_typography.scss */
+/* line 153, ../sass/index.scss */
+.text-material-brown, body:not(inverse) .side-collapse-material-brown li:not(active) a:hover, body:not(inverse) .side-collapse-material-brown li:not(active) a:focus, body:not(inverse) .side-collapse-material-brown li.active a, body.inverse .side-collapse-material-brown li:not(active) a:hover, body.inverse .side-collapse-material-brown li:not(active) a:focus, body.inverse .side-collapse-material-brown li.active a {
+  color: #795548;
+}
+
+/* line 98, ../sass/_typography.scss */
+/* line 158, ../sass/index.scss */
+.text-material-grey, body:not(inverse) .side-collapse-material-grey li:not(active) a:hover, body:not(inverse) .side-collapse-material-grey li:not(active) a:focus, body:not(inverse) .side-collapse-material-grey li.active a, body.inverse .side-collapse-material-grey li:not(active) a:hover, body.inverse .side-collapse-material-grey li:not(active) a:focus, body.inverse .side-collapse-material-grey li.active a {
+  color: #9e9e9e;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-primary {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-primary {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-primary .navbar-btn, .navbar-primary a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-primary {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-primary .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-primary {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-primary {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-primary {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-primary {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-primary {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-primary li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-primary, body:not(inverse) .side-collapse-primary li:not(active) a:hover, body:not(inverse) .side-collapse-primary li:not(active) a:focus, body:not(inverse) .side-collapse-primary li.active a, body.inverse .side-collapse-primary li:not(active) a:hover, body.inverse .side-collapse-primary li:not(active) a:focus, body.inverse .side-collapse-primary li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-primary li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-primary li:not(active) a:hover, body:not(inverse) .side-collapse-primary li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-primary li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-primary li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-primary li:not(active) a:hover, body.inverse .side-collapse-primary li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-primary li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-red {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-red {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-red .navbar-btn, .navbar-material-red a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-red {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-red .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-red {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-red {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-red {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-red {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-red {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-red li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-red, body:not(inverse) .side-collapse-material-red li:not(active) a:hover, body:not(inverse) .side-collapse-material-red li:not(active) a:focus, body:not(inverse) .side-collapse-material-red li.active a, body.inverse .side-collapse-material-red li:not(active) a:hover, body.inverse .side-collapse-material-red li:not(active) a:focus, body.inverse .side-collapse-material-red li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-red li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-red li:not(active) a:hover, body:not(inverse) .side-collapse-material-red li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-red li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-red li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-red li:not(active) a:hover, body.inverse .side-collapse-material-red li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-red li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-pink {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-pink {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-pink .navbar-btn, .navbar-material-pink a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-pink {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-pink .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-pink {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-pink {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-pink {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-pink {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-pink {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-pink li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-pink, body:not(inverse) .side-collapse-material-pink li:not(active) a:hover, body:not(inverse) .side-collapse-material-pink li:not(active) a:focus, body:not(inverse) .side-collapse-material-pink li.active a, body.inverse .side-collapse-material-pink li:not(active) a:hover, body.inverse .side-collapse-material-pink li:not(active) a:focus, body.inverse .side-collapse-material-pink li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-pink li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-pink li:not(active) a:hover, body:not(inverse) .side-collapse-material-pink li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-pink li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-pink li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-pink li:not(active) a:hover, body.inverse .side-collapse-material-pink li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-pink li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-purple {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-purple {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-purple .navbar-btn, .navbar-material-purple a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-purple {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-purple .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-purple {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-purple {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-purple {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-purple {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-purple {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-purple li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-purple, body:not(inverse) .side-collapse-material-purple li:not(active) a:hover, body:not(inverse) .side-collapse-material-purple li:not(active) a:focus, body:not(inverse) .side-collapse-material-purple li.active a, body.inverse .side-collapse-material-purple li:not(active) a:hover, body.inverse .side-collapse-material-purple li:not(active) a:focus, body.inverse .side-collapse-material-purple li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-purple li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-purple li:not(active) a:hover, body:not(inverse) .side-collapse-material-purple li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-purple li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-purple li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-purple li:not(active) a:hover, body.inverse .side-collapse-material-purple li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-purple li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-deep-purple {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-deep-purple {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-deep-purple .navbar-btn, .navbar-material-deep-purple a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-deep-purple {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-deep-purple .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-deep-purple {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-deep-purple {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-deep-purple {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-deep-purple {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-deep-purple {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-deep-purple li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-deep-purple, body:not(inverse) .side-collapse-material-deep-purple li:not(active) a:hover, body:not(inverse) .side-collapse-material-deep-purple li:not(active) a:focus, body:not(inverse) .side-collapse-material-deep-purple li.active a, body.inverse .side-collapse-material-deep-purple li:not(active) a:hover, body.inverse .side-collapse-material-deep-purple li:not(active) a:focus, body.inverse .side-collapse-material-deep-purple li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-deep-purple li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-deep-purple li:not(active) a:hover, body:not(inverse) .side-collapse-material-deep-purple li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-deep-purple li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-deep-purple li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-deep-purple li:not(active) a:hover, body.inverse .side-collapse-material-deep-purple li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-deep-purple li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-indigo {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-indigo {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-indigo .navbar-btn, .navbar-material-indigo a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-indigo {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-indigo .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-indigo {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-indigo {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-indigo {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-indigo {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-indigo {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-indigo li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-indigo, body:not(inverse) .side-collapse-material-indigo li:not(active) a:hover, body:not(inverse) .side-collapse-material-indigo li:not(active) a:focus, body:not(inverse) .side-collapse-material-indigo li.active a, body.inverse .side-collapse-material-indigo li:not(active) a:hover, body.inverse .side-collapse-material-indigo li:not(active) a:focus, body.inverse .side-collapse-material-indigo li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-indigo li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-indigo li:not(active) a:hover, body:not(inverse) .side-collapse-material-indigo li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-indigo li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-indigo li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-indigo li:not(active) a:hover, body.inverse .side-collapse-material-indigo li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-indigo li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-blue {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-blue {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-blue .navbar-btn, .navbar-material-blue a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-blue {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-blue .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-blue {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-blue {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-blue {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-blue {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-blue {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-blue li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-blue, body:not(inverse) .side-collapse-material-blue li:not(active) a:hover, body:not(inverse) .side-collapse-material-blue li:not(active) a:focus, body:not(inverse) .side-collapse-material-blue li.active a, body.inverse .side-collapse-material-blue li:not(active) a:hover, body.inverse .side-collapse-material-blue li:not(active) a:focus, body.inverse .side-collapse-material-blue li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-blue li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-blue li:not(active) a:hover, body:not(inverse) .side-collapse-material-blue li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-blue li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-blue li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-blue li:not(active) a:hover, body.inverse .side-collapse-material-blue li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-blue li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-light-blue {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-light-blue {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-light-blue .navbar-btn, .navbar-material-light-blue a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-light-blue {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-light-blue .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-light-blue {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-light-blue {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-light-blue {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-light-blue {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-light-blue {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-light-blue li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-light-blue, body:not(inverse) .side-collapse-material-light-blue li:not(active) a:hover, body:not(inverse) .side-collapse-material-light-blue li:not(active) a:focus, body:not(inverse) .side-collapse-material-light-blue li.active a, body.inverse .side-collapse-material-light-blue li:not(active) a:hover, body.inverse .side-collapse-material-light-blue li:not(active) a:focus, body.inverse .side-collapse-material-light-blue li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-light-blue li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-light-blue li:not(active) a:hover, body:not(inverse) .side-collapse-material-light-blue li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-light-blue li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-light-blue li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-light-blue li:not(active) a:hover, body.inverse .side-collapse-material-light-blue li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-light-blue li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-cyan {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-cyan {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-cyan .navbar-btn, .navbar-material-cyan a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-cyan {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-cyan .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-cyan {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-cyan {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-cyan {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-cyan {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-cyan {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-cyan li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-cyan, body:not(inverse) .side-collapse-material-cyan li:not(active) a:hover, body:not(inverse) .side-collapse-material-cyan li:not(active) a:focus, body:not(inverse) .side-collapse-material-cyan li.active a, body.inverse .side-collapse-material-cyan li:not(active) a:hover, body.inverse .side-collapse-material-cyan li:not(active) a:focus, body.inverse .side-collapse-material-cyan li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-cyan li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-cyan li:not(active) a:hover, body:not(inverse) .side-collapse-material-cyan li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-cyan li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-cyan li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-cyan li:not(active) a:hover, body.inverse .side-collapse-material-cyan li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-cyan li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-teal {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-teal {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-teal .navbar-btn, .navbar-material-teal a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-teal {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-teal .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-teal {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-teal {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-teal {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-teal {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-teal {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-teal li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-teal, body:not(inverse) .side-collapse-material-teal li:not(active) a:hover, body:not(inverse) .side-collapse-material-teal li:not(active) a:focus, body:not(inverse) .side-collapse-material-teal li.active a, body.inverse .side-collapse-material-teal li:not(active) a:hover, body.inverse .side-collapse-material-teal li:not(active) a:focus, body.inverse .side-collapse-material-teal li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-teal li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-teal li:not(active) a:hover, body:not(inverse) .side-collapse-material-teal li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-teal li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-teal li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-teal li:not(active) a:hover, body.inverse .side-collapse-material-teal li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-teal li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-green {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-green {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-green .navbar-btn, .navbar-material-green a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-green {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-green .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-green {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-green {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-green {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-green {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-green {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-green li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-green, body:not(inverse) .side-collapse-material-green li:not(active) a:hover, body:not(inverse) .side-collapse-material-green li:not(active) a:focus, body:not(inverse) .side-collapse-material-green li.active a, body.inverse .side-collapse-material-green li:not(active) a:hover, body.inverse .side-collapse-material-green li:not(active) a:focus, body.inverse .side-collapse-material-green li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-green li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-green li:not(active) a:hover, body:not(inverse) .side-collapse-material-green li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-green li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-green li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-green li:not(active) a:hover, body.inverse .side-collapse-material-green li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-green li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-light-green {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-light-green {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-light-green .navbar-btn, .navbar-material-light-green a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-light-green {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-light-green .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-light-green {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-light-green {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-light-green {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-light-green {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-light-green {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-light-green li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-light-green, body:not(inverse) .side-collapse-material-light-green li:not(active) a:hover, body:not(inverse) .side-collapse-material-light-green li:not(active) a:focus, body:not(inverse) .side-collapse-material-light-green li.active a, body.inverse .side-collapse-material-light-green li:not(active) a:hover, body.inverse .side-collapse-material-light-green li:not(active) a:focus, body.inverse .side-collapse-material-light-green li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-light-green li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-light-green li:not(active) a:hover, body:not(inverse) .side-collapse-material-light-green li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-light-green li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-light-green li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-light-green li:not(active) a:hover, body.inverse .side-collapse-material-light-green li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-light-green li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-lime {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-lime {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-lime .navbar-btn, .navbar-material-lime a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-lime {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-lime .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-lime {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-lime {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-lime {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-lime {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-lime {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-lime li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-lime, body:not(inverse) .side-collapse-material-lime li:not(active) a:hover, body:not(inverse) .side-collapse-material-lime li:not(active) a:focus, body:not(inverse) .side-collapse-material-lime li.active a, body.inverse .side-collapse-material-lime li:not(active) a:hover, body.inverse .side-collapse-material-lime li:not(active) a:focus, body.inverse .side-collapse-material-lime li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-lime li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-lime li:not(active) a:hover, body:not(inverse) .side-collapse-material-lime li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-lime li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-lime li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-lime li:not(active) a:hover, body.inverse .side-collapse-material-lime li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-lime li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-yellow {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-yellow {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-yellow .navbar-btn, .navbar-material-yellow a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-yellow {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-yellow .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-yellow {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-yellow {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-yellow {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-yellow {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-yellow {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-yellow li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-yellow, body:not(inverse) .side-collapse-material-yellow li:not(active) a:hover, body:not(inverse) .side-collapse-material-yellow li:not(active) a:focus, body:not(inverse) .side-collapse-material-yellow li.active a, body.inverse .side-collapse-material-yellow li:not(active) a:hover, body.inverse .side-collapse-material-yellow li:not(active) a:focus, body.inverse .side-collapse-material-yellow li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-yellow li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-yellow li:not(active) a:hover, body:not(inverse) .side-collapse-material-yellow li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-yellow li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-yellow li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-yellow li:not(active) a:hover, body.inverse .side-collapse-material-yellow li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-yellow li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-amber {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-amber {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-amber .navbar-btn, .navbar-material-amber a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-amber {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-amber .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-amber {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-amber {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-amber {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-amber {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-amber {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-amber li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-amber, body:not(inverse) .side-collapse-material-amber li:not(active) a:hover, body:not(inverse) .side-collapse-material-amber li:not(active) a:focus, body:not(inverse) .side-collapse-material-amber li.active a, body.inverse .side-collapse-material-amber li:not(active) a:hover, body.inverse .side-collapse-material-amber li:not(active) a:focus, body.inverse .side-collapse-material-amber li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-amber li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-amber li:not(active) a:hover, body:not(inverse) .side-collapse-material-amber li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-amber li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-amber li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-amber li:not(active) a:hover, body.inverse .side-collapse-material-amber li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-amber li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-orange {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-orange {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-orange .navbar-btn, .navbar-material-orange a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-orange {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-orange .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-orange {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-orange {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-orange {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-orange {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-orange {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-orange li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-orange, body:not(inverse) .side-collapse-material-orange li:not(active) a:hover, body:not(inverse) .side-collapse-material-orange li:not(active) a:focus, body:not(inverse) .side-collapse-material-orange li.active a, body.inverse .side-collapse-material-orange li:not(active) a:hover, body.inverse .side-collapse-material-orange li:not(active) a:focus, body.inverse .side-collapse-material-orange li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-orange li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-orange li:not(active) a:hover, body:not(inverse) .side-collapse-material-orange li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-orange li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-orange li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-orange li:not(active) a:hover, body.inverse .side-collapse-material-orange li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-orange li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-deep-orange {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-deep-orange {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-deep-orange .navbar-btn, .navbar-material-deep-orange a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-deep-orange {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-deep-orange .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-deep-orange {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-deep-orange {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-deep-orange {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-deep-orange {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-deep-orange {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-deep-orange li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-deep-orange, body:not(inverse) .side-collapse-material-deep-orange li:not(active) a:hover, body:not(inverse) .side-collapse-material-deep-orange li:not(active) a:focus, body:not(inverse) .side-collapse-material-deep-orange li.active a, body.inverse .side-collapse-material-deep-orange li:not(active) a:hover, body.inverse .side-collapse-material-deep-orange li:not(active) a:focus, body.inverse .side-collapse-material-deep-orange li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-deep-orange li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-deep-orange li:not(active) a:hover, body:not(inverse) .side-collapse-material-deep-orange li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-deep-orange li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-deep-orange li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-deep-orange li:not(active) a:hover, body.inverse .side-collapse-material-deep-orange li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-deep-orange li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-brown {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-brown {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-brown .navbar-btn, .navbar-material-brown a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-brown {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-brown .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-brown {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-brown {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-brown {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-brown {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-brown {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-brown li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-brown, body:not(inverse) .side-collapse-material-brown li:not(active) a:hover, body:not(inverse) .side-collapse-material-brown li:not(active) a:focus, body:not(inverse) .side-collapse-material-brown li.active a, body.inverse .side-collapse-material-brown li:not(active) a:hover, body.inverse .side-collapse-material-brown li:not(active) a:focus, body.inverse .side-collapse-material-brown li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-brown li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-brown li:not(active) a:hover, body:not(inverse) .side-collapse-material-brown li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-brown li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-brown li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-brown li:not(active) a:hover, body.inverse .side-collapse-material-brown li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-brown li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-grey {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-grey {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-grey .navbar-btn, .navbar-material-grey a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-grey {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-grey .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-grey {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-grey {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-grey {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-grey {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-grey {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-grey li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-grey, body:not(inverse) .side-collapse-material-grey li:not(active) a:hover, body:not(inverse) .side-collapse-material-grey li:not(active) a:focus, body:not(inverse) .side-collapse-material-grey li.active a, body.inverse .side-collapse-material-grey li:not(active) a:hover, body.inverse .side-collapse-material-grey li:not(active) a:focus, body.inverse .side-collapse-material-grey li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-grey li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-grey li:not(active) a:hover, body:not(inverse) .side-collapse-material-grey li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-grey li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-grey li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-grey li:not(active) a:hover, body.inverse .side-collapse-material-grey li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-grey li.active a {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/index.scss */
+.btn-material-blue-grey {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* line 166, ../sass/index.scss */
+.navbar-material-blue-grey {
+  transition: background-color 0.4s ease;
+}
+/* line 169, ../sass/index.scss */
+.navbar-material-blue-grey .navbar-btn, .navbar-material-blue-grey a {
+  transition: color 0.4s ease;
+}
+
+/* line 173, ../sass/index.scss */
+.panel-material-blue-grey {
+  transition: background-color 0.4s ease;
+}
+/* line 176, ../sass/index.scss */
+.panel-material-blue-grey .panel-heading {
+  transition: color 0.4s ease;
+}
+
+/* line 180, ../sass/index.scss */
+.checkbox-material-blue-grey {
+  transition: background-color 0.4s ease;
+}
+
+/* line 183, ../sass/index.scss */
+.togglebutton-material-blue-grey {
+  transition: background-color 0.4s ease;
+}
+
+/* line 186, ../sass/index.scss */
+.slider-material-blue-grey {
+  transition: background-color 0.4s ease;
+}
+
+/* line 189, ../sass/index.scss */
+.radio-material-blue-grey {
+  transition: background-color 0.4s ease;
+}
+
+/* line 192, ../sass/index.scss */
+.side-collapse-material-blue-grey {
+  transition: background-color 0.4s ease;
+}
+/* line 195, ../sass/index.scss */
+.side-collapse-material-blue-grey li a {
+  transition: color 0.4s ease;
+}
+
+/* line 199, ../sass/index.scss */
+.text-material-blue-grey, body:not(inverse) .side-collapse-material-blue-grey li:not(active) a:hover, body:not(inverse) .side-collapse-material-blue-grey li:not(active) a:focus, body:not(inverse) .side-collapse-material-blue-grey li.active a, body.inverse .side-collapse-material-blue-grey li:not(active) a:hover, body.inverse .side-collapse-material-blue-grey li:not(active) a:focus, body.inverse .side-collapse-material-blue-grey li.active a {
+  transition: color 0.4s ease;
+}
+
+/* line 206, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-blue-grey li:not(active) a {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: normal;
+}
+/* line 209, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-blue-grey li:not(active) a:hover, body:not(inverse) .side-collapse-material-blue-grey li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 219, ../sass/index.scss */
+body:not(inverse) .side-collapse-material-blue-grey li.active a {
+  font-weight: bold;
+}
+
+/* line 231, ../sass/index.scss */
+body.inverse .side-collapse-material-blue-grey li:not(active) a {
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: normal;
+}
+/* line 234, ../sass/index.scss */
+body.inverse .side-collapse-material-blue-grey li:not(active) a:hover, body.inverse .side-collapse-material-blue-grey li:not(active) a:focus {
+  font-weight: bold;
+}
+/* line 243, ../sass/index.scss */
+body.inverse .side-collapse-material-blue-grey li.active a {
+  font-weight: bold;
+}

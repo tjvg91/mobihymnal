@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1.5, user-scalable=1">
+
+    <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline'; connect-src 'self' https://www.dropbox.com; font-src 'self' https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700;">
+
+    <title>MobiHymnalBootstrap</title>
+        
+    <script src="jquery/jquery-2.1.4.min.js"></script>
+    <script src="jquery/jquery-2.1.4.js"></script>
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap_matdes/js/material.js"></script>
+    <script src="bootstrap_matdes/js/material.min.js"></script>
+    <script src="bootstrap_matdes/js/ripples.js"></script>
+    <script src="bootstrap_matdes/js/ripples.min.js"></script>
+
+    <script src="bootstrap_matdes/js/nouislider.min.js"></script>
+    <script src="bootstrap_matdes/js/nouislider.js"></script>
+
+    <link href="bootstrap_matdes/css/nouislider.min.css" rel="stylesheet" />
+    <link href="bootstrap_matdes/css/nouislider.css" rel="stylesheet" />
+    <link href="bootstrap_matdes/css/nouislider.pips.css" rel="stylesheet" />
+    <link href="bootstrap_matdes/css/nouislider.tooltips.css" rel="stylesheet" />
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap_matdes/css/material.css" rel="stylesheet" />
+
+    <link href="css/rippler.min.css" rel="stylesheet" />
+    <link href="css/rippler.css" rel="stylesheet" />
+    <script src="scripts/jquery.rippler.js"></script>
+    <script src="scripts/jquery.rippler.min.js"></script>
+
+    <script src="scripts/linq.min.js"></script>
+
+    <script src="scripts/hammer.min.js"></script>
+    <script src="scripts/toast.js"></script>
+    <script src="scripts/jquery.tablesorter.min.js"></script>
+
+    <!-- MobiHymnalBootstrap references -->
+    <link href="css/index.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+
+    <script src="scripts/index.js"></script>
+
+    <script src="scripts/mobihymnal.js"></script>
+    <script src="scripts/instruments.js"></script>
+    <script src="scripts/colors.js"></script>
+    
+    <div class="navbar navbar-primary navbar-fixed-top">
+        <div class="navbar-nav">
+            <div class="pull-left">
+                <button class="navbar-btn" data-toggle="side-collapse" data-target="#slidingPanel" onclick="toggleCollapse()">
+                    <span class="my-icon-bar"></span>
+                    <span class="my-icon-bar"></span>
+                    <span class="my-icon-bar"></span>
+                </button>
+            </div>
+            <div class="pull-right">
+                <button class="navbar-btn rippler rippler-default" id="bkmkAddRemove"><i class="mdi-action-bookmark" onclick="bookmarkNot()"></i></button>
+                <button class="navbar-btn rippler rippler-default" id="searchPhrase"><i class="mdi-action-search" onclick="gotoSearch()"></i></button>
+                <button class="navbar-btn rippler rippler-default" id="homeButton"><i class="mdi-action-home" onclick="goToHymn()"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="side-collapse side-collapse-primary" id="slidingPanel">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+                <a class="rippler rippler-default active" role="tab" data-toggle="tab" href="#main">
+                    <i class="mdi-action-home"></i>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a class="rippler rippler-default" role="tab" data-toggle="tab" href="#input">
+                    <i class="mdi-communication-dialpad"></i>
+                    <span class="text">Input</span>
+                </a>
+            </li>
+            <li>
+                <a class="rippler rippler-default" role="tab" data-toggle="tab" href="#search">
+                    <i class="mdi-action-search"></i>
+                    <span class="text">Search</span>
+                </a>
+            </li>
+            <li>
+                <a class="rippler rippler-default" role="tab" data-toggle="tab" href="#bookmarks">
+                    <i class="mdi-action-bookmark"></i>
+                    <span class="text">Bookmarks</span>
+                </a>
+            </li>
+            <li>
+                <a class="rippler rippler-default" role="tab" data-toggle="tab" href="#history">
+                    <i class="mdi-action-history"></i>
+                    <span class="text">History</span>
+                </a>
+            </li>
+            <li>
+                <a class="rippler rippler-default" role="tab" data-toggle="tab" href="#myAbout">
+                    <i class="mdi-action-info"></i>
+                    <span class="text">About</span>
+                </a>
+            </li>
+            <li>
+                <a class="rippler rippler-default" role="tab" data-toggle="tab" href="#mySettings">
+                    <i class="mdi-action-settings"></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="fab-menu one">
+        <button type="button" role="tab" data-toggle="tab" class="btn btn-fab btn-primary" id="inputHymn" onclick="gotoInput()">
+            <i class="mdi-communication-dialpad"></i>
+        </button>
+    </div>
+    <div class="fab-menu two">
+        <button type="button" class="btn btn-fab btn-primary" id="midiPlayPause">
+            <i class="mdi-av-play-arrow"></i>
+        </button>
+    </div>
+
+    <div class="black-overlay" onclick="toggleCollapse()" id="blackOverlay"></div>
+
+    <div class="tab-content" id="tabContent">
+        <div role="tabpanel" id="main" class="tab-pane active fade in"> 
+            <div id="lyrics"></div>
+        </div>
+        <div role="tabpanel" id="input" class="tab-pane fade in">
+            <div>
+                <p class="buttons">
+                    <button class="btn btn-primary" id="hymnNum" onclick="isNew = true;">1</button>
+                </p>
+                <p class="buttons">
+                    <button class="btn btn-primary btnInput" value="1" onclick="typeNum($(this).val())">1</button>
+                    <button class="btn btn-primary btnInput" value="2" onclick="typeNum($(this).val())">2</button>
+                    <button class="btn btn-primary btnInput" value="3" onclick="typeNum($(this).val())">3</button>
+                </p>                
+                <p class="buttons">
+                    <button class="btn btn-primary btnInput" value="4" onclick="typeNum($(this).val())">4</button>
+                    <button class="btn btn-primary btnInput" value="5" onclick="typeNum($(this).val())">5</button>
+                    <button class="btn btn-primary btnInput" value="6" onclick="typeNum($(this).val())">6</button>
+                </p>
+                
+                <p class="buttons">
+                    <button class="btn btn-primary btnInput" value="7" onclick="typeNum($(this).val())">7</button>
+                    <button class="btn btn-primary btnInput" value="8" onclick="typeNum($(this).val())">8</button>
+                    <button class="btn btn-primary btnInput" value="9" onclick="typeNum($(this).val())">9</button>
+                </p>
+                <p class="buttons">
+                    <button class="btn btn-primary btnInput" value="s" onclick="typeNum($(this).val())">s</button>
+                    <button class="btn btn-primary btnInput" value="t" onclick="typeNum($(this).val())">t</button>
+                    <button class="btn btn-primary btnInput" value="f" onclick="typeNum($(this).val())">f</button>
+                </p>
+                <p class="buttons">
+                    <button class="btn btn-primary btnInput" value="b" onclick="typeNum($(this).val())"><span class="mdi-content-backspace"></span></button>
+                    <button class="btn btn-primary btnInput" value="0" onclick="typeNum($(this).val())">0</button>
+                    <button class="btn btn-primary btnInput" value="e" onclick="typeNum($(this).val())"><span class="mdi-action-done"></span></button>
+                </p>
+                <p class="texts">
+                    S = 2<sup>nd</sup> Tune<br/>
+                    T = 3<sup>rd</sup> Tune<br />
+                    F = 4<sup>th</sup> Tune 
+                </p>
+            </div>
+        </div>
+
+        <!--search-->
+        <div role="tabpanel" id="search" class="tab-pane fade in" style="margin-top: -40px; margin-left: -10px">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <button type="button" class="btn btn-default btn-fab btn-fab-mini" data-toggle="collapse" data-target="#searchWell">
+                            <i class="mdi-hardware-keyboard-arrow-down"></i>
+                        </button>
+                    </span>
+                    <input type="search" id="searchInput" class="form-control" style="margin-top: 10px;" placeholder="Search word or phrase"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default btn-fab btn-fab-mini" onclick="searchText($('#searchInput').val())">
+                            <i class="mdi-action-search"></i>
+                        </button>
+                    </span>
+                </div>
+                <div id="searchWell" class="collapse container" style="margin-top: -40px">
+                    <div class="form-group row">
+                        <label class="control-label">Results to Display:</label>
+                        <div class="radio radio-primary">
+                            <label>
+                                <input type="radio" name="optionRadios" id="optionRadios1" checked value="any" />
+                                <span class="circle"></span>
+                                <span class="check"></span>Any
+
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <input type="radio" name="optionRadios" id="optionRadios1" value="firstLine" />
+                                <span class="circle"></span>
+                                <span class="check"></span>First Line
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="togglebutton">
+                            <div class="togglebutton-primary">
+                                <label>
+                                    <input type="checkbox" id="wholeWord"/>
+                                    <span class="toggle"></span>
+                                    <span class="text">Whole Word</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="togglebutton">
+                            <div class="togglebutton-primary">
+                                <label>
+                                    <input type="checkbox" id="matchCase"/>
+                                    <span class="toggle"></span>
+                                    <span class="text">Match Case</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="searchCount" style="padding-left: 22px;"></div>
+                <div id="searchResults">
+
+                </div>
+            </div>
+        </div>
+
+        <!--bookmarks and history-->
+        <div role="tabpanel" id="bookmarks" class="tab-pane fade in list-group">
+        </div>
+
+        <div role="tabpanel" id="history" class="tab-pane fade in list-group">
+        </div>
+
+        <!--about-->
+        <div role="tabpanel" id="myAbout" class="tab-pane fade in">
+            <h3>MobiHymnal</h3>
+            <p id="about"></p>
+
+            <br />
+            <h4>Revisions</h4>
+            <p id="new"></p>
+        </div>
+
+        <!--settings-->
+        <div role="tabpanel" id="mySettings" class="tab-pane fade in">
+            <div class="container">
+                <!--UI-->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Appearance</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group row">
+                                    <label class="control-label">Theme: </label>
+                                    <div>
+                                        <div class="radio radio-primary">
+                                            <label>
+                                                <input type="radio" name="optionThemes" id="optionLight" checked value="light"
+                                                       onclick="themeLightDark($('#optionLight').val())"/>
+                                                <span class="circle"></span>
+                                                <span class="check"></span>
+                                                Light
+
+                                            </label>
+                                        </div>
+                                        <div class="radio radio-primary">
+                                            <label>
+                                                <input type="radio" name="optionThemes" id="optionDark" value="dark"
+                                                       onclick="themeLightDark($('#optionDark').val())"/>
+                                                <span class="circle"></span>
+                                                <span class="check"></span>
+                                                Dark
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-2">
+                                        <label class="control-label">Color: </label>
+                                    </div>
+                                    <div class="color-palette col-md-10">
+                                        <div class="color active">#009688</div> <!--teal-->
+                                        <div class="color">#00bcd4</div> <!--cyan-->
+                                        <div class="color">#03a9f4</div> <!--light blue-->
+                                        <div class="color">#2196f3</div> <!--blue-->
+                                        <div class="color">#3f51b5</div> <!--indigo-->
+                                        <div class="color">#9c27b0</div> <!--purple-->
+                                        <div class="color">#673ab7</div> <!--deep purple-->
+                                        <div class="color">#e91e63</div> <!--pink-->
+                                        <br/>
+                                        <div class="color">#f44336</div> <!--red-->
+                                        <div class="color">#ffc107</div> <!--amber-->
+                                        <div class="color">#ffeb3b</div> <!--yellow-->
+                                        <div class="color">#cddc39</div> <!--lime-->
+                                        <div class="color">#8bc34a</div> <!--light-green-->
+                                        <div class="color">#4caf50</div> <!--green-->
+                                        <div class="color">#795548</div> <!--brown-->
+                                        <div class="color">#607d8b</div> <!--blue grey-->
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label">Extra space:</label>
+                                    <div>
+                                        <div class="shor slider-primary noUi-connect" id="padSlider">                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

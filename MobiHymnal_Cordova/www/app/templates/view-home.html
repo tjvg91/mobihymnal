@@ -1,0 +1,23 @@
+﻿<ion-view view-title="Home">
+    <ion-content class="padding">
+        <ion-refresher on-refresh="refresh(true)" spinner="android"></ion-refresher>
+        <ion-slide-box>
+            <ion-slide>
+                <script>
+                    angular.element('iframe').css('height', (window.screen.height - 70) + 'px');
+                </script>
+                <iframe src="text/h1.html" style="width:100%; overflow:hidden"></iframe>
+                <script type="text/javascript">
+                    $('iframe').load(function () {
+                        $('iframe').contents().find('p').css('font-size', '21px');
+                        $('iframe').contents().find('p').css('font-family', 'Century');
+                        $('iframe').contents().find('h3').css('font-family', 'Century');
+                    });
+                </script>
+            </ion-slide>
+            <ion-slide>
+                <iframe src="pdf/h1.pdf" style="width:100%; overflow:hidden"></iframe>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,82 @@
+﻿<style>
+    td{
+        padding: 10px;
+    }
+    .round-button{
+        border-radius:50%;
+    }
+</style>
+
+<ion-view view-title="Input">
+    <ion-content class="padding">
+        <ion-refresher on-refresh="refresh(true)" spinner="android"></ion-refresher>
+        <div style="text-align: center; vertical-align: middle">
+            <button class="button button-dark" id="btnChoice" style="width:50%; font-size: 21px" onclick="isNew = true;"></button>
+            <table style="margin: 0 auto" cellspacing="50" cellpadding="50">
+                <tr>
+                    <td>
+                        <button class="button button-dark round-button" value="1" id="btnOne">1</button>
+                    </td>
+                    <td>
+                        <button class="button button-dark round-button" value="2" id="btnTwo">2</button>
+                    </td>
+                    <td>
+                        <button class="button button-dark round-button" value="3" id="btnThree">3</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="button button-dark round-button" value="4" id="btnFour">4</button>
+                    </td>
+                    <td>
+                        <button class="button button-dark round-button" value="5" id="btnFive">5</button>
+                    </td>
+                    <td>
+                        <button class="button button-dark round-button" value="6" id="btnSix">6</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="button button-dark round-button" value="7" id="btnSeven">7</button>
+                    </td>
+                    <td>
+                        <button class="button button-dark round-button" value="8" id="btnEight">8</button>
+                    </td>
+                    <td>
+                        <button class="button button-dark round-button" value="9" id="btnNine">9</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="button button-dark round-button" value="s" id="btnS">s</button>
+                    </td>
+                    <td>
+                        <button class="button button-dark round-button" value="t" id="btnT">t</button>
+                    </td>
+                    <td>
+                        <button class="button button-dark round-button" value="f" id="btnF">f</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="button button-dark ion-backspace round-button" value="b" id="btnBackspace"></button>
+                    </td>
+                    <td>
+                        <button class="button button-dark round-button" value="0" id="btnZero">0</button>
+                    </td>
+                    <td>
+                        <button class="button button-dark ion-checkmark round-button" id="btnGo"></button>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="text-align:center">s = second tune</div>
+            <div style="text-align:center">t = third tune</div>
+            <div style="text-align:center">f = fourth tune</div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,10 +1,10 @@
 {
      "android": {
          "release": {
-             "keystore": "",
-             "storePassword": "",
-             "alias": "",
-             "password" : "",
+             "keystore": "C:\\Users\\AtwistInMyStory\\Documents\\Android\\timgapps.keystore",
+             "storePassword": "tjvg1991",
+             "alias": "timgprojects",
+             "password" : "tjvg1991",
              "keystoreType": ""
          }
      }

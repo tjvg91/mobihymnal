@@ -8,6 +8,7 @@ var fontSizes = [18, 21, 24, 27, 30, 35, 40];
 var arrNums = [];
 var arrInstru = [];
 var arrColors = [];
+var arrHymnals = [];
 
 var resultType = 'any';
 var wholeWord = false;
@@ -34,7 +35,9 @@ var hist = {
     "history": [
         {
             "Num": 0,
-            "Date": "2016-01-01T00:00:00Z"
+            "Date": "2016-01-01T00:00:00Z",
+            "Hymnal": "",
+            "FirstLine": ""
         }
     ]
 };
@@ -44,7 +47,9 @@ var settings = {
     "font": "",
     "backColor": "",
     "theme": "",
-    "pad": ""
+    "pad": "",
+    "lineHeight": "",
+    "hymnal": ""
 }
 
 var loaded = false;
@@ -56,11 +61,13 @@ var pluginLoaded = false;
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
     function onDeviceReady() {
+        navigator.splashscreen.hide();
+
         android = new RegExp('Android');
         ios = new RegExp('iPod|iPhone|iPad');
 
         // Handle the Cordova pause and resume events
-        document.addEventListener( 'pause', onPause.bind( this ), false );
+        document.addEventListener('pause', onPause.bind( this ), false );
         document.addEventListener('resume', onResume.bind(this), false);
 
         document.addEventListener("searchbutton", onSearchKeyDown.bind(this), false);
@@ -74,20 +81,10 @@ var pluginLoaded = false;
         readDescription();
         readRevisions();
 
+        hymn = $('#hymnNum');
+
         listDirectory();
         loadSettings();
-
-        num = settings.num;
-
-        if (num == null)
-            num = '1';
-
-        hymn = $('#hymnNum');
-        hymn.text(num);
-        fontName = $('#lyrics').css('font-family');
-
-        fontSize = settings.font;
-        $('#content').css('font-size', fontSize + 'px');
 
         $('button[data-target="#searchWell"]').click(function () {
             $('button[data-target="#searchWell"] > i').toggleClass('mdi-hardware-keyboard-arrow-down mdi-hardware-keyboard-arrow-up')
@@ -147,13 +144,15 @@ var pluginLoaded = false;
                 console.log(error.code);
             });
 
-            if (hist.history.length == 0 || hist.history[hist.history.length - 1].Num != num) {
-                hist.history.push({ "Num": num, "Date": tempDate });
-                addHistory(num);
-            }
-            if (hist.history.length > 5) {
-                hist.history.splice(0, 1);
-                removeHistory();
+            if (settings.hymnal !== "") {
+                if (hist.history.length == 0 || hist.history[hist.history.length - 1].Num != num) {
+                    hist.history.push({ "Num": num, "Date": tempDate });
+                    addHistory(num);
+                }
+                if (hist.history.length > 5) {
+                    hist.history.splice(0, 1);
+                    removeHistory();
+                }
             }
         });
 
@@ -170,6 +169,17 @@ var pluginLoaded = false;
                 mode: 'range',
                 density: 3
             }
+        });
+
+        noUiSlider.create(document.getElementById('lineHeightSlider'), {
+            animate: false,
+            start: 0,
+            range: {
+                'min': 150,
+                'max': 300
+            },
+            step: 50,
+            orientation: 'horizontal'
         });
 
         $('.rippler').rippler({            
@@ -199,17 +209,13 @@ var pluginLoaded = false;
             })
         },
             function (error) {
+                createToast(error.code);
         });
         
-        var pad = settings.pad;
-        if (pad === null) pad = '0';
-        $('#content').css('padding-bottom', pad + 'px');
-
-        document.getElementById('padSlider').noUiSlider.set(pad);
-        document.getElementById('padSlider').noUiSlider.on('change', function (e3) {
-            $('#lyrics').css('padding-bottom', e3 + 'px');
-            settings.pad = e3;
-        })
+        if (settings.pad === "") {
+            settings.pad = "0"
+        };
+        $('#content').css('padding-bottom', settings.pad + 'px');
 
         $('#optionsAny').click(function () {
             resultType = $(this).val();
@@ -269,7 +275,7 @@ var pluginLoaded = false;
             if ($('.side-collapse').hasClass('in')) {
                 toggleCollapse();
             }
-        });
+        }); 
 
         var hammerTab = new Hammer.Manager(tabContent, {
             touchAction: 'pan-y'
@@ -339,81 +345,29 @@ var pluginLoaded = false;
             }
         });
 
-        if (hist.history.length > 0) {
-            if (hist.history[0].Num == '0')
+        if (settings.hymnal !== "") {
+            if (hist.history.length > 0) {
+                if (hist.history[0].Num == '0')
+                    hist.history.splice(0, 1);
+            }
+            if (hist.history.length == 0 || hist.history[hist.history.length - 1].Num != num) {
+                hist.history.push({
+                    "Num": num,
+                    "Date": tempDate,
+                    "Hymnal": settings.hymnal,
+                    "FirstLine": function () {
+                        return Enumerable.From(arrNums).Where(function () {
+                            return x.Num == num && x.Hymnal == parseInt(settings.hymnal);
+                        }).Select("x.FirstLine").ToArray()[0];
+                    }
+                });
+                addHistory(num);
+            }
+            if (hist.history.length > 5) {
                 hist.history.splice(0, 1);
-        }
-        if (hist.history.length == 0 || hist.history[hist.history.length - 1].Num != num) {
-            hist.history.push({ "Num": num, "Date": tempDate });
-            addHistory(num);
-        }
-        if (hist.history.length > 5) {
-            hist.history.splice(0, 1);
-            removeHistory();
-        }
-
-        currentBack = 'primary';
-        $('.color-palette > .color').each(function () {
-            var color = $(this).text();
-            $(this).css({
-                'background-color': color,
-                'text-indent': '100%',
-                'white-space': 'nowrap',
-                'overflow': 'hidden'
-            });
-        });
-
-        $('.color-palette .color').click(function () {
-            if (!$(this).hasClass('active')) {
-                $('.color-palette > .color').removeClass('active');
-                $(this).addClass('active');
-
-                var curColor = $(this).text();
-
-                var newColor = Enumerable.From(arrColors).Where(function (x) {
-                    return x.value === curColor;
-                }).Select(function (x) {
-                    return x.name;
-                }).ToArray()[0];
-
-                $('.navbar').toggleClass('navbar-' + currentBack + ' navbar-' + newColor);
-                $('.btn-' + currentBack).toggleClass('btn-' + currentBack + ' btn-' + newColor);
-                $('.panel-' + currentBack).toggleClass('panel-' + currentBack + ' panel-' + newColor);
-                $('.checkbox-' + currentBack).toggleClass('checkbox-' + currentBack + ' checkbox-' + newColor);
-                $('.togglebutton-' + currentBack).toggleClass('togglebutton-' + currentBack + ' togglebutton-' + newColor);
-                $('.slider-' + currentBack).toggleClass('slider-' + currentBack + ' slider-' + newColor);
-                $('.radio-' + currentBack).toggleClass('radio-' + currentBack + ' radio-' + newColor);
-                $('.text-' + currentBack).toggleClass('text-' + currentBack + ' text-' + newColor);
-                $('.side-collapse-' + currentBack).toggleClass('side-collapse-' + currentBack + ' side-collapse-' + newColor);
-
-                currentBack = newColor;
-
-                settings.backColor = currentBack;
-            }
-        });
-
-        if (settings.theme != null) {
-            theme = settings.theme;
-            if (theme === 'dark') {
-                $('#optionDark').trigger('click');
+                removeHistory();
             }
         }
-
-        if (settings.backColor != null) {
-            var newCol = settings.backColor;
-
-            var newColorRGB = Enumerable.From(arrColors).Where(function (x) {
-                return x.value === newCol;
-            }).Select(function (x) {
-                return x.rgbValue;
-            }).ToArray()[0];
-
-            $('.color').filter(function () {
-                return $(this).text() === newCol;
-            }).trigger('click');
-        }
-
-        getLyrics(num);
     };
 
     function onPause() {
@@ -438,7 +392,9 @@ var pluginLoaded = false;
 function getLyrics(num) {
     settings.num = num;
     var out = Enumerable.From(arrNums)
-						.Where(function (x) { return x.Num == num  })
+						.Where(function (x) {
+						    return x.Num == settings.num && x.HymnalID == parseInt(settings.hymnal)
+						})
 						.Select(function (x) { return x; }).ToArray();
     $('#lyrics').html(out[0].Lyrics);
     $('#title').addClass('text-' + currentBack);
@@ -494,7 +450,7 @@ function typeNum(target)
         }
         else if (target == 'e') {
             getLyrics(hymn.text());
-            $('.nav-tabs a[href="#main"]').tab('show');
+            goToHymn();
             settings.num = hymn.text();
         }
     }
@@ -502,6 +458,10 @@ function typeNum(target)
     {
         if (target != 'b' && target != 'e') {            
             hymn.html(hymn.text() + target);
+            if (canProceed(hymn.text())) {
+                getLyrics(hymn.text());
+                goToHymn();
+            }
         }
         else if (target == 'b') {
             hymn.html(hymn.text().substr(0, hymn.text().length - 1));
@@ -517,6 +477,30 @@ function typeNum(target)
             goToHymn();
         }
     }
+}
+
+function canProceed(text) {
+    var len = text.length;
+    var regex = null;
+    if (len === 1) {
+        regex = new RegExp("^(" + text + "[0-9stf]{1,2})$", "i");
+    }
+    else if (len === 2) {
+        regex = new RegExp("^(" + text + "[0-9stf]{1})$", "i");
+    }
+    else if (len === 3) {
+        regex = new RegExp("^(" + text + "[stf]{1})$", "i");
+    }
+
+    var query = Enumerable.From(arrNums).Where(function (x) {
+        return regex.test(x.Num) === true && x.HymnalID === settings.hymnal;
+    }).Select(function (x) {
+        return x;
+    }).ToArray();
+
+    if (query === null || query.length === 0)
+        return true;
+    return false;
 }
 
 function goToHymn()
@@ -555,11 +539,30 @@ function searchText(text) {
     headerNum.text('Num');
     headerNum.css('width', '20%');
     headerNum.css('text-align', 'center');
+    headerNum.click(function () {
+        if($(this).has('span.caret')){
+            $(this).find('span.caret').toggleClass('caret-inversed');
+        }
+        else{
+            headerLine.remove('span.caret');
+            $(this).append("<span class=\"caret\"></span>");
+        }
+    });
 
     var headerLine = $('<th></th>');
     headerLine.text('Line');
     headerLine.css('width', '80%');
     headerLine.css('text-align', 'center');
+    headerLine.append("<span class=\"caret\"></span>");
+    headerLine.click(function () {
+        if($(this).has('span.caret')){
+            $(this).find('span.caret').toggleClass('caret-inversed');
+        }
+        else{
+            headerNum.remove('span.caret');
+            $(this).append("<span class=\"caret\"></span>");
+        }
+    });
 
     headerRow.append(headerNum);
     headerRow.append(headerLine);
@@ -574,7 +577,7 @@ function searchText(text) {
 						    var compare1 = matchCase ? x.FirstLine : x.FirstLine.toLowerCase();
 						    var compare2 = matchCase ? text : text.toLowerCase();
 						    var searchText = wholeWord ? "\\b" + compare2 + "\\b" : compare2;
-						    return compare1.search("\\b" + compare2 + "\\b") >= 0
+						    return compare1.search("\\b" + compare2 + "\\b") >= 0 && x.HymnalID == parseInt(settings.hymnal)
 						})
 						.Select(function (x) { return x; }).ToArray();
         $('#searchCount').html(out.length + ' result(s) found');
@@ -632,12 +635,7 @@ function searchText(text) {
 						    var compare1 = matchCase ? x.Lyrics : x.Lyrics.toLowerCase();
 						    var compare2 = matchCase ? text : text.toLowerCase();
 						    var searchTerm = wholeWord ? "\\b" + compare2 + "\\b" : compare2;
-						    var tags = x.Tags.split(';');
-						    var cleanTags = [];
-						    $.each(tags, function (index, element) {
-						        cleanTags.push(element.trim());
-						    });
-						    return compare1.search(searchTerm) >= 0 || cleanTags.indexOf(searchTerm.toLowerCase()) >= 0
+						    return (compare1.search(searchTerm) >= 0 || x.Tags.indexOf(searchTerm.toLowerCase()) >= 0) && x.HymnalID == parseInt(settings.hymnal)
 						})
 						.Select(function (x) { return x; }).ToArray();
         var arrs = [];
@@ -821,7 +819,12 @@ function playPause(number) {
 function bookmarkNot() {
     if ($('#bkmkAddRemove > i').hasClass('mdi-action-bookmark-outline')) {
         window.resolveLocalFileSystemURL(storagePath, function (dirEntry) {
-            dirEntry.getFile(bookmarksPath + '/' + hymn.text() + '.mbk', { create: true }, function (fileEntry) {
+            dirEntry.getFile(bookmarksPath + '/' + hymn.text() + '.mbk', { create: true, exclusive: false }, function (fileEntry) {
+                fileEntry.createWriter(function (writer) {                    
+                    writer.write("hymnal = " + settings.hymnal);
+                }, function (error) {
+                    console.log(error.code);
+                });
             }, function (error) {
             });
         });
@@ -830,7 +833,7 @@ function bookmarkNot() {
     }
     else {
         window.resolveLocalFileSystemURL(storagePath, function (dirEntry) {
-            dirEntry.getFile(bookmarksPath + '/' + hymn.text() + '.mbk', { create: false }, function (fileEntry) {
+            dirEntry.getFile(bookmarksPath + '/' + hymn.text() + '.mbk', { create: false, exclusive: false }, function (fileEntry) {
                 fileEntry.remove();
             }, function (error) {
             });
@@ -855,6 +858,10 @@ function myColors(arr) {
     arrColors = arr;
 }
 
+function myHymnals(arr) {
+    arrHymnals = arr;
+}
+
 var sort_by = function (field, reverse, primer) {
     var key = function (x) { return primer ? primer(x[field]) : x[field] };
 
@@ -865,7 +872,7 @@ var sort_by = function (field, reverse, primer) {
 }
 
 function listDirectory() {
-    if (android.test(navigator.userAgent)) {        
+    if (android.test(navigator.userAgent)) {
         storagePath = cordova.file.externalRootDirectory;
     }
     else if (ios.test(navigator.userAgent)) {
@@ -881,26 +888,33 @@ function listDirectory() {
 }
 
 function getBookmarks() {
-    window.resolveLocalFileSystemURL(storagePath, function (dirEntry) {
-        dirEntry.getDirectory(bookmarksPath, { create: true }, function (dirEntry) {
+    window.resolveLocalFileSystemURL(storagePath, function (dirEntry) {        
+        dirEntry.getDirectory(bookmarksPath, { create: true, exclusive: false }, function (dirEntry) {
             var directoryReader = dirEntry.createReader();
             directoryReader.readEntries(function (entries) {
                 for (var i = 0; i < entries.length; i++) {
-                    addBookmark(entries[i].name);
+                    var reader = new FileReader();
+                    reader.onloadend = function (evt) {
+                        var text = evt.target.result;
+                        if (text.trim() !== "") {
+                            text = text.replace("hymnal = ", "");
+                            addBookmark(entries[i].name, text);
+                        }
+                    };
+                    reader.readAsText(entries[i]);
                 }
             },
             function (error) {
-                console.log(error.code);
+                
             });
         }, function (error) {
-            console.log(error.code);
         });
     });
 }
 
 function getHistory() {
     window.resolveLocalFileSystemURL(storagePath, function (dirEntry) {
-        dirEntry.getFile(historyPath, { create: true }, function (fileEntry) {
+        dirEntry.getFile(historyPath, { create: true, exclusive: false }, function (fileEntry) {
             fileEntry.file(function(file){
                 var reader = new FileReader();
                 reader.onloadend = function (evt) {
@@ -909,9 +923,11 @@ function getHistory() {
                         hist.history.splice(0, hist.history.length);
                         hist = JSON.parse(text);
                         $('#history > .list-group-item').remove();
-                        hist.history.forEach(function (element) {
-                            addHistory(element.Num);
-                        });
+                        if (hist.history[0].Num !== "0" && hist.history[0].Num !== undefined) {
+                            hist.history.forEach(function (element) {
+                                addHistory(element.Num, element.Hymnal);
+                            });
+                        }
                     }
                 };
                 reader.readAsText(file);
@@ -920,12 +936,11 @@ function getHistory() {
             });
             
         }, function (error) {
-            console.log(error.code);
         });
     });
 }
 
-function addHistory(number) {
+function addHistory(number, hymnal) {
     var a = $('<a></a>');
     a.addClass('list-group-item');
     a.addClass('rippler');
@@ -942,7 +957,7 @@ function addHistory(number) {
     title.addClass('list-group-item-heading');
     var num = number;
     var lineText = Enumerable.From(arrNums)
-						.Where(function (x) { return x.Num == number })
+						.Where(function (x) { return x.Num == number && x.HymnalID === parseInt(hymnal) })
 						.Select(function (x) { return x; }).ToArray()[0].FirstLine;
     a.click(function () {
         var text = $(this).children('div.row-content').children('h4').text();
@@ -995,7 +1010,7 @@ function removeHistory() {
     $('#history > a:first').remove();
 }
 
-function addBookmark(number) {
+function addBookmark(number, hymnal) {
     var a = $('<a></a>');
     a.addClass('list-group-item');
     a.addClass('rippler');
@@ -1012,7 +1027,7 @@ function addBookmark(number) {
     title.addClass('list-group-item-heading');
     num = number.replace('.mbk', '');
     var lineText = Enumerable.From(arrNums)
-						.Where(function (x) { return x.Num == num })
+						.Where(function (x) { return x.Num == num && x.HymnalID === parseInt(hymnal)})
 						.Select(function (x) { return x; }).ToArray()[0].FirstLine;
     a.click(function () {
         var text = $(this).children('div.row-content').children('h4').text();
@@ -1096,14 +1111,15 @@ function toggleCollapse() {
 
 function loadSettings() {
     window.resolveLocalFileSystemURL(storagePath, function (dirEntry) {
-        dirEntry.getFile(settingsPath, { create: true }, function (fileEntry) {
+        dirEntry.getFile(settingsPath, { create: true, exclusive: false }, function (fileEntry) {
             fileEntry.file(function (file) {
                 var reader = new FileReader();
                 reader.onloadend = function (evt) {
                     var text = evt.target.result;
-                    if (text != undefined && text.trim() != "") {
+                    if (text.trim() !== "") {
                         settings = JSON.parse(text);
                     }
+                    applySettings();
                 };
                 reader.readAsText(file);
             }, function (error) {
@@ -1111,9 +1127,125 @@ function loadSettings() {
             });
 
         }, function (error) {
-            console.log(error.code);
+            
         });
     });
+}
+
+function applySettings() {
+    num = settings.num;
+
+    if (num == null || num === "")
+        num = '1';
+
+    hymn.text(num);
+    fontName = $('#lyrics').css('font-family');
+
+    if (settings.font === "") {
+        settings.font = "18";
+    }
+    fontSize = settings.font;
+
+    $('#content').css('font-size', fontSize + 'px');
+
+    document.getElementById('padSlider').noUiSlider.set(settings.pad);
+    document.getElementById('padSlider').noUiSlider.on('change', function (e3) {
+        $('#lyrics').css('padding-bottom', e3 + 'px');
+        settings.pad = e3;
+    });
+
+    if (settings.lineHeight === "")
+        settings.lineHeight = "150";
+
+    document.getElementById('lineHeightSlider').noUiSlider.set(settings.lineHeight);
+    document.getElementById('lineHeightSlider').noUiSlider.on('change', function (e3) {
+        $('#lyrics').css('line-height', e3 + '%');
+        settings.lineHeight = e3;
+    });
+
+    if (settings.theme.trim() === "")
+        settings.theme = theme;
+    else {
+        theme = settings.theme;
+        if (theme === 'dark') {
+            $('#optionDark').trigger('click');
+        }
+    }
+
+    currentBack = "primary";
+    $('.color-palette > .color').each(function () {
+        var color = $(this).text();
+        $(this).css({
+            'background-color': color,
+            'text-indent': '100%',
+            'white-space': 'nowrap',
+            'overflow': 'hidden'
+        });
+    });
+
+    $('.color-palette .color').click(function () {
+        if (!$(this).hasClass('active')) {
+            $('.color-palette > .color').removeClass('active');
+            $(this).addClass('active');
+
+            var curColor = $(this).text();
+
+            var newColor = Enumerable.From(arrColors).Where(function (x) {
+                return x.value === curColor;
+            }).Select(function (x) {
+                return x.name;
+            }).ToArray()[0];
+
+            $('.navbar').toggleClass('navbar-' + currentBack + ' navbar-' + newColor);
+            $('.btn-' + currentBack).toggleClass('btn-' + currentBack + ' btn-' + newColor);
+            $('.card .card-image .btn-' + currentBack).toggleClass('btn-' + currentBack + ' btn-' + newColor);
+            $('.panel').toggleClass('panel-' + currentBack + ' panel-' + newColor);
+            $('.togglebutton-' + currentBack).toggleClass('togglebutton-' + currentBack + ' togglebutton-' + newColor);
+            $('.slider').toggleClass('slider-' + currentBack + ' slider-' + newColor);
+            $('.radio').toggleClass('radio-' + currentBack + ' radio-' + newColor);
+            $('.text-' + currentBack).toggleClass('text-' + currentBack + ' text-' + newColor);
+            $('.side-collapse').toggleClass('side-collapse-' + currentBack + ' side-collapse-' + newColor);
+
+            currentBack = newColor;
+
+            settings.backColor = currentBack;
+        }
+    });
+
+    if (settings.backColor.trim() === "")
+        settings.backColor = "primary";
+    else {
+        var newColor = settings.backColor;
+
+        var newColorHex = Enumerable.From(arrColors).Where(function (x) {
+            return x.name === newColor;
+        }).Select(function (x) {
+            return x.value;
+        }).ToArray()[0];
+
+        $('.color').filter(function () {
+            return $(this).text() === newColorHex;
+        }).trigger('click');
+    }
+
+    loadHymnals();
+    
+    $('#modalHymnals').on('show.bs.modal', function () {
+        $('#blackOverlay').css('display', 'block');
+    });
+    $('#modalHymnals').on('hide.bs.modal', function () {
+        $('#blackOverlay').css('display', 'none');
+        getLyrics(num);
+    });
+
+    $('.loading').css('display', 'none');
+
+    if (settings.hymnal === "")
+        $('#modalHymnals').modal('show');
+    else {
+        getLyrics(num);
+    }
+
 }
 
 function saveSettings() {
@@ -1171,4 +1303,109 @@ function saveHistory() {
     }, function (error) {
         console.log(error.code);
     });
+}
+
+function loadHymnals() {
+    var modal = $('#modalHymnals');
+    modal.modal({
+        backdrop: 'static',
+        keyboard: false,
+        show: false
+    });
+
+    var heightMax = 0;
+    arrHymnals.forEach(function (obj, index) {
+        var card = $('<div></div>');
+        card.addClass('card');
+        card.css('display', 'inline-block');
+
+        var cardHeightIndicator = $('<div></div>')
+        cardHeightIndicator.addClass('card-height-indicator');
+
+        var cardContent = $('<div></div>');
+        cardContent.addClass('card-content');
+
+        var cardImage = $('<div></div>');
+        cardImage.addClass('card-image');
+        cardImage.css({
+            'margin': '20px auto',
+            'text-align': 'center',
+            'position': 'relative'
+        });
+
+        var img = $('<img></img>')
+        img.prop('src', 'images/' + obj.Image)
+        img.prop('alt', obj.Name);
+        img.css('height', '100%');
+        img.css('width', '40%');
+        cardImage.append(img);
+
+        var btnActive = $('<button></button>');
+        btnActive.addClass('btn');    
+        btnActive.addClass('btn-fab');
+        btnActive.addClass('btn-fab-mini');
+        btnActive.addClass('btn-primary');
+        btnActive.addClass('hymnal');
+        
+        var i = $('<i></i>');
+        i.addClass('mdi-action-done');
+        btnActive.append(i);
+        cardImage.append(btnActive);
+
+        btnActive.css({
+            'position': 'absolute',
+            'bottom': '5px',
+            'right': '5px',
+            'display': 'none'
+        });
+
+        if (index + 1 === parseInt(settings.hymnal)) {
+            card.addClass('selected');
+        }
+
+        var cardBody = $('<div></div>');
+        cardBody.addClass('card-body');
+        cardBody.html(obj.Name);
+
+        cardContent.append(cardImage);
+        cardContent.append(cardBody);
+
+        card.append(cardHeightIndicator);
+        card.append(cardContent);
+
+        modal.find('.modal-body').append(card);
+
+        heightMax = card.outerHeight();
+
+        if (settings.hymnal === "") {
+            if (index === 0)
+                card.addClass('selected');
+        }
+        else if(card.index() === parseInt(settings.hymnal))
+            card.addClass('selected');
+
+        card.click(function () {
+            $('.card').removeClass('selected');
+            $(this).addClass('selected');
+        });
+    });
+
+    modal.find('.modal-body').css({
+        'max-height': (heightMax === 0 ? 292 : heightMax) + 34 + 'px',
+        'overflow': 'hidden',
+        'overflow-y': 'auto'
+    });
+
+    modal.css({
+        'top': 'calc(50% - ' + (modal.height() / 2) + 'px)'
+    });
+
+    modal.find('button[data-dismiss="modal"]').click(function () {
+        //$('#modalHymnals').modal('toggle');
+        settings.hymnal = $('.card.selected').index() + 1;
+    });
+}
+
+function getDuration(time) {
+
 }

@@ -34,6 +34,9 @@
     <script src="scripts/jquery.rippler.js"></script>
     <script src="scripts/jquery.rippler.min.js"></script>
 
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
     <script src="scripts/linq.min.js"></script>
 
     <script src="scripts/hammer.min.js"></script>
@@ -53,7 +56,11 @@
     <script src="scripts/mobihymnal.js"></script>
     <script src="scripts/instruments.js"></script>
     <script src="scripts/colors.js"></script>
+    <script src="scripts/hymnals.js"></script>
     
+    <div class="loading">
+        <i class="fa fa-spinner fa-pulse text-primary"></i>
+    </div>
     <div class="navbar navbar-primary navbar-fixed-top">
         <div class="navbar-nav">
             <div class="pull-left">
@@ -67,6 +74,21 @@
                 <button class="navbar-btn rippler rippler-default" id="bkmkAddRemove"><i class="mdi-action-bookmark" onclick="bookmarkNot()"></i></button>
                 <button class="navbar-btn rippler rippler-default" id="searchPhrase"><i class="mdi-action-search" onclick="gotoSearch()"></i></button>
                 <button class="navbar-btn rippler rippler-default" id="homeButton"><i class="mdi-action-home" onclick="goToHymn()"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalHymnals" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Hymnals
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
             </div>
         </div>
     </div>
@@ -131,6 +153,7 @@
 
     <div class="black-overlay" onclick="toggleCollapse()" id="blackOverlay"></div>
 
+
     <div class="tab-content" id="tabContent">
         <div role="tabpanel" id="main" class="tab-pane active fade in"> 
             <div id="lyrics"></div>
@@ -180,7 +203,7 @@
                 <div class="input-group">
                     <span class="input-group-addon">
                         <button type="button" class="btn btn-default btn-fab btn-fab-mini" data-toggle="collapse" data-target="#searchWell">
-                            <i class="mdi-hardware-keyboard-arrow-down"></i>
+                            <i class="mdi-hardware-keyboard-arrow-up"></i>
                         </button>
                     </span>
                     <input type="search" id="searchInput" class="form-control" style="margin-top: 10px;" placeholder="Search word or phrase"/>
@@ -190,7 +213,7 @@
                         </button>
                     </span>
                 </div>
-                <div id="searchWell" class="collapse container" style="margin-top: -40px">
+                <div id="searchWell" class="collapse in container" style="margin-top: -40px">
                     <div class="form-group row">
                         <label class="control-label">Results to Display:</label>
                         <div class="radio radio-primary">
@@ -324,8 +347,22 @@
                                 </div>
                                 <br />
                                 <br />
+
+                                <div class="form-group row">
+                                    <label class="control-label">Line space:</label>
+                                    <div>
+                                        <div class="shor slider-primary noUi-connect" id="lineHeightSlider">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
                             </fieldset>
                         </form>
+                    
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalHymnals">
+                            Choose Hymnal
+                        </button>
                     </div>
                 </div>
             </div>

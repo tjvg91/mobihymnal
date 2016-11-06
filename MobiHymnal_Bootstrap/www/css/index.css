@@ -1,4 +1,20 @@
-﻿
+﻿.loading{
+    position: relative;
+    z-index: 1500;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+.loading i{
+    position: fixed;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    font-size: 50px;
+}
+
 .container#searchWell {
     width: 100%;
     margin : 20px;
@@ -299,7 +315,7 @@ body.inverse .form-group .radio label {
     background-color: black;
     opacity: 0.7;
     display: none;
-    z-index: 1500;
+    z-index: 1049;
 }
 
 #bkmkAddRemove, #searchPhrase{
@@ -317,7 +333,7 @@ body.inverse .form-group .radio label {
 }
 
 #about ul li, .revision{
-    line-height: 5px;
+    line-height: 100%;
 }
 
 .side-collapse li a .text{
@@ -326,6 +342,21 @@ body.inverse .form-group .radio label {
 
 .side-collapse li + li{
     margin-top: 8px;
+}
+
+.caret.caret-inversed{
+    transform: rotate(180deg);
+}
+
+.card:not(.selected) .card-image button{
+    display: none !important;
+}
+.card.selected .card-image button{
+    display: block !important;
+}
+
+body.inverse .card .card-content .card-body{
+    color: rgba(255, 255, 255, 0.84);
 }
 
 /* line 440, ../sass/index.scss */

@@ -167,4 +167,82 @@ body{
     font-size: 14px;
     border: 1px solid #343434;
     border-radius: 5px;
-  }
+}
+
+.home-title{
+    text-align: center;
+    text-decoration: underline;
+    margin: 1rem 0;
+}
+.cards{
+    display: inline-block;
+    width: 100%;
+}
+.cards .mdl-card{
+    width: 90%;
+    margin: 0 auto 20px;
+}
+
+#settings{
+    padding: 30px 30px 0;
+}
+
+#settings .mdl-card{
+    width: 100%
+}
+.mdl-card .mdl-card__supporting-text{
+    width: inherit;
+}
+
+.mdl-card .mdl-card__supporting-text .settings .text{
+    text-decoration: underline;
+    padding: 0 23px;
+    margin: 0 0 2px;
+}
+
+.mdl-card .mdl-card__supporting-text .settings .component{
+    width: inherit;
+}
+
+.auto-scroller button{
+    min-width: 20px;
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0px 0px 15px 0;
+    opacity: 0.3;
+}
+.mdl-list__item, .mdl-data-table tr{
+    z-index: 400;
+}
+
+.mdl-list__item .mdl-list__item-primary-content, .mdl-data-table tr td{
+    z-index: 39;
+}
+.mdl-list__item .mdl-list__item-secondary-content{
+    z-index: 401;
+}
+
+#searchTable{
+    width: 93%;
+    margin: 0 3%;
+}
+
+#search > p{
+    margin: 10px 3% 5px;
+}
+
+#searchTable th{
+    text-align: center;
+}
+
+#searchTable tr td:nth-child(1), #searchTable tr th:nth-child(1){
+    width: 10%;    
+}
+
+#searchTable tr td:nth-child(2), #searchTable tr th:nth-child(2){
+    width: 90%;
+    table-layout: fixed;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

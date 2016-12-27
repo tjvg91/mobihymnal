@@ -1,131 +1,185 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
     <!--
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
-        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
-        
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
 
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link href="material-icons/css/material-icons.min.css" rel="stylesheet" />
-        <link href="mdlite/css/material.amber-orange.min.css" rel="stylesheet" />
-        <link href="mdlite/css/bootstrap.css" rel="stylesheet" />
-        <link href="mdlite/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="mdlite/css/mdb.css" rel="stylesheet" />
-        <link href="mdlite/css/mdb.min.css" rel="stylesheet" />
-        <link href="mdlite/css/style.css" rel="stylesheet" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
-        <title>MobiHymnMDLite</title>
-    </head>
-    <body>
-        <script src="mdlite/js/jquery-2.2.3.min.js"></script>
-        <script src="mdlite/js/jquery-3.1.1.min.js"></script>
-        <script src="mdlite/js/tether.min.js"></script>
-        <script src="mdlite/js/bootstrap.min.js"></script>
-        <script src="mdlite/js/mdb.min.js"></script>
-        <script src="mdlite/js/material.min.js"></script>
-        <script src="scripts/firebase.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="material-icons/css/material-icons.min.css" rel="stylesheet" />
+    <link href="mdlite/css/material.amber-orange.min.css" rel="stylesheet" />
+    <link href="mdlite/css/bootstrap.css" rel="stylesheet" />
+    <link href="mdlite/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="mdlite/css/mdb.css" rel="stylesheet" />
+    <link href="mdlite/css/mdb.min.css" rel="stylesheet" />
+    <link href="mdlite/css/style.css" rel="stylesheet" />
 
-        <!--<script type="text/javascript" src="cordova.js"></script>-->
-        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-        <script type="text/javascript" src="scripts/index.js"></script>
-        
-        <div class="landing">
-            <p class="title">
-                <img src="images/logo/Icon-Small-40@3x.png" />
-                <span class="title-white">Mobi</span><span class="title-yellow">Hymn</span>
-            </p>
-            <!--<hr />
-            <input type="text" placeholder="email" />
-            <input type="password" placeholder="password" />-->
-        </div>
-        <div class="mdl-layout__container">
-            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs has-drawer has-tabs is-upgraded">
-                <header class="mdl-layout__header">
-                    <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button">
-                        <i class="material-icons">menu</i>
+    <title>MobiHymnMDLite</title>
+</head>
+<body>
+    <script src="mdlite/js/jquery-2.2.3.min.js"></script>
+    <script src="mdlite/js/jquery-3.1.1.min.js"></script>
+    <script src="mdlite/js/tether.min.js"></script>
+    <script src="mdlite/js/bootstrap.min.js"></script>
+    <script src="mdlite/js/mdb.min.js"></script>
+    <script src="mdlite/js/material.min.js"></script>
+    <script src="scripts/firebase.js"></script>
+    <script src="scripts/linq.min.js"></script>
+    <script src="scripts/jquery.linq.min.js"></script>
+
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+
+    <div class="landing">
+        <p class="title">
+            <img src="images/logo/Icon-Small-40@3x.png" />
+            <span class="title-white">Mobi</span><span class="title-yellow">Hymn</span>
+        </p>
+        <!--<hr />
+        <input type="text" placeholder="email" />
+        <input type="password" placeholder="password" />-->
+    </div>
+    <div class="mdl-layout__container">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs has-drawer has-tabs is-upgraded">
+            <header class="mdl-layout__header">
+                <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" style="display: none">
+                    <i class="material-icons">menu</i>
+                </div>
+                <div class="mdl-layout__header-row" style="display: none">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                        <input class="mdl-textfield__input" type="text" id="searchHymn" href="#search">
+                        <label class="mdl-textfield__label" for="searchHymn">Search</label>
                     </div>
-                    <div class="mdl-layout__header-row">
-                        <div class="mdl-layout-spacer"></div>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-                            <input class="mdl-textfield__input" type="text" id="sample3">
-                            <label class="mdl-textfield__label" for="sample3">Search</label>
-                        </div>
-                        <nav class="mdl-navigation">
-                            <a class="mdl-navigation__link" id="btnBookmark"><i class="material-icons">bookmark_border</i></a>
-                            <a class="mdl-navigation__link" href="#lyrics"><i class="material-icons">home</i></a>
-                        </nav>
-                    </div>
-
-                    <!-- Tabs -->
-                    <div class="mdl-layout__tab-bar-container">
-                        <div class="mdl-layout__tab-bar mdl-js-ripple-effect is-casting-shadow">
-                            <a href="#fixed-tab-1" class="mdl-layout__tab is-active">New Hymn</a>
-                            <a href="#fixed-tab-2" class="mdl-layout__tab">Recent</a>
-                            <a href="#fixed-tab-3" class="mdl-layout__tab">Bookmarks</a>
-                        </div>
-                    </div>
-                </header>
-                <div class="mdl-layout__drawer">
-                    <span class="mdl-layout-title">MobiHymn</span>
                     <nav class="mdl-navigation">
-                        <a class="mdl-navigation__link" href="#lyrics">Read</a>
-                        <a class="mdl-navigation__link" href="#input">Input</a>
-                        <a class="mdl-navigation__link" href="#about">About</a>
-                        <a class="mdl-navigation__link" href="#settings">Settings</a>
+                        <a class="mdl-navigation__link" id="btnBookmark"><i class="material-icons">bookmark_border</i></a>
+                        <a class="mdl-navigation__link" href="#lyrics" id="btnHome"><i class="material-icons">home</i></a>
                     </nav>
                 </div>
 
-                <main class="mdl-layout__content">
-                    <div class="page-content">
-                        <section id="lyrics" class="active">
-                            <h2>Hymn # <span id="hymnTitle"></span></h2>
-                            <p id="hymnLyrics">
-
-                            </p>
-                        </section>
-                        <section id="input">
-                            <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
-                                <div class="page-content">
-                                    <form id="inputForm">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="inputNumber" placeholder="number" data-target="#listHymns">
-                                            <span class="mdl-textfield__error">Input is not a number!</span>
-                                        </div>
-                                        <ul class="demo-list-three mdl-list" ng-repeat="ngRepeats[0]" id="listHymns"></ul>
-                                    </form>
-                                </div>
-                            </section>
-                            <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-                                <div class="page-content">
-                                    <!--<ul class="demo-list-three mdl-list" ng-repeat="ngRepeats[1]"></ul>-->
-                                </div>
-                            </section>
-                            <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-                                <div class="page-content">
-                                    <!--<ul class="demo-list-three mdl-list" ng-repeat="ngRepeats[2]"></ul>-->
-                                </div>
-                            </section>
-                        </section>
-                        <section id="search">
-                        </section>
-                        <section id="about"></section>
-                        <section id="settings"></section>
-                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="btnPlay">
-                            <i class="material-icons">play_arrow</i>
-                        </button>
-                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="btnInput" href="#input">
-                            <i class="material-icons">list</i>
-                        </a>
+                <!-- Tabs -->
+                <div class="mdl-layout__tab-bar-container">
+                    <div class="mdl-layout__tab-bar mdl-js-ripple-effect is-casting-shadow">
+                        <a href="#fixed-tab-1" class="mdl-layout__tab is-active">New Hymn</a>
+                        <a href="#fixed-tab-2" class="mdl-layout__tab">Recent</a>
+                        <a href="#fixed-tab-3" class="mdl-layout__tab">Bookmarks</a>
                     </div>
-                </main>
-                <div class="mdl-layout__obfuscator"></div>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">MobiHymn</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="#home">Home</a>
+                    <a class="mdl-navigation__link" href="#lyrics">Read</a>
+                    <a class="mdl-navigation__link" href="#input">Input</a>
+                    <a class="mdl-navigation__link" href="#about">About</a>
+                    <a class="mdl-navigation__link" href="#settings">Settings</a>
+                </nav>
             </div>
+
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    <dialog class="mdl-dialog">
+                        <h4 class="mdl-dialog__title">Sure?</h4>
+                        <div class="mdl-dialog__content">
+                            <p>
+                                Are you sure you want to remove bookmark?
+                            </p>
+                        </div>
+                        <div class="mdl-dialog__actions">
+                            <button type="button" class="mdl-button close">Yes</button>
+                            <button type="button" class="mdl-button close">No</button>
+                        </div>
+                    </dialog>
+                    <div id="mySpinner">
+                        <div class="mdl-spinner mdl-js-spinner is-active"></div>
+                    </div>
+                    <div id="snckBookmark" class="mdl-js-snackbar mdl-snackbar">
+                        <div class="mdl-snackbar__text"></div>
+                        <button class="mdl-snackbar__action" type="button"></button>
+                    </div>
+                    <section id="home" class="active">
+                        <h2 class="home-title">Hymnals</h2>
+                        <div class="cards" ng-repeat="ngRepeats[4]"></div>
+                    </section>
+                    <section id="lyrics">
+                        <h2>Hymn # <span id="hymnTitle"></span></h2>
+                        <p id="hymnLyrics"></p>
+                        <div class="auto-scroller hidden">
+                            <button class="mdl-button mdl-js-button mdl-button--fab add">
+                                <i class="material-icons">add</i>
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-button--fab minus">
+                                <i class="material-icons">remove</i>
+                            </button>
+                        </div>
+                    </section>
+                    <section id="input">
+                        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+                            <div class="page-content">
+                                <form id="inputForm">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="inputNumber" placeholder="number" data-target="#listHymns">
+                                        <span class="mdl-textfield__error">Input is not a number!</span>
+                                    </div>
+                                    <ul class="demo-list-three mdl-list" ng-repeat="ngRepeats[0]" id="listHymns"></ul>
+                                </form>
+                            </div>
+                        </section>
+                        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+                            <div class="page-content">
+                                <ul class="demo-list-three mdl-list" ng-repeat="ngRepeats[1]" id="listRecent"></ul>
+                            </div>
+                        </section>
+                        <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+                            <div class="page-content">
+                                <ul class="demo-list-three mdl-list" ng-repeat="ngRepeats[2]" id="listBookmarks"></ul>
+                            </div>
+                        </section>
+                    </section>
+                    <section id="search">
+                        <p style="display: none"><span id="searchCount"></span> result(s) found</p>
+                        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="searchTable" style="display: none">
+                            <thead>
+                                <tr>
+                                    <th class="mdl-data-table__cell--non-numeric">Number</th>
+                                    <th class="mdl-data-table__cell--non-numeric">Line</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="ngRepeats[3]"></tbody>
+                        </table>
+                    </section>
+                    <section id="about"></section>
+                    <section id="settings">
+                        <div class="mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__supporting-text">
+                                <div class="settings">
+                                    <p class="text">Extra spacing</p>
+                                    <div class="component">
+                                        <input class="mdl-slider mdl-js-slider" type="range" min="0" max="500" value="0" tabindex="0" step="10" id="rngSpacing" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored hidden" id="btnPlay">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored hidden" id="btnInput" href="#input">
+                        <i class="material-icons">list</i>
+                    </a>
+                </div>
+            </main>
+            <div class="mdl-layout__obfuscator"></div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

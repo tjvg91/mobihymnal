@@ -5,7 +5,7 @@
 (function () {
     "use strict";
 
-    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+    document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     var hymnList = {};
     var recentList = [];
@@ -22,29 +22,28 @@
     var winWidth, winHeight;
 
     var ngRepeats = [{
-        html: '<li class="mdl-list__item mdl-list__item--three-line" data-num="{{value.number}}" data-title="{{value.title}}" data-first-line="{{value.firstLine}}" data-hymnal="{{value.hymnalID}" href="#lyrics">' +
+        html: '<li class="mdl-list__item mdl-list__item--three-line" data-num="{{value.number}}" data-title="{{value.title}}" data-first-line="{{value.firstLine}}" data-hymnal="{{value.hymnalID}}" href="#lyrics">' +
                     '<span class="mdl-list__item-primary-content">' +
-                    '<i class="material-icons mdl-list__item-avatar">person</i><span>Hymn # {{ value.title }}</span>' +
-                    '<span class="mdl-list__item-text-body">{{ value.firstLine }}</span></span>' +
+                    '<i class="fa fa-book mdl-list__item-avatar"></i><span>Hymn #{{ value.title }}</span>' +
+                    '<span class="mdl-list__item-text-body">{{ value.firstLine }}</span></span>' + 
                     '<span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action set-bookmark" href="#lyrics">' +
-                    '<i class="material-icons" data-num="{{value.number}}" data-hymnal="{{value.hymnalID}}">bookmark_border</i></a>' +
+                    '<i class="material-icons" data-num="{{value.number}}" data-hymnal="{{ value.hymnalID }}">bookmark_border</i></a>' +
                     '</span></li>',
         src: 'hymnList["hymnal" + settings.currentHymnal["id"]]'
     }, {
-        html: '<li class="mdl-list__item mdl-list__item--three-line" data-num="{{value.number}}" data-hymnal="{{value.hymnalID}" href="#lyrics">' +
+        html: '<li class="mdl-list__item mdl-list__item--three-line" data-num="{{ value.number }}" data-title="{{value.title}}" data-first-line="{{value.firstLine}}" data-hymnal="{{ value.hymnalID }}" href="#lyrics">' +
                     '<span class="mdl-list__item-primary-content">' +
-                    '<i class="material-icons mdl-list__item-avatar">person</i><span>Hymn # {{ value.title }}</span>' +
+                    '<i class="fa fa-history mdl-list__item-avatar"></i><span>Hymn #{{ value.title }}</span>' +
                     '<span class="mdl-list__item-text-body">{{ value.firstLine }}</span></span>' +
                     '<span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action set-bookmark" href="#">' +
                     '<i class="material-icons" data-num="{{value.number}}" data-hymnal="{{value.hymnalID}}">bookmark_border</i></a>' +
                     '</span></li>',
         src: 'recentList'
-    },
-    {
-        html: '<li class="mdl-list__item mdl-list__item--three-line" data-num="{{value.number}}" data-hymnal="{{value.hymnalID}" href="#lyrics">' +
+    }, {
+        html: '<li class="mdl-list__item mdl-list__item--three-line" data-num="{{value.number}}" data-title="{{value.title}}" data-first-line="{{value.firstLine}}" data-hymnal="{{value.hymnalID}" href="#lyrics">' +
                     '<span class="mdl-list__item-primary-content">' +
-                    '<i class="material-icons mdl-list__item-avatar">person</i><span>{{ value.firstLine }}</span>' +
-                    '<span class="mdl-list__item-text-body">Hymn # {{ value.title }}</span></span>' +
+                    '<i class="material-icons mdl-list__item-avatar">bookmark</i><span>{{ value.firstLine }}</span>' +
+                    '<span class="mdl-list__item-text-body">Hymn #{{ value.title }}</span></span>' +
                     '<span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action remove-bookmark">' +
                     '<i class="material-icons" data-num="{{value.number}}" data-hymnal="{{value.hymnalID}}">remove_circle</i></a>' +
                     '</span></li>',
@@ -53,8 +52,8 @@
         html: '<tr data-num={{value.num}} href="#lyrics"><td class="mdl-data-table__cell--non-numeric">{{ value.num }}</td><td class="mdl-data-table__cell--non-numeric">{{ value.line }}</td></tr>',
         src: 'searchResList'
     }, {
-        html: '<div class="mdl-card mdl-shadow--2dp" data-color="{{value.color}}"><div class="mdl-card__title"><h2 class="mdl-card__title-text">{{value.name}}</h2></div>' +
-                '<div class="mdl-card__supporting-text">{{ value.count }} hymns</div>' +
+        html: '<div class="mdl-card mdl-shadow--2dp mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone" data-color="{{value.color}}"><div class="mdl-card__title"><h2 class="mdl-card__title-text">{{value.name}}</h2></div>' +
+                '<div class="mdl-card__supporting-text">{{ value.count }} hymns</div>'+
                 '<div class="mdl-card__actions mdl-card--border">' +
                 '<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple" href="#lyrics" data-id="{{ value.id }}" data-num="1">' +
                 'Read<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>' +
@@ -64,9 +63,9 @@
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
-        document.addEventListener('pause', onPause.bind(this), false);
-        document.addEventListener('resume', onResume.bind(this), false);
-
+        document.addEventListener( 'pause', onPause.bind( this ), false );
+        document.addEventListener( 'resume', onResume.bind( this ), false );
+        
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
         init();
     };
@@ -79,10 +78,10 @@
         // TODO: This application has been reactivated. Restore application state here.
     };
 
-    var setUpLandingPage = function () {
+    var setUpLandingPage = function() {
         var landingWidth = $('.landing .title').width();
         var landingHeight = $('.landing .title').height();
-
+        
         $('.landing .title').css({
             position: 'absolute',
             left: parseFloat((winWidth / 2) - (landingWidth / 2)).toFixed(2) + 'px',
@@ -90,7 +89,7 @@
         });
     }
 
-    var setUpNavigation = function () {
+    var setUpNavigation = function() {
         if ($('.mdl-layout__content > section.active').children('.mdl-layout__tab-panel').length > 0) {
             $('.mdl-layout__tab-bar-container').show();
         }
@@ -104,17 +103,20 @@
         });
     }
 
-    var setUpTabs = function () {
+    var setUpTabs = function() {
         $('.mdl-layout__tab').click(function (e) {
             $('.mdl-layout__tab, .mdl-layout__tab-panel').removeClass('is-active');
 
             var target = $(e.target).attr('href');
             $(e.target).addClass('is-active');
             $(target).addClass('is-active');
+
+            $(target).find('input').select();
+            $(target).find('input').click();
         })
     }
-
-    var setUpFireBase = function () {
+    
+    var setUpFireBase = function() {
         var options = {
             apiKey: "AIzaSyBgPT51lOzkH0Lwb63r0s4iQoyKgn2VuSY",  // Auth / General Use
             authDomain: "mobihymn.firebaseapp.com",             // Auth with popup/redirect
@@ -136,7 +138,7 @@
             }
         });
     }
-
+        
     var setUpScroller = function () {
         $('.auto-scroller .add').click(function () {
             settings.scrollSpeed -= 50;
@@ -158,6 +160,7 @@
         refreshNgRepeat('ngRepeats[4]');
 
         $('.cards .mdl-card a').click(function (e) {
+            e.preventDefault();
             $('#mySpinner').css('display', 'block');
             var elem = $(this);
             setTimeout(function () {
@@ -186,9 +189,9 @@
     var setUpListItem = function (e) {
         e.preventDefault();
         var target = $(e.target);
-        if (target.hasClass('material-icons') && /^bookmark_border$|^border$/.test(target.text())) {
-            var num = target.attr('data-num');
-            var hymnalID = target.attr('data-hymnal');
+        if (target.hasClass('material-icons') && /^bookmark_border$|^bookmark$/.test(target.text())) {
+            var num = target.attr('data-num').trim();
+            var hymnalID = target.attr('data-hymnal').trim();
 
             var data = Enumerable.From(hymnList["hymnal" + hymnalID]).Where(function (y) {
                 return y.number == num && y.hymnalID == hymnalID;
@@ -227,13 +230,14 @@
         }
         if ($(target).children('.mdl-layout__tab-panel').length > 0) {
             $('.mdl-layout__tab-bar-container').show();
+            $('.mdl-layout__tab-panel.is-active input').select();
         }
         else {
             $('.mdl-layout__tab-bar-container').hide();
         }
     }
 
-    var getHymnalData = function (src) {
+    var getHymnalData = function(src) {
         $.ajax({
             url: src,
             method: "GET",
@@ -277,7 +281,7 @@
         });
     }
 
-    var dynamicSizes = function () {
+    var dynamicSizes = function() {
         winWidth = $(window).width();
         winHeight = $(window).height();
         $('#mySpinner').css({
@@ -296,7 +300,7 @@
         })
     }
 
-    var init = function () {
+    var init = function() {
         winWidth = $(window).width();
         winHeight = $(window).height();
 
@@ -305,7 +309,7 @@
         setUpNavigation();
         setUpTabs();
         dynamicSizes();
-
+        
         $('.mdl-textfield.mdl-textfield--expandable label').click(function () {
             $(this).parent().toggleClass('is-focused');
         });
@@ -324,10 +328,10 @@
         });
 
         var contentHeight = $(window).height() - $('.mdl-layout__header').height();
-        $('.mdl-layout__content').css('height', contentHeight + 'px');
+        $('.mdl-layout__content').css('height', '100%');
         $('.mdl-layout__content .page-content').css('height', '100%');
-
-        $('#inputNumber').on('keyup', function (e) {
+        
+        $('.mdl-textfield input').on('keyup', function (e) {
             e.preventDefault();
             filterList(e);
         });
@@ -337,20 +341,24 @@
             goToSection(this);
         });
 
-        $('#searchHymn').click(function () {
-            $(this).data('active-section', $('main > .page-content > section.active').attr('id'));
-            goToSection(this);
+        $('#searchHymn').focusin(function () {
+            var activeSection = $('main > .page-content > section.active');
+            if (activeSection.attr('id') !== "search") {
+                $(this).data('active-section', activeSection.attr('id'));
+                goToSection(this);
+            }
         });
 
         $('#searchHymn').blur(function () {
             if ($(this).val().trim() === "") {
                 $(this).attr('href', '#' + $(this).data('active-section'));
+                $(this).val('');
                 goToSection(this);
                 $(this).attr('href', '#search');
             }
         });
 
-        $('#searchHymn').keyup(function (e) {
+        $('#searchHymn').keyup(function (e) {            
             if (e.keyCode == "13") { //enter
                 searchTerm($(this).val());
             }
@@ -368,6 +376,22 @@
             });
         })
 
+        $('#rngLineHeight').change(function () {
+            var elem = $(this);
+            $('#hymnLyrics').css({
+                'line-height': elem.val() + '%'
+            });
+        });
+
+        $('#chkDropCap').change(function () {
+            if (this.checked) {
+                $('#hymnLyrics').addClass('indent-first-letter');
+            }
+            else {
+                $('#hymnLyrics').removeClass('indent-first-letter');
+            }
+        })
+
         $('#btnBookmark').click(function (e) {
             e.preventDefault();
             var icon = $(this).find('.material-icons');
@@ -381,10 +405,10 @@
         });
     }
 
-    var refreshNgRepeat = function (item, prepend) {
+    var refreshNgRepeat = function(item, prepend) {
         var ngRepeat = $('[ng-repeat="' + item + '"]');
         var ngRepeatColl = eval(eval(item)["src"]);
-
+        
         ngRepeat.html('');
         if (ngRepeatColl.length > 0) {
             ngRepeatColl.forEach(function (value, index) {
@@ -411,14 +435,14 @@
         }
     }
 
-    var filterList = function (e) {
+    var filterList = function(e) {
         var elem = $(e.target);
         var target = $(elem.attr('data-target'));
         var value = elem.val();
-
+           
         target.find('li').css('display', 'flex');
         target.find('li').each(function () {
-            if ($(this).attr('data-num').search(value) < 0 &&
+            if($(this).attr('data-num').search(value) < 0 &&
                 $(this).attr('data-title').search(value) < 0 &&
                 $(this).attr('data-first-line').search(value) < 0) {
                 $(this).css('display', 'none');
@@ -426,11 +450,11 @@
         })
     }
 
-    var gotoHymn = function (e) {
+    var gotoHymn = function(e) {
         var elem = $(e.currentTarget);
 
         var number = elem.attr('data-num');
-
+        
         hymnList["hymnal" + settings.currentHymnal.id].forEach(function (value, index) {
             if (value.number == number) {
                 settings.currentHymn = value;
@@ -445,10 +469,14 @@
             }
         });
 
+        var recentLength = $("#recentLength").val();
+        if (recentList.length >= recentLength) {
+            recentList = recentList.slice((recentList.length - recentLength + 1), recentList.length);
+        }
         recentList.push(settings.currentHymn);
 
         refreshNgRepeat('ngRepeats[1]', true);
-
+        
         $('#listRecent li').click(function (e) {
             setUpListItem(e);
         })
@@ -459,54 +487,58 @@
         goToSection(elem);
     }
 
-    var searchTerm = function (term) {
-        $('#mySpinner').css('display', 'block');
-        setTimeout(function () {
-            searchResList = [];
-            hymnList["hymnal" + settings.currentHymnal["id"]].forEach(function (x) {
-                if (new RegExp(term, "ig").test(x.lyrics)) {
-                    var lines = x.lyrics.split('<br/>');
-                    var line = Enumerable.From(lines).Where(function (y) {
-                        return new RegExp(term, "ig").test(y);
-                    }).Select(function (x) { return x; }).ToArray();
+    var searchTerm = function (searchTerm) {
+        if (searchTerm) {
+            if (searchTerm.trim() !== "") {
+                var term = searchTerm.trim();
+                $('#mySpinner').css('display', 'block');
+                setTimeout(function () {
+                    searchResList = [];
+                    hymnList["hymnal" + settings.currentHymnal["id"]].forEach(function (x) {
+                        if (new RegExp(term, "ig").test(x.lyrics)) {
+                            var stanza = $(x.lyrics);
+                            var lines = stanza.find('.hymn-line').filter(function (index, elem) {
+                                return new RegExp(term, "i").test(elem.innerText)
+                            });
+                            lines.each(function (i, y) {
+                                var item = {
+                                    line: y.innerText,
+                                    num: x.number
+                                }
 
-                    line.forEach(function (y) {
-                        var item = {
-                            line: y,
-                            num: x.number
+                                var dup = Enumerable.From(searchResList).Where(function (x) {
+                                    return x.num == item.num && x.line == item.line;
+                                }).Select(function (x) {
+                                    return x
+                                }).ToArray().length;
+
+                                if (dup == 0)
+                                    searchResList.push(item);
+                            });
                         }
-
-                        var dup = Enumerable.From(searchResList).Where(function (x) {
-                            return x.num == item.num && x.line == item.line;
-                        }).Select(function (x) {
-                            return x
-                        }).ToArray().length;
-
-                        if (dup == 0)
-                            searchResList.push(item);
                     });
-                }
-            });
 
-            searchResList = Enumerable.From(searchResList).Distinct(function (x) { return [x.line, x.num]; }).Select(function (a) { return a; }).ToArray();
+                    sortByProp(searchResList, "line");
 
-            refreshNgRepeat('ngRepeats[3]');
+                    refreshNgRepeat('ngRepeats[3]');
 
-            if (searchResList.length == 0) {
-                $('#searchTable').css('display', 'none');
+                    if (searchResList.length == 0) {
+                        $('#searchTable').css('display', 'none');
+                    }
+                    else {
+                        $('#searchTable').css('display', 'table');
+                    }
+
+                    $('#searchCount').parent().css('display', 'block');
+                    $('#searchCount').text(searchResList.length);
+
+                    $('#mySpinner').css('display', 'none');
+                    $('#searchTable tbody tr').click(function (e) {
+                        gotoHymn(e);
+                    });
+                }, 10);
             }
-            else {
-                $('#searchTable').css('display', 'table');
-            }
-
-            $('#searchCount').parent().css('display', 'block');
-            $('#searchCount').text(searchResList.length);
-
-            $('#mySpinner').css('display', 'none');
-            $('#searchTable tbody tr').click(function (e) {
-                gotoHymn(e);
-            });
-        }, 10);
+        }
     }
 
     var toggleBookmark = function (data, mode, icon) {
@@ -522,12 +554,12 @@
         else if (mode == "remove") {
             icon.text('bookmark_border');
             bookmarksList.forEach(function (item, index) {
-                if (item.num === data.num && item.hymnalID === data.hymnalID) {
+                if (item.number === data.number && item.hymnalID === data.hymnalID) {
                     bookmarksList.splice(index, 1);
                     return;
                 }
             });
-            $('#snckBookmark .mdl-snackbar__text').text; ('Bookmark removed');
+            $('#snckBookmark .mdl-snackbar__text').text('Bookmark removed');
             $('#snckBookmark').addClass('mdl-snackbar--active');
             setTimeout(function () {
                 $('#snckBookmark').removeClass('mdl-snackbar--active');
@@ -539,4 +571,16 @@
             setUpListItem(e1);
         })
     }
+
+    var sortByProp = function (list, prop) {
+        list.sort(function (a, b) {
+            var aName = a[prop].toLowerCase().replace(/^[^A-Za-z0-9]/g, "");
+            var bName = b[prop].toLowerCase().replace(/^[^A-Za-z0-9]/g, "");
+            return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+        })
+    }
+
+    $(document).ready(function () {
+        init();
+    });
 })(jQuery);

@@ -122,8 +122,52 @@ html, body {
     }
 }
 
+input[type="number"]
+, input[type="text"]{
+    color: #efefef;
+}
+
+input[type="range"]{
+    background-color: #efefef !important;
+}
+
+.mdl-slider__background-flex{
+    z-index: 65;
+    margin: 0 20px !important;
+
+    .mdl-slider__background-upper{
+        opacity: 0;
+    }
+}
+
+.mdl-layout__header{
+    box-shadow: none;
+}
+
+.mdl-layout__drawer{
+    background-position: center top !important;
+    border: none;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url('../images/Congregation Singing 2.jpg') !important;
+
+    .mdl-layout-title{
+        color: #efefef;
+    }
+    .mdl-navigation__link{
+        color: #efefef !important;
+        font-size: 20px !important;
+    }
+}
+
+.mdl-layout__content{
+    background-image: url('../images/Congregation Singing.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .mdl-layout__content > .page-content > section{
     height: inherit;
+    color: #efefef;
+
     &:not(.active){
         display: none;
     }
@@ -210,6 +254,7 @@ body{
     text-align: center;
     text-decoration: underline;
     margin: 1rem 0;
+    color: #efefef;
 }
 .cards {
     display: flex;
@@ -219,6 +264,22 @@ body{
     .mdl-card {
         width: 90%;
         margin: 0 auto 20px;
+        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7) ), url('../images/sheet-music.jpg');
+        color: #efefef;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .mdl-card__title .mdl-card__title-text{
+            color: #efefef;
+        }
+
+        .mdl-card__supporting-text{
+            color: #efefef;
+        }
+
+        .mdl-button{
+            background: inherit;
+        }
     }
 }
 
@@ -245,6 +306,7 @@ body{
      .mdl-card{
         width: 100%;
         min-height: 0;
+        background: rgba(13, 13, 13, 0.63);
     }
 }
 
@@ -259,24 +321,30 @@ body{
     }
 }
 
-#settings .mdl-card + .mdl-card{
-    margin-top: 20px;
+#settings {
+    .mdl-card + .mdl-card{
+        margin-top: 20px;
+    }
+    .mdl-list__item-primary-content, .mdl-list__item-secondary-content{
+        font-size: 18px !important;
+    }
 }
 .mdl-card .mdl-card__supporting-text{    
     width: inherit;
 
     .settings{   
         margin-bottom: 20px;
-    }
-
-    .settings .text{
-        text-decoration: underline;
-        padding: 0 23px;
-        margin: 0 0 2px;
-    }
-
-    .settings .component{
-        width: inherit;
+        .text{
+            text-decoration: underline;
+            padding: 0 23px;
+            margin: 0 0 2px;
+            color: #efefef !important;
+            font-size: 18px;
+        }
+        .component{
+            width: inherit;
+        }
+        
     }
 }
 
@@ -288,18 +356,33 @@ body{
     margin: 0px 0px 15px 0;
     opacity: 0.3;
 }
+.mdl-data-table{
+    background: rgba(13, 13, 13, 0.63);
+    color: #efefef;
+
+    th{
+        color: #efefef;
+    }
+    tr{
+        color: #efefef;
+    }
+}
 .mdl-list__item, .mdl-data-table tr{
     z-index: 400;
 }
 
 .mdl-list__item .mdl-list__item-primary-content, .mdl-data-table tr td{
     z-index: 39;
+    color: #efefef;
 }
 .mdl-list__item .mdl-list__item-primary-content i{
     margin-bottom: 0.5em;
     padding-top: 7px;
     font-size: 25px;
     text-align: center;
+}
+.mdl-list__item .mdl-list__item-primary-content span{
+    color: #efefef;
 }
 .mdl-list__item .mdl-list__item-secondary-content{
     z-index: 401;

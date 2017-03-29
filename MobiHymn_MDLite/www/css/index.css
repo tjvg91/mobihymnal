@@ -78,8 +78,40 @@ html, body {
   .mdl-layout__header-row {
     height: 56px;
     padding: 0 16px 0 52px !important; } }
+input[type="number"]
+, input[type="text"] {
+  color: #efefef; }
+
+input[type="range"] {
+  background-color: #efefef !important; }
+
+.mdl-slider__background-flex {
+  z-index: 65;
+  margin: 0 20px !important; }
+  .mdl-slider__background-flex .mdl-slider__background-upper {
+    opacity: 0; }
+
+.mdl-layout__header {
+  box-shadow: none; }
+
+.mdl-layout__drawer {
+  background-position: center top !important;
+  border: none;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/Congregation Singing 2.jpg") !important; }
+  .mdl-layout__drawer .mdl-layout-title {
+    color: #efefef; }
+  .mdl-layout__drawer .mdl-navigation__link {
+    color: #efefef !important;
+    font-size: 20px !important; }
+
+.mdl-layout__content {
+  background-image: url("../images/Congregation Singing.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
 .mdl-layout__content > .page-content > section {
-  height: inherit; }
+  height: inherit;
+  color: #efefef; }
   .mdl-layout__content > .page-content > section:not(.active) {
     display: none; }
 
@@ -147,7 +179,8 @@ body {
 .home-title {
   text-align: center;
   text-decoration: underline;
-  margin: 1rem 0; }
+  margin: 1rem 0;
+  color: #efefef; }
 
 .cards {
   display: flex;
@@ -155,7 +188,17 @@ body {
   width: 100%; }
   .cards .mdl-card {
     width: 90%;
-    margin: 0 auto 20px; }
+    margin: 0 auto 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url("../images/sheet-music.jpg");
+    color: #efefef;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    .cards .mdl-card .mdl-card__title .mdl-card__title-text {
+      color: #efefef; }
+    .cards .mdl-card .mdl-card__supporting-text {
+      color: #efefef; }
+    .cards .mdl-card .mdl-button {
+      background: inherit; }
 
 #hymnLyrics {
   line-height: 175%; }
@@ -174,7 +217,8 @@ body {
   padding: 30px 30px 0; }
   #settings .mdl-card {
     width: 100%;
-    min-height: 0; }
+    min-height: 0;
+    background: rgba(13, 13, 13, 0.63); }
 
 @media (max-width: 479px) {
   #home .mdl-card + .mdl-card {
@@ -184,17 +228,21 @@ body {
     margin-top: 0; } }
 #settings .mdl-card + .mdl-card {
   margin-top: 20px; }
+#settings .mdl-list__item-primary-content, #settings .mdl-list__item-secondary-content {
+  font-size: 18px !important; }
 
 .mdl-card .mdl-card__supporting-text {
   width: inherit; }
   .mdl-card .mdl-card__supporting-text .settings {
     margin-bottom: 20px; }
-  .mdl-card .mdl-card__supporting-text .settings .text {
-    text-decoration: underline;
-    padding: 0 23px;
-    margin: 0 0 2px; }
-  .mdl-card .mdl-card__supporting-text .settings .component {
-    width: inherit; }
+    .mdl-card .mdl-card__supporting-text .settings .text {
+      text-decoration: underline;
+      padding: 0 23px;
+      margin: 0 0 2px;
+      color: #efefef !important;
+      font-size: 18px; }
+    .mdl-card .mdl-card__supporting-text .settings .component {
+      width: inherit; }
 
 .auto-scroller button {
   min-width: 20px;
@@ -204,17 +252,29 @@ body {
   margin: 0px 0px 15px 0;
   opacity: 0.3; }
 
+.mdl-data-table {
+  background: rgba(13, 13, 13, 0.63);
+  color: #efefef; }
+  .mdl-data-table th {
+    color: #efefef; }
+  .mdl-data-table tr {
+    color: #efefef; }
+
 .mdl-list__item, .mdl-data-table tr {
   z-index: 400; }
 
 .mdl-list__item .mdl-list__item-primary-content, .mdl-data-table tr td {
-  z-index: 39; }
+  z-index: 39;
+  color: #efefef; }
 
 .mdl-list__item .mdl-list__item-primary-content i {
   margin-bottom: 0.5em;
   padding-top: 7px;
   font-size: 25px;
   text-align: center; }
+
+.mdl-list__item .mdl-list__item-primary-content span {
+  color: #efefef; }
 
 .mdl-list__item .mdl-list__item-secondary-content {
   z-index: 401; }

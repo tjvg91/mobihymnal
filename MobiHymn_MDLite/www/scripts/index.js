@@ -309,7 +309,13 @@
         setUpNavigation();
         setUpTabs();
         dynamicSizes();
-        
+
+        var contentElem = $('.page-content');
+        var myHammer = new Hammer(contentElem[0]);
+        myHammer.on("panright", function (ev) {
+            $('.mdl-layout__drawer-button').trigger('click');
+        });
+
         $('.mdl-textfield.mdl-textfield--expandable label').click(function () {
             $(this).parent().toggleClass('is-focused');
         });
@@ -579,8 +585,4 @@
             return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
         })
     }
-
-    $(document).ready(function () {
-        init();
-    });
 })(jQuery);

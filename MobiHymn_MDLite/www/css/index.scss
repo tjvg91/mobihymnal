@@ -154,6 +154,15 @@ input[type="range"]{
 
     .mdl-layout-title{
         color: #efefef;
+        font-family: KonsensSemibold;
+
+        .title-white{
+            color: #FFFFFF;
+        }
+        .title-yellow{
+            color: #FFF300;
+            margin-left: -5px;
+        }
     }
     .mdl-navigation__link{
         color: #efefef !important;

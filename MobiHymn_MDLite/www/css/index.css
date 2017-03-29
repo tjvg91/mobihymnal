@@ -101,7 +101,13 @@ input[type="range"] {
   border: none;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/Congregation Singing 2.jpg") !important; }
   .mdl-layout__drawer .mdl-layout-title {
-    color: #efefef; }
+    color: #efefef;
+    font-family: KonsensSemibold; }
+    .mdl-layout__drawer .mdl-layout-title .title-white {
+      color: #FFFFFF; }
+    .mdl-layout__drawer .mdl-layout-title .title-yellow {
+      color: #FFF300;
+      margin-left: -5px; }
   .mdl-layout__drawer .mdl-navigation__link {
     color: #efefef !important;
     font-size: 20px !important; }

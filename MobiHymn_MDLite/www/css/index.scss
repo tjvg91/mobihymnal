@@ -142,6 +142,9 @@ input[type="range"]{
 
 .mdl-layout__header{
     box-shadow: none;
+    .mdl-textfield__input{
+        color: rgb(66,66,66);
+    }
 }
 
 .mdl-layout__drawer{

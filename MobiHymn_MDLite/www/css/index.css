@@ -93,6 +93,8 @@ input[type="range"] {
 
 .mdl-layout__header {
   box-shadow: none; }
+  .mdl-layout__header .mdl-textfield__input {
+    color: #424242; }
 
 .mdl-layout__drawer {
   background-position: center top !important;

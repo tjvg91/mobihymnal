@@ -1,3 +1,13 @@
+@keyframes scale-down {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(0); } }
+@keyframes scale-up {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
 @font-face {
   font-family: 'KonsensBold';
   src: url("../mdlite/font/konsens/KonsensBold.ttf") format("truetype"); }
@@ -85,6 +95,39 @@ input[type="number"]
 input[type="range"] {
   background-color: #efefef !important; }
 
+.mdl-layout__content > .page-content #home {
+  background: #0d0d0d;
+  padding: 10px 0 0; }
+.mdl-layout__content > .page-content .mdl-mini-footer {
+  padding: 16px !important;
+  background: -moz-linear-gradient(top, #2b2c2f 0%, #000000 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #2b2c2f 0%, #000000 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #2b2c2f 0%, #000000 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  display: block; }
+  .mdl-layout__content > .page-content .mdl-mini-footer .mdl-mini-footer__bottom-section {
+    display: flex;
+    width: 100%;
+    align-items: center; }
+    .mdl-layout__content > .page-content .mdl-mini-footer .mdl-mini-footer__bottom-section button, .mdl-layout__content > .page-content .mdl-mini-footer .mdl-mini-footer__bottom-section span {
+      margin: 0 5px; }
+    .mdl-layout__content > .page-content .mdl-mini-footer .mdl-mini-footer__bottom-section.flex-space-between {
+      justify-content: space-between; }
+    .mdl-layout__content > .page-content .mdl-mini-footer .mdl-mini-footer__bottom-section p {
+      margin: 0;
+      text-align: center; }
+    .mdl-layout__content > .page-content .mdl-mini-footer .mdl-mini-footer__bottom-section .mdl-slider__container, .mdl-layout__content > .page-content .mdl-mini-footer .mdl-mini-footer__bottom-section p {
+      flex-grow: 2; }
+    .mdl-layout__content > .page-content .mdl-mini-footer .mdl-mini-footer__bottom-section .current-hymn .current-hymn-title {
+      margin: 0; }
+  .mdl-layout__content > .page-content .mdl-mini-footer button {
+    border: solid;
+    color: #efefef;
+    background-color: inherit;
+    border-radius: 50%; }
+
 .mdl-slider__background-flex {
   z-index: 65;
   margin: 0 20px !important; }
@@ -92,14 +135,21 @@ input[type="range"] {
     opacity: 0; }
 
 .mdl-layout__header {
-  box-shadow: none; }
+  box-shadow: none;
+  display: block; }
   .mdl-layout__header .mdl-textfield__input {
     color: #424242; }
 
+@media screen and (max-width: 1024px) {
+  .mdl-layout--fixed-header > .mdl-layout__header {
+    display: block; } }
 .mdl-layout__drawer {
   background-position: center top !important;
   border: none;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/Congregation Singing 2.jpg") !important; }
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/Congregation Singing 2.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  border-right: none !important; }
   .mdl-layout__drawer .mdl-layout-title {
     color: #efefef;
     font-family: KonsensSemibold; }
@@ -111,6 +161,9 @@ input[type="range"] {
   .mdl-layout__drawer .mdl-navigation__link {
     color: #efefef !important;
     font-size: 20px !important; }
+    .mdl-layout__drawer .mdl-navigation__link:hover {
+      background-color: transparent !important;
+      color: #FFF300 !important; }
 
 .mdl-layout__content {
   background-image: url("../images/Congregation Singing.jpg");
@@ -119,7 +172,8 @@ input[type="range"] {
 
 .mdl-layout__content > .page-content > section {
   height: inherit;
-  color: #efefef; }
+  color: #efefef;
+  overflow-y: auto; }
   .mdl-layout__content > .page-content > section:not(.active) {
     display: none; }
 
@@ -131,22 +185,18 @@ input[type="range"] {
   overflow: hidden;
   overflow-y: auto; }
 
-#btnPlay {
-  position: fixed;
-  bottom: 80px;
-  right: 20px; }
-
 #btnInput {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  transition: all ease 2s; }
+  bottom: 75px;
+  right: 10px;
+  width: 56px;
+  height: 56px; }
 
-#btnInput:not(.hidden), #btnPlay:not(.hidden) {
-  transform: scale(1, 1); }
+#btnInput:not(.hidden) {
+  transform: scale(1); }
 
-#btnInput.hidden, #btnPlay.hidden {
-  transform: scale(0, 0); }
+#btnInput.hidden {
+  transform: scale(0); }
 
 body {
   font-family: Roboto-Thin; }
@@ -187,13 +237,14 @@ body {
 .home-title {
   text-align: center;
   text-decoration: underline;
-  margin: 1rem 0;
+  margin: 0 0 1rem;
   color: #efefef; }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
-  width: 100%; }
+  width: 100%;
+  padding: 0 10px; }
   .cards .mdl-card {
     width: 90%;
     margin: 0 auto 20px;
@@ -209,13 +260,17 @@ body {
       background: inherit; }
 
 #hymnLyrics {
-  line-height: 175%; }
+  line-height: 175%;
+  padding: 0 5px;
+  margin: 0;
+  font-family: inherit;
+  letter-spacing: 0.12em; }
 
 #hymnLyrics.indent-first-letter .hymn-stanza .first-letter {
   float: left;
   width: 0.7em;
-  font-size: 400%;
-  line-height: 80%; }
+  font-size: 340%;
+  line-height: 100%; }
 
 .table-results {
   overflow: hidden;
@@ -244,7 +299,6 @@ body {
   .mdl-card .mdl-card__supporting-text .settings {
     margin-bottom: 20px; }
     .mdl-card .mdl-card__supporting-text .settings .text {
-      text-decoration: underline;
       padding: 0 23px;
       margin: 0 0 2px;
       color: #efefef !important;
@@ -292,9 +346,11 @@ body {
 
 #searchTable {
   width: 93%;
-  margin: 0 3% 3%; }
+  margin: 0 3% 3%;
+  background: rgba(13, 13, 13, 0.63); }
   #searchTable th {
-    text-align: center; }
+    text-align: center;
+    color: #efefef; }
   #searchTable tr td:nth-child(1), #searchTable tr th:nth-child(1) {
     width: 10%; }
   #searchTable tr td:nth-child(2), #searchTable tr th:nth-child(2) {
@@ -322,60 +378,103 @@ body {
   padding-bottom: 1em; }
 
 .hymn-stanza:nth-child(1):before {
-  content: "Verse 1:"; }
+  content: "Stanza 1:"; }
+
+#about .mdl-layout-title {
+  margin: 10px 0;
+  text-align: center; }
+  #about .mdl-layout-title img {
+    padding: 10px 0 10px 10px; }
+#about #description {
+  text-align: center;
+  padding: 0 10px;
+  font-size: 20px; }
+#about .revision-title {
+  font-weight: bold;
+  margin: 50px 0 5px;
+  color: #ffeb3b; }
+#about .revision-title, #about #revision-list {
+  text-align: center;
+  padding: 0 10px; }
+#about #revision-list {
+  font-size: 20px; }
+  #about #revision-list .revision {
+    text-decoration: underline; }
+#about .author {
+  margin: 50px 0 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffeb3b; }
+#about .author-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: #ffffff;
+  display: block; }
+#about .author-name {
+  text-align: center;
+  margin: 5px 0 0; }
+#about .author-desc {
+  text-align: center;
+  font-size: 12px; }
+
+.mdl-snackbar.mdl-snackbar--active {
+  -webkit-transform: translate(-50%, -68px) !important;
+  transform: translate(-50%, -68px) !important; }
 
 .hymn-stanza + .hymn-stanza:nth-child(2):before {
-  content: "Verse 2:"; }
+  content: "Stanza 2:"; }
 
 .hymn-stanza + .hymn-stanza:nth-child(3):before {
-  content: "Verse 3:"; }
+  content: "Stanza 3:"; }
 
 .hymn-stanza + .hymn-stanza:nth-child(4):before {
-  content: "Verse 4:"; }
+  content: "Stanza 4:"; }
 
 .hymn-stanza + .hymn-stanza:nth-child(5):before {
-  content: "Verse 5:"; }
+  content: "Stanza 5:"; }
 
 .hymn-stanza + .hymn-stanza:nth-child(6):before {
-  content: "Verse 6:"; }
+  content: "Stanza 6:"; }
 
 .hymn-stanza + .hymn-stanza:nth-child(7):before {
-  content: "Verse 7:"; }
+  content: "Stanza 7:"; }
 
 .hymn-stanza + .hymn-stanza:nth-child(8):before {
-  content: "Verse 8:"; }
+  content: "Stanza 8:"; }
 
 .hymn-stanza + .hymn-stanza:nth-child(9):before {
-  content: "Verse 9:"; }
+  content: "Stanza 9:"; }
 
 .hymn-stanza + .hymn-stanza:nth-child(10):before {
-  content: "Verse 10:"; }
+  content: "Stanza 10:"; }
 
 .hymn-refrain + .hymn-stanza:nth-child(3):before {
-  content: "Verse 2:"; }
+  content: "Stanza 2:"; }
 
 .hymn-refrain + .hymn-stanza:nth-child(5):before {
-  content: "Verse 3:"; }
+  content: "Stanza 3:"; }
 
 .hymn-refrain + .hymn-stanza:nth-child(7):before {
-  content: "Verse 4:"; }
+  content: "Stanza 4:"; }
 
 .hymn-refrain + .hymn-stanza:nth-child(9):before {
-  content: "Verse 5:"; }
+  content: "Stanza 5:"; }
 
 .hymn-refrain + .hymn-stanza:nth-child(11):before {
-  content: "Verse 6:"; }
+  content: "Stanza 6:"; }
 
 .hymn-refrain + .hymn-stanza:nth-child(13):before {
-  content: "Verse 7:"; }
+  content: "Stanza 7:"; }
 
 .hymn-refrain + .hymn-stanza:nth-child(15):before {
-  content: "Verse 8:"; }
+  content: "Stanza 8:"; }
 
 .hymn-refrain + .hymn-stanza:nth-child(17):before {
-  content: "Verse 9:"; }
+  content: "Stanza 9:"; }
 
 .hymn-refrain + .hymn-stanza:nth-child(19):before {
-  content: "Verse 10:"; }
+  content: "Stanza 10:"; }
 
 /*# sourceMappingURL=index.css.map */

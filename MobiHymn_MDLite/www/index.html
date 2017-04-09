@@ -50,7 +50,7 @@
         </div>
         <div class="mdl-layout__container">
             <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs has-drawer has-tabs is-upgraded">
-                <header class="mdl-layout__header">
+                <header class="mdl-layout__header" id="mainHeader">
                     <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" style="display: none">
                         <i class="material-icons">menu</i>
                     </div>
@@ -61,7 +61,6 @@
                         </div>
                         <nav class="mdl-navigation">
                             <a class="mdl-navigation__link" id="btnBookmark"><i class="material-icons">bookmark_border</i></a>
-                            <a class="mdl-navigation__link" href="#lyrics" id="btnHome"><i class="fa fa-book"></i></a>
                         </nav>
                     </div>
 
@@ -114,16 +113,20 @@
                             <div class="cards" ng-repeat="ngRepeats[4]"></div>
                         </section>
                         <section id="lyrics">
-                            <h2>Hymn # <span id="hymnTitle"></span></h2>
+                            <h2 style="padding: 0 5px;">Hymn # <span id="hymnTitle"></span></h2>
                             <p id="hymnLyrics"></p>
-                            <div class="auto-scroller hidden">
-                                <button class="mdl-button mdl-js-button mdl-button--fab add">
-                                    <i class="material-icons">add</i>
-                                </button>
-                                <button class="mdl-button mdl-js-button mdl-button--fab minus">
-                                    <i class="material-icons">remove</i>
-                                </button>
-                            </div>
+                            <footer class="mdl-mini-footer navbar-fixed-bottom" id="lyricFooter">
+                                <div class="mdl-mini-footer__bottom-section">
+                                    <button class="mdl-mini-footer__social-btn">
+                                        <i class="fa fa-play"></i>
+                                    </button>
+                                    <button class="mdl-mini-footer__social-btn" id="btnScroller">
+                                        <i class="fa fa-angle-double-down"></i>
+                                    </button>
+                                    <span id="scrollVal">1.00</span>
+                                    <input class="mdl-slider mdl-js-slider" id="rngScrollSpeed" type="range" value="1" min="0.01" max="2" step="0.01"/>
+                                </div>
+                            </footer>
                         </section>
                         <section id="input">
                             <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
@@ -165,6 +168,14 @@
                                     </div>
                                 </div>
                             </section>
+                            <footer class="mdl-mini-footer navbar-fixed-bottom hymn-footer">
+                                <div class="mdl-mini-footer__bottom-section">
+                                    <p class="current-hymn">Now reading: hymn #<span class="current-hymn-title">1</span></p>
+                                    <button class="mdl-mini-footer__social-btn">
+                                        <i class="fa fa-play"></i>
+                                    </button>
+                                </div>
+                            </footer>
                         </section>
                         <section id="search">
                             <p style="display: none"><span id="searchCount"></span> result(s) found</p>
@@ -179,8 +190,38 @@
                                     <tbody ng-repeat="ngRepeats[3]"></tbody>
                                 </table>
                             </div>
+                            <footer class="mdl-mini-footer navbar-fixed-bottom hymn-footer">
+                                <div class="mdl-mini-footer__bottom-section">
+                                    <p class="current-hymn">Now reading: hymn #<span class="current-hymn-title">1</span></p>
+                                    <button class="mdl-mini-footer__social-btn">
+                                        <i class="fa fa-play"></i>
+                                    </button>
+                                </div>
+                            </footer>
                         </section>
-                        <section id="about"></section>
+                        <section id="about">
+                            <span class="mdl-layout-title">
+                                <img src="images/logo/Icon-72@2x.png" />
+                            </span>
+                            <p id="description"></p>
+                            <h2 class="revision-title">Revision</h2>
+                            <div id="revision-list"></div>
+
+                            <h2 class="author">Author</h2>
+                            
+                            <img src="images/cordova.png" class="author-image"/>
+                            <h4 class="author-name">Timothy John V. Gandionco</h4>
+                            <p class="author-desc">Software and Web Developer</p>
+                           
+                            <footer class="mdl-mini-footer navbar-fixed-bottom hymn-footer">
+                                <div class="mdl-mini-footer__bottom-section">
+                                    <p class="current-hymn">Now reading: hymn #<span class="current-hymn-title">1</span></p>
+                                    <button class="mdl-mini-footer__social-btn">
+                                        <i class="fa fa-play"></i>
+                                    </button>
+                                </div>
+                            </footer>
+                        </section>
                         <section id="settings">
                             <div class="mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__supporting-text">
@@ -206,7 +247,9 @@
                                                 Drop-cap first letter
                                             </label>
                                             <span class="mdl-list__item-secondary-content">
-                                                <input type="checkbox" id="chkDropCap"/>
+                                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="chkDropCap">
+                                                    <input type="checkbox" id="chkDropCap" class="mdl-switch__input"/>
+                                                </label>
                                             </span>
                                         </li> 
                                         <li class="mdl-list__item">
@@ -214,20 +257,24 @@
                                                 Max number of recent list
                                             </span>
                                             <span class="mdl-list__item-secondary-content">
-                                                <input type="number" min="1" max="10" value="5" id="recentLength"/>
+                                                <input type="number" min="1" max="10" value="5" id="recentLength" style="text-align: right"/>
                                             </span>
                                         </li>  
                                     </ul>
                                 </div>
                             </div>
-                            
+                            <footer class="mdl-mini-footer navbar-fixed-bottom hymn-footer">
+                                <div class="mdl-mini-footer__bottom-section">
+                                    <p class="current-hymn">Now reading: hymn #<span class="current-hymn-title">1</span></p>
+                                    <button class="mdl-mini-footer__social-btn">
+                                        <i class="fa fa-play"></i>
+                                    </button>
+                                </div>
+                            </footer>
                         </section>
-                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored hidden" id="btnPlay">
-                            <i class="material-icons">play_arrow</i>
-                        </button>
-                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored hidden" id="btnInput" href="#input">
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored hidden" id="btnInput" href="#input">
                             <i class="material-icons">library_books</i>
-                        </a>
+                        </button>
                     </div>
                 </main>
                 <div class="mdl-layout__obfuscator"></div>

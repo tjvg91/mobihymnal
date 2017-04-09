@@ -1,0 +1,1 @@
+MobiHymn is an app that displays the lyrics of a certain hymn from a desired hymnal. In addition the user can opt to play the hymn.

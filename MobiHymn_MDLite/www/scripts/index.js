@@ -145,23 +145,6 @@
         });
     }
 
-    var setUpScroller = function() {
-        $('.auto-scroller .add').click(function() {
-            settings.scrollSpeed -= 50;
-            setInterval(function() {
-                var pos = $('#lyrics').scrollTop();
-                $('#lyrics').scrollTop(pos + 2);
-            }, settings.scrollSpeed);
-        });
-        $('.auto-scroller .minus').click(function() {
-            settings.scrollSpeed += 50;
-            setInterval(function() {
-                var pos = $('#lyrics').scrollTop();
-                $('#lyrics').scrollTop(pos + 2);
-            }, settings.scrollSpeed);
-        });
-    }
-
     var setUpHymnals = function() {
         refreshNgRepeat('ngRepeats[4]');
 
@@ -221,32 +204,31 @@
             gotoHymn(e);
     }
 
-    var goToSection = function (element) {
+    var goToSection = function(element) {
+        var target = "";
         if (element) {
-            var target = $(element).attr('href');
-            $('.mdl-layout__content > .page-content > section').removeClass('active');
-            $(target).addClass('active');
-
-            if (target == "#lyrics") {
-                $('#btnInput, #btnPlay, #btnBookmark').removeClass('hidden');
-            } else {
-                $('#btnInput, #btnPlay, #btnBookmark').addClass('hidden');
-            }
-            if ($(target).children('.mdl-layout__tab-panel').length > 0) {
-                $('.mdl-layout__tab-bar-container').show();
-                $('.mdl-layout__tab-panel.is-active input').select();
-            } else {
-                $('.mdl-layout__tab-bar-container').hide();
-            }
-            if (target == "#home")
-                $('.page-content').css('padding-bottom', '0');
-            else
-                $('.page-content').css('padding-bottom', '70px');
+            target = $(element).attr('href');
+        } else {
+            target = "#lyrics";
         }
-        else {
-            $('.mdl-layout__content > .page-content > section').removeClass('active');
-            $('#lyrics').addClass('active');
+        $('.mdl-layout__content > .page-content > section').removeClass('active');
+        $(target).addClass('active');
+        $(target).scrollTop(0);
+        if (target == "#lyrics") {
+            $('#btnInput, #btnPlay, #btnBookmark').removeClass('hidden');
+        } else {
+            $('#btnInput, #btnPlay, #btnBookmark').addClass('hidden');
         }
+        if ($(target).children('.mdl-layout__tab-panel').length > 0) {
+            $('.mdl-layout__tab-bar-container').show();
+            $('.mdl-layout__tab-panel.is-active input').select();
+        } else {
+            $('.mdl-layout__tab-bar-container').hide();
+        }
+        if (target == "#home")
+            $('.page-content').css('padding-bottom', '0');
+        else
+            $('.page-content').css('padding-bottom', '70px');
     }
 
     var getHymnalData = function(src, token) {
@@ -318,13 +300,6 @@
             'z-index': 400,
             'display': 'none'
         });
-
-        var scollerHeight = $('.auto-scroller').height();
-        $('.auto-scroller').css({
-            'position': 'fixed',
-            'top': parseFloat((winHeight / 2) - (scollerHeight / 2)).toFixed(2) + 'px',
-            'right': '5px'
-        })
     }
 
     var readDesription = function() {
@@ -347,10 +322,10 @@
         })
     }
 
-    var startScrolling = function (elem) {
+    var startScrolling = function(elem) {
         var time = $('#rngScrollSpeed').val();
         stopScrolling();
-        scrollAnimate = setInterval(function () {
+        scrollAnimate = setInterval(function() {
             var pos = elem.scrollTop();
             elem.scrollTop(++pos);
             if (elem.scrollTop() + elem.innerHeight() >= elem[0].scrollHeight) {
@@ -360,10 +335,11 @@
         }, 100 * time);
     }
 
-    var stopScrolling = function () {
+    var stopScrolling = function() {
         if (scrollAnimate > 0) {
             clearInterval(scrollAnimate);
             scrollAnimate = 0;
+            $('#hymnLyrics').off('scroll mousedown wheel DOMMouseScroll mousewheel touchmove');
         }
     }
 
@@ -380,19 +356,24 @@
         readRevision();
         getHymnalData('files/hymnals.json');
 
+        delete Hammer.defaults.cssProps.userSelect;
+
         var contentElem = $('.mdl-layout__content > .page-content');
         var myHammer = new Hammer(contentElem[0]);
-        myHammer.add(new Hammer.Swipe());
-        myHammer.on("panright", function (ev) {
-            if ($('header.mdl-layout__header').css('display') != "none" && $('.mdl-layout__drawer-button').css('display') != 'none')
-                $('.mdl-layout__drawer-button').trigger('click');
+        myHammer.on("panright", function(ev) {
+            if (!$(ev.target).is($('#rngScrollSpeed'))) {
+                if ($('header.mdl-layout__header').css('display') != "none" && $('.mdl-layout__drawer-button').css('display') != 'none')
+                    $('.mdl-layout__drawer-button').trigger('click');
+            }
         });
-		
-		var hammerLyrics = new Hammer($('#hymnLyrics')[0]);
+
+        var hammerLyrics = new Hammer($('#hymnLyrics')[0], {
+            touchAction: 'pan-y'
+        });
         hammerLyrics.get('pinch').set({
             enable: true
         })
-        hammerLyrics.on('pinchmove pinchend', function (evt) {
+        hammerLyrics.on('pinchmove pinchend', function(evt) {
             //evt.preventDefault();
             var orig_font = $('#hymnLyrics').css('font-size');
             switch (evt.type) {
@@ -400,7 +381,7 @@
                     var newFont = fontSize * evt.scale;
                     if (newFont >= 18 && newFont <= 40) {
                         $('#hymnLyrics').css('font-size', newFont + 'px');
-                        settings.font =  newFont;
+                        settings.font = newFont;
                     }
                     break;
                 case 'pinchend':
@@ -408,7 +389,7 @@
                     settings.font = fontSize;
             }
         });
-		
+
 
         $('.mdl-textfield.mdl-textfield--expandable label').click(function() {
             $(this).parent().toggleClass('is-focused');
@@ -464,11 +445,10 @@
             }
         });
 
-        $('#hymnLyrics').click(function () {
+        $('#hymnLyrics').click(function() {
             if ($('#btnInput').hasClass('hidden')) {
                 $('.page-content').css('padding-bottom', '70px');
-            }
-            else {
+            } else {
                 $('.page-content').css('padding-bottom', '0px');
             }
             $('#mainHeader, #lyricFooter').toggle();
@@ -476,10 +456,10 @@
 
         });
 
-        $('#rngScrollSpeed').change(function () {
+        $('#rngScrollSpeed').change(function() {
             var val = parseFloat($(this).val()).toFixed(2);
             $('#scrollVal').text(val);
-            if($('#btnScroller i').hasClass('fa-stop'))
+            if ($('#btnScroller i').hasClass('fa-stop'))
                 startScrolling($('#lyrics'));
         })
 
@@ -517,20 +497,19 @@
             }
         });
 
-        $('.hymn-footer').click(function (e) {
+        $('.hymn-footer').click(function(e) {
             var target = $(e.target);
             if (!target.is('button')) {
                 gotoHymn();
             }
         });
 
-        $('#btnScroller').click(function () {
+        $('#btnScroller').click(function() {
             var icon = $(this).find('i');
             if (icon.hasClass('fa-angle-double-down')) {
                 icon.toggleClass('fa-angle-double-down fa-stop');
                 startScrolling($('#lyrics'));
-            }
-            else {
+            } else {
                 icon.toggleClass('fa-angle-double-down fa-stop');
                 stopScrolling();
             }
@@ -581,13 +560,12 @@
         })
     }
 
-    var gotoHymn = function (e) {
-        var number;
+    var gotoHymn = function(e) {
+        var number, elem = null;
         if (e) {
-            var elem = $(e.currentTarget);
+            elem = $(e.currentTarget);
             number = elem.attr('data-num');
-        }
-        else {
+        } else {
             number = settings.currentHymn.num;
         }
         hymnList["hymnal" + settings.currentHymnal.id].forEach(function(value, index) {

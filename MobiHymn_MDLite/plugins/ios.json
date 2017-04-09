@@ -9,6 +9,12 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.mobihymn"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.mobihymn"
+        },
+        "cordova-custom-config": {
+            "PACKAGE_NAME": "com.mobihymn"
         }
     },
     "dependent_plugins": {}

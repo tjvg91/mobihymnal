@@ -1,32 +1,33 @@
-@mixin verse-without-refrain{
-    @for $i from 2 through 10{
-        .hymn-stanza + .hymn-stanza:nth-child(#{$i}):before{
+@mixin verse-without-refrain {
+    @for $i from 2 through 10 {
+        .hymn-stanza+.hymn-stanza:nth-child(#{$i}):before {
             content: quote("Stanza #{$i}:");
         }
     }
 }
 
-@mixin verse-with-refrain{
-    @for $i from 2 through 10{
-        .hymn-refrain + .hymn-stanza:nth-child(#{$i * 2 - 1}):before{
+@mixin verse-with-refrain {
+    @for $i from 2 through 10 {
+        .hymn-refrain+.hymn-stanza:nth-child(#{$i * 2 - 1}):before {
             content: quote("Stanza #{$i}:");
         }
     }
 }
 
-@keyframes scale-down{
-    0%{
+@keyframes scale-down {
+    0% {
         transform: scale(1);
     }
-    100%{
+    100% {
         transform: scale(0);
     }
 }
-@keyframes scale-up{
-    0%{
+
+@keyframes scale-up {
+    0% {
         transform: scale(0);
     }
-    100%{
+    100% {
         transform: scale(1);
     }
 }
@@ -35,156 +36,187 @@
     font-family: 'KonsensBold';
     src: url('../mdlite/font/konsens/KonsensBold.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensBold-Italic';
     src: url('../mdlite/font/konsens/KonsensBold-Italic.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensBook';
     src: url('../mdlite/font/konsens/KonsensBook.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensBook-Italic';
     src: url('../mdlite/font/konsens/KonsensBook-Italic.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensExtrabold';
     src: url('../mdlite/font/konsens/KonsensExtrabold.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensExtrabold-Italic';
     src: url('../mdlite/font/konsens/KonsensExtrabold-Italic.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensHeavy';
     src: url('../mdlite/font/konsens/KonsensHeavy.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensHeavy-Italic';
     src: url('../mdlite/font/konsens/KonsensHeavy-Italic.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensLight';
     src: url('../mdlite/font/konsens/KonsensLight.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensLight-Italic';
     src: url('../mdlite/font/konsens/KonsensLight-Italic.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensMedium';
     src: url('../mdlite/font/konsens/KonsensMedium.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensMedium-Italic';
     src: url('../mdlite/font/konsens/KonsensMedium-Italic.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensRegular';
     src: url('../mdlite/font/konsens/KonsensRegular.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensRegular-Italic';
     src: url('../mdlite/font/konsens/KonsensRegular-Italic.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensSemibold';
     src: url('../mdlite/font/konsens/KonsensSemibold.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensSemibold-Italic';
     src: url('../mdlite/font/konsens/KonsensSemibold-Italic.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensUltrabold';
     src: url('../mdlite/font/konsens/KonsensUltrabold.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'KonsensUltrabold-Italic';
     src: url('../mdlite/font/konsens/KonsensUltrabold-Italic.ttf') format('truetype');
 }
+
 * {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 @font-face {
     font-family: 'Roboto-Bold';
     src: url('../mdlite/font/roboto/Roboto-Bold.eot') format('embedded-opentype'), url('../mdlite/font/roboto/Roboto-Bold.ttf') format('truetype'), url('../mdlite/font/roboto/Roboto-Bold.woff') format('woff');
 }
+
 @font-face {
     font-family: 'Roboto-Light';
     src: url('../mdlite/font/roboto/Roboto-Light.eot') format('embedded-opentype'), url('../mdlite/font/roboto/Roboto-Light.ttf') format('truetype'), url('../mdlite/font/roboto/Roboto-Light.woff') format('woff');
 }
+
 @font-face {
     font-family: 'Roboto-Medium';
     src: url('../mdlite/font/roboto/Roboto-Medium.eot') format('embedded-opentype'), url('../mdlite/font/roboto/Roboto-Medium.ttf') format('truetype'), url('../mdlite/font/roboto/Roboto-Medium.woff') format('woff');
 }
+
 @font-face {
     font-family: 'Roboto-Regular';
     src: url('../mdlite/font/roboto/Roboto-Regular.eot') format('embedded-opentype'), url('../mdlite/font/roboto/Roboto-Regular.ttf') format('truetype'), url('../mdlite/font/roboto/Roboto-Regular.woff') format('woff');
 }
+
 @font-face {
     font-family: 'Roboto-Thin';
     src: url('../mdlite/font/roboto/Roboto-Thin.eot') format('embedded-opentype'), url('../mdlite/font/roboto/Roboto-Thin.ttf') format('truetype'), url('../mdlite/font/roboto/Roboto-Thin.woff') format('woff');
 }
 
-html, body {
-    height:100%;
-    overflow:auto;
+html,
+body {
+    height: 100%;
+    overflow: auto;
 }
 
-@media screen and (max-width: 1024px){
+::selection,
+ ::-moz-selection {
+    background-color: rgb(255, 235, 59) !important;
+    color: #131313;
+}
+
+@media screen and (max-width: 1024px) {
     .mdl-layout__header-row {
         height: 56px;
-        padding: 0 16px 0 52px !important ;
+        padding: 0 16px 0 52px !important;
     }
 }
 
-input[type="number"]
-, input[type="text"]{
+input[type="number"],
+input[type="text"] {
     color: #efefef;
 }
 
-input[type="range"]{
+input[type="range"] {
     background-color: #efefef !important;
 }
 
-.mdl-layout__content > .page-content{
-    #home{
+.mdl-layout__content>.page-content {
+    #home {
         background: rgb(13, 13, 13);
         padding: 10px 0 0;
     }
-
-    .mdl-mini-footer{
+    .mdl-mini-footer {
         padding: 16px !important;
-        background: -moz-linear-gradient(top, #2b2c2f 0%, #000000 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, #2b2c2f 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, #2b2c2f 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        background: -moz-linear-gradient(top, #2b2c2f 0%, #000000 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #2b2c2f 0%, #000000 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #2b2c2f 0%, #000000 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         display: block;
-
-        .mdl-mini-footer__bottom-section{
+        .mdl-mini-footer__bottom-section {
             display: flex;
             width: 100%;
             align-items: center;
-
-            button, span{
+            button,
+            span {
                 margin: 0 5px;
             }
-            &.flex-space-between{
+            &.flex-space-between {
                 justify-content: space-between;
             }
-            p{
+            p {
                 margin: 0;
                 text-align: center;
             }
-            .mdl-slider__container, p{
+            .mdl-slider__container,
+            p {
                 flex-grow: 2;
             }
-
-            .current-hymn .current-hymn-title{
+            .current-hymn .current-hymn-title {
                 margin: 0;
             }
         }
-        button{
+        button {
             border: solid;
             color: #efefef;
             background-color: inherit;
@@ -193,99 +225,98 @@ input[type="range"]{
     }
 }
 
-
-.mdl-slider__background-flex{
+.mdl-slider__background-flex {
     z-index: 65;
     margin: 0 20px !important;
-
-    .mdl-slider__background-upper{
+    .mdl-slider__background-upper {
         opacity: 0;
     }
 }
 
-.mdl-layout__header{
+.mdl-layout__header {
     box-shadow: none;
     display: block;
-    .mdl-textfield__input{
-        color: rgb(66,66,66);
+    .mdl-textfield__input {
+        color: rgb(66, 66, 66);
     }
 }
 
-@media screen and (max-width: 1024px)    {
-    .mdl-layout--fixed-header>.mdl-layout__header{
-        display: block;        
+@media screen and (max-width: 1024px) {
+    .mdl-layout--fixed-header>.mdl-layout__header {
+        display: block;
     }
 }
-.mdl-layout__drawer{
+
+.mdl-layout__drawer {
     background-position: center top !important;
     border: none;
-    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url('../images/Congregation Singing 2.jpg') !important;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/Congregation Singing 2.jpg') !important;
     background-repeat: no-repeat;
     background-size: cover !important;
     border-right: none !important;
-
-    .mdl-layout-title{
+    .mdl-layout-title {
         color: #efefef;
         font-family: KonsensSemibold;
-
-        .title-white{
+        .title-white {
             color: #FFFFFF;
         }
-        .title-yellow{
+        .title-yellow {
             color: #FFF300;
             margin-left: -5px;
         }
     }
-    .mdl-navigation__link{
+    .mdl-navigation__link {
         color: #efefef !important;
         font-size: 20px !important;
-
-        &:hover{
+        &:hover {
             background-color: transparent !important;
             color: #FFF300 !important;
         }
     }
 }
 
-.mdl-layout__content{
+.mdl-layout__content {
     background-image: url('../images/Congregation Singing.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.mdl-layout__content > .page-content > section{
+.mdl-layout__content>.page-content>section {
     height: inherit;
-    color: #efefef;    
-    overflow-y: auto;    
-    &:not(.active){
+    color: #efefef;
+    overflow-y: auto;
+    &:not(.active) {
         display: none;
     }
 }
 
-.input-form > .mdl-textfield{
+.input-form>.mdl-textfield {
     padding: 16px 20px;
     width: 100% !important;
 }
 
-.input-form + .list-items{
+.input-form+.list-items {
     overflow: hidden;
     overflow-y: auto;
 }
-#btnInput{
+
+#btnInput {
     position: fixed;
     bottom: 75px;
     right: 10px;
     width: 56px;
     height: 56px;
 }
-#btnInput:not(.hidden){
+
+#btnInput:not(.hidden) {
     transform: scale(1);
 }
-#btnInput.hidden{
+
+#btnInput.hidden {
     transform: scale(0);
 }
 
-body{
+body {
     font-family: Roboto-Thin;
 }
 
@@ -298,32 +329,28 @@ body{
     background-size: cover;
     z-index: 2000;
     font-family: KonsensSemibold;
-
-    .title {  
+    .title {
         font-size: 42px;
         margin: 0;
         display: inline-block;
     }
-
-    .title img{
-        display:block;
+    .title img {
+        display: block;
         margin: 0 auto 20px;
     }
-
-    .title-white{
+    .title-white {
         color: #FFFFFF;
         background-color: none;
     }
-    .title-yellow{
+    .title-yellow {
         color: #FFF300;
-        background-color: none; 
+        background-color: none;
     }
-
-    hr{
+    hr {
         margin: 6px 0 8px;
     }
-
-    input[type="text"],input[type="password"]{
+    input[type="text"],
+    input[type="password"] {
         display: block;
         margin: 5px 0;
         width: calc(100% - 10px);
@@ -334,41 +361,38 @@ body{
     }
 }
 
-.home-title{
+.home-title {
     text-align: center;
     text-decoration: underline;
     margin: 0 0 1rem;
     color: #efefef;
 }
+
 .cards {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     padding: 0 10px;
-
     .mdl-card {
         width: 90%;
         margin: 0 auto 20px;
-        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7) ), url('../images/sheet-music.jpg');
+        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('../images/sheet-music.jpg');
         color: #efefef;
         background-repeat: no-repeat;
         background-size: cover;
-
-        .mdl-card__title .mdl-card__title-text{
+        .mdl-card__title .mdl-card__title-text {
             color: #efefef;
         }
-
-        .mdl-card__supporting-text{
+        .mdl-card__supporting-text {
             color: #efefef;
         }
-
-        .mdl-button{
+        .mdl-button {
             background: inherit;
         }
     }
 }
 
-#hymnLyrics{
+#hymnLyrics {
     line-height: 175%;
     padding: 0 5px;
     margin: 0;
@@ -376,8 +400,8 @@ body{
     letter-spacing: 0.12em;
 }
 
-#hymnLyrics.indent-first-letter .hymn-stanza{
-    .first-letter{
+#hymnLyrics.indent-first-letter .hymn-stanza {
+    .first-letter {
         float: left;
         width: 0.7em;
         font-size: 340%;
@@ -385,58 +409,59 @@ body{
     }
 }
 
-.table-results{
+.table-results {
     overflow: hidden;
     overflow-y: auto;
 }
 
-#settings{
+#settings {
     padding: 30px 30px 0;
-     .mdl-card{
+    .mdl-card {
         width: 100%;
         min-height: 0;
         background: rgba(13, 13, 13, 0.63);
     }
 }
 
-@media (max-width: 479px){
-    #home .mdl-card + .mdl-card{
+@media (max-width: 479px) {
+    #home .mdl-card+.mdl-card {
         margin-top: 20px;
     }
 }
-@media (min-width: 480px){
-    #home .mdl-card + .mdl-card{
+
+@media (min-width: 480px) {
+    #home .mdl-card+.mdl-card {
         margin-top: 0;
     }
 }
 
 #settings {
-    .mdl-card + .mdl-card{
+    .mdl-card+.mdl-card {
         margin-top: 20px;
     }
-    .mdl-list__item-primary-content, .mdl-list__item-secondary-content{
+    .mdl-list__item-primary-content,
+    .mdl-list__item-secondary-content {
         font-size: 18px !important;
     }
 }
-.mdl-card .mdl-card__supporting-text{    
-    width: inherit;
 
-    .settings{   
+.mdl-card .mdl-card__supporting-text {
+    width: inherit;
+    .settings {
         margin-bottom: 20px;
-        .text{            
+        .text {
             padding: 0 23px;
             margin: 0 0 2px;
             color: #efefef !important;
             font-size: 18px;
         }
-        .component{
+        .component {
             width: inherit;
         }
-        
     }
 }
 
-.auto-scroller button{
+.auto-scroller button {
     min-width: 20px;
     width: 24px;
     height: 24px;
@@ -444,57 +469,62 @@ body{
     margin: 0px 0px 15px 0;
     opacity: 0.3;
 }
-.mdl-data-table{
+
+.mdl-data-table {
     background: rgba(13, 13, 13, 0.63);
     color: #efefef;
-
-    th{
+    th {
         color: #efefef;
     }
-    tr{
+    tr {
         color: #efefef;
     }
 }
-.mdl-list__item, .mdl-data-table tr{
+
+.mdl-list__item,
+.mdl-data-table tr {
     z-index: 400;
 }
 
-.mdl-list__item .mdl-list__item-primary-content, .mdl-data-table tr td{
+.mdl-list__item .mdl-list__item-primary-content,
+.mdl-data-table tr td {
     z-index: 39;
     color: #efefef;
 }
-.mdl-list__item .mdl-list__item-primary-content i{
+
+.mdl-list__item .mdl-list__item-primary-content i {
     margin-bottom: 0.5em;
     padding-top: 7px;
     font-size: 25px;
     text-align: center;
 }
-.mdl-list__item .mdl-list__item-primary-content span{
+
+.mdl-list__item .mdl-list__item-primary-content span {
     color: #efefef;
 }
-.mdl-list__item .mdl-list__item-secondary-content{
+
+.mdl-list__item .mdl-list__item-secondary-content {
     z-index: 401;
 }
 
-#btnHome{
+#btnHome {
     font-size: 24px;
 }
 
-#searchTable{
+#searchTable {
     width: 93%;
     margin: 0 3% 3%;
     background: rgba(13, 13, 13, 0.63);
-
-    th{
+    th {
         text-align: center;
         color: #efefef;
     }
-
-    tr td:nth-child(1), tr th:nth-child(1){
-        width: 10%;    
+    tr td:nth-child(1),
+    tr th:nth-child(1) {
+        width: 10%;
     }
-
-    tr td:nth-child(2), tr th:nth-child(2){
+    tr td:nth-child(2),
+    tr th:nth-child(2) {
         width: 90%;
         table-layout: fixed;
         overflow: hidden;
@@ -502,66 +532,71 @@ body{
     }
 }
 
-#search > p{
+#search>p {
     margin: 10px 3% 5px;
 }
 
-.hymn-stanza .hymn-line, .hymn-refrain .hymn-line{
+.hymn-stanza .hymn-line,
+.hymn-refrain .hymn-line {
     display: block;
 }
+
 .hymn-stanza:before {
     display: block;
 }
+
 .hymn-refrain:before {
     display: block;
     content: "Refrain:";
 }
-.hymn-stanza:after, .hymn-refrain:after {
+
+.hymn-stanza:after,
+.hymn-refrain:after {
     content: "";
     display: block;
     padding-bottom: 1em;
 }
 
-.hymn-stanza:nth-child(1):before{
+.hymn-stanza:nth-child(1):before {
     content: "Stanza 1:";
 }
 
-#about{
-    .mdl-layout-title{
+#about {
+    .mdl-layout-title {
         margin: 10px 0;
         text-align: center;
-        img{
+        img {
             padding: 10px 0 10px 10px;
         }
     }
-    #description{
+    #description {
         text-align: center;
         padding: 0 10px;
         font-size: 20px;
     }
-    .revision-title{
+    .revision-title {
         font-weight: bold;
         margin: 50px 0 5px;
-        color: rgb(255,235,59);
+        color: rgb(255, 235, 59);
     }
-    .revision-title, #revision-list{
+    .revision-title,
+    #revision-list {
         text-align: center;
         padding: 0 10px;
     }
-     #revision-list{         
+    #revision-list {
         font-size: 20px;
-
-        .revision{
+        .revision {
             text-decoration: underline;
         }
-     }
-    .author{
-        margin: 50px 0 5px;
-        text-align:center;
-        font-weight: bold;
-        color: rgb(255,235,59);
     }
-    .author-image{
+    .author {
+        margin: 50px 0 5px;
+        text-align: center;
+        font-weight: bold;
+        color: rgb(255, 235, 59);
+    }
+    .author-image {
         width: 100px;
         height: 100px;
         border-radius: 50%;
@@ -569,19 +604,19 @@ body{
         background: #ffffff;
         display: block;
     }
-    .author-name{
+    .author-name {
         text-align: center;
         margin: 5px 0 0;
     }
-    .author-desc{
+    .author-desc {
         text-align: center;
         font-size: 12px;
     }
 }
 
-.mdl-snackbar.mdl-snackbar--active{
-    -webkit-transform:translate(-50%, -68px) !important;
-    transform:translate(-50%, -68px) !important;
+.mdl-snackbar.mdl-snackbar--active {
+    -webkit-transform: translate(-50%, -68px) !important;
+    transform: translate(-50%, -68px) !important;
 }
 
 @include verse-without-refrain;

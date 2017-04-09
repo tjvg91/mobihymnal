@@ -102,7 +102,7 @@
     <platform name="wp8">
         <splash height="1280" src="res/screens/wp8/SplashScreenImage.png" width="768" />
     </platform>
-    <preference name="Fullscreen" value="True" />
+    <preference name="Fullscreen" value="False" />
     <preference name="WindowsStoreDisplayName" value="MobiHymn" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <vs:platformSpecificValues>

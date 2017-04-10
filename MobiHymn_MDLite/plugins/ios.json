@@ -7,14 +7,14 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.mobihymn"
+        "cordova-custom-config": {
+            "PACKAGE_NAME": "com.mobihymnal.beta"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.mobihymn"
+            "PACKAGE_NAME": "com.mobihymnal.beta"
         },
-        "cordova-custom-config": {
-            "PACKAGE_NAME": "com.mobihymn"
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.mobihymnal.beta"
         }
     },
     "dependent_plugins": {}

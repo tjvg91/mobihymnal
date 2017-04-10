@@ -107,7 +107,7 @@
   </platform>
   <preference name="Fullscreen" value="True" />
   <preference name="android-minSdkVersion" value="14" />
-  <preference name="android-targetSdkVersion" value="25" />
+  <preference name="android-targetSdkVersion" value="14" />
   <preference name="deployment-target" value="10.0" />
   <vs:platformSpecificValues>
     <vs:platformSpecificWidget platformName="windows" version="1.0.0.0" id="com.mobihymn">

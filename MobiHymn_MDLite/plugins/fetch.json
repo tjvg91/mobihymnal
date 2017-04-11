@@ -89,5 +89,13 @@
         "variables": {
             "MICROPHONE_USAGE_DESCRIPTION": "voice-activated"
         }
+    },
+    "smiled0g.midiplayer": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\timothy.v.gandionco\\Downloads\\cordova-plugin-midi-player-4.0.1\\package"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

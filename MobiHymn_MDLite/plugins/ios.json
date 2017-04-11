@@ -31,6 +31,9 @@
         "cordova-plugin-media": {
             "MICROPHONE_USAGE_DESCRIPTION": "voice-activated",
             "PACKAGE_NAME": "com.mobihymnal.beta"
+        },
+        "smiled0g.midiplayer": {
+            "PACKAGE_NAME": "com.mobihymnal.beta"
         }
     },
     "dependent_plugins": {

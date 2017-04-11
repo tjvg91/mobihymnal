@@ -133,4 +133,5 @@
   </plugin>
   <plugin name="cordova-plugin-statusbar" version="2.2.3-dev" src="C:\Users\timothy.v.gandionco\Downloads\cordova-plugin-statusbar-master" />
   <plugin name="cordova-plugin-compat" version="1.1.0" />
+  <plugin name="smiled0g.midiplayer" version="3.1.0" src="C:\Users\timothy.v.gandionco\Downloads\cordova-plugin-midi-player-4.0.1\package" />
 </widget>

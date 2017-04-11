@@ -16,20 +16,32 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.mobihymnal.beta"
         },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.mobihymnal.beta"
+        "nl.x-services.plugins.insomnia": {
+            "PACKAGE_NAME": "com.mobihymn"
         },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.mobihymnal.beta"
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.mobihymn"
         },
         "cordova-plugin-media": {
             "MICROPHONE_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.mobihymnal.beta"
+            "PACKAGE_NAME": "com.mobihymn"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.mobihymn"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.mobihymn"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.mobihymnal.beta"
+            "PACKAGE_NAME": "com.mobihymn"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.mobihymn"
+        },
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.mobihymn"
         }
     }
 }

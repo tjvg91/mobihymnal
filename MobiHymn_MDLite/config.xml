@@ -111,7 +111,7 @@
   <preference name="deployment-target" value="10.0" />
   <vs:platformSpecificValues>
     <vs:platformSpecificWidget platformName="windows" version="1.0.0.0" id="com.mobihymn">
-      <vs:name>MobiHymnal</vs:name>
+      <vs:name>MobiHymn</vs:name>
     </vs:platformSpecificWidget>
   </vs:platformSpecificValues>
   <preference name="android-maxSdkVersion" value="25" />
@@ -120,14 +120,17 @@
   <preference name="InAppBrowserStorageEnabled" value="True" />
   <preference name="SuppressesIncrementalRendering" value="True" />
   <access origin="*" />
-  <plugin name="cordova-plugin-statusbar" version="2.0.0" />
   <plugin name="nl.x-services.plugins.insomnia" version="4.0.1" />
   <plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.4" src="https://github.com/katzer/cordova-plugin-local-notifications" />
   <plugin name="cordova-plugin-app-event" version="1.2.0" />
   <plugin name="cordova-plugin-device" version="1.1.1" />
   <plugin name="cordova-custom-config" version="3.1.3" />
   <preference name="WindowsStoreDisplayName" value="MobiHymn" />
-  <plugin name="cordova-plugin-file" version="4.3.2" />
-  <plugin name="cordova-plugin-splashscreen" version="4.0.2" />
-  <plugin name="cordova-plugin-media" version="3.0.0" />
+  <plugin name="cordova-plugin-file" version="3.0.0" src="https://github.com/apache/cordova-plugin-file.git" />
+  <plugin name="cordova-plugin-splashscreen" version="4.0.3-dev" src="C:\Users\timothy.v.gandionco\Downloads\cordova-plugin-splashscreen-master" />
+  <plugin name="cordova-plugin-media" version="3.0.1-dev" src="C:\Users\timothy.v.gandionco\Downloads\cordova-plugin-media-master">
+    <variable name="MICROPHONE_USAGE_DESCRIPTION" value="voice-activated commands; media player" />
+  </plugin>
+  <plugin name="cordova-plugin-statusbar" version="2.2.3-dev" src="C:\Users\timothy.v.gandionco\Downloads\cordova-plugin-statusbar-master" />
+  <plugin name="cordova-plugin-compat" version="1.1.0" />
 </widget>

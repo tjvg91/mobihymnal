@@ -22,26 +22,26 @@
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.mobihymn"
         },
-        "cordova-plugin-media": {
-            "MICROPHONE_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.mobihymn"
-        },
         "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "com.mobihymn"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.mobihymn"
+            "PACKAGE_NAME": "com.mobihymnal.beta"
+        },
+        "cordova-plugin-media": {
+            "MICROPHONE_USAGE_DESCRIPTION": "voice-activated",
+            "PACKAGE_NAME": "com.mobihymnal.beta"
         }
     },
     "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.mobihymn"
-        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.mobihymn"
         },
         "cordova-plugin-app-event": {
             "PACKAGE_NAME": "com.mobihymn"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.mobihymnal.beta"
         }
     }
 }

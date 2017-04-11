@@ -9,8 +9,8 @@
     },
     "cordova-plugin-statusbar": {
         "source": {
-            "type": "registry",
-            "id": "cordova-plugin-statusbar@2.2.2"
+            "type": "local",
+            "path": "C:\\Users\\timothy.v.gandionco\\Downloads\\cordova-plugin-statusbar-master"
         },
         "is_top_level": true,
         "variables": {}
@@ -38,17 +38,6 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "cordova-plugin-media": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-media",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
     },
     "cordova-plugin-compat": {
         "source": {
@@ -85,8 +74,26 @@
     },
     "cordova-plugin-splashscreen": {
         "source": {
-            "type": "registry",
-            "id": "cordova-plugin-splashscreen@3.2.2"
+            "type": "local",
+            "path": "C:\\Users\\timothy.v.gandionco\\Downloads\\cordova-plugin-splashscreen-master"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-media": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\timothy.v.gandionco\\Downloads\\cordova-plugin-media-master"
+        },
+        "is_top_level": true,
+        "variables": {
+            "MICROPHONE_USAGE_DESCRIPTION": "voice-activated"
+        }
+    },
+    "smiled0g.midiplayer": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\timothy.v.gandionco\\Downloads\\cordova-plugin-midi-player-4.0.1\\package"
         },
         "is_top_level": true,
         "variables": {}

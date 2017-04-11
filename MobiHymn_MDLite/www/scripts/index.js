@@ -21,6 +21,8 @@
 
     var winWidth, winHeight;
     var scrollAnimate = 0;
+    var android;
+    var ios;
 
     var ngRepeats = [{
         html: '<li class="mdl-list__item mdl-list__item--three-line" data-num="{{value.number}}" data-title="{{value.title}}" data-first-line="{{value.firstLine}}" data-hymnal="{{value.hymnalID}}" href="#lyrics">' +
@@ -60,13 +62,24 @@
             'Read<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>' +
             '</div></div>',
         src: 'hymnalList'
-    }]
+    }];
 
     function onDeviceReady() {
+        navigator.splashscreen.hide();
+
+        android = new RegExp('Android');
+        ios = new RegExp('iPod|iPhone|iPad');
+
         // Handle the Cordova pause and resume events
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
 
+        document.addEventListener("searchbutton", onSearchKeyDown.bind(this), false);
+
+        if (!ios.test(navigator.userAgent))
+            document.addEventListener("backbutton", onBackButtonDown.bind(this), false);
+
+        window.plugins.insomnia.keepAwake();
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
         init();
     };

@@ -1,0 +1,33 @@
+{
+  "name": "cordova-plugin-midi-player",
+  "version": "4.0.1",
+  "description": "Play Midi files on iOS and Android",
+  "cordova": {
+    "id": "cordova-plugin-midi-player",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smiled0g/MidiFilePlayer.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Normann Eiland, Kasi Chonpimai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smiled0g/MidiFilePlayer/issues"
+  },
+  "homepage": "https://github.com/smiled0g/MidiFilePlayer#readme"
+}

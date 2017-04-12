@@ -21,8 +21,6 @@
 
     var winWidth, winHeight;
     var scrollAnimate = 0;
-    var android;
-    var ios;
 
     var ngRepeats = [{
         html: '<li class="mdl-list__item mdl-list__item--three-line" data-num="{{value.number}}" data-title="{{value.title}}" data-first-line="{{value.firstLine}}" data-hymnal="{{value.hymnalID}}" href="#lyrics">' +
@@ -60,26 +58,18 @@
             '<div class="mdl-card__actions mdl-card--border">' +
             '<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple" href="#lyrics" data-id="{{value.id}}" data-num="1">' +
             'Read<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>' +
-            '</div></div>',
+            '</div><div class="mdl-card__menu">' +
+            '<button class="mdl-button mdl-button--icon mdl-button--colored mdl-js-button mdl-js-ripple-effect hymnal-info" data-id="{{value.id}}">' +
+            '<i class="fa fa-info"></i>' +
+            '</button></div></div>',
         src: 'hymnalList'
-    }];
+    }]
 
     function onDeviceReady() {
-        navigator.splashscreen.hide();
-
-        android = new RegExp('Android');
-        ios = new RegExp('iPod|iPhone|iPad');
-
         // Handle the Cordova pause and resume events
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
 
-        document.addEventListener("searchbutton", onSearchKeyDown.bind(this), false);
-
-        if (!ios.test(navigator.userAgent))
-            document.addEventListener("backbutton", onBackButtonDown.bind(this), false);
-
-        window.plugins.insomnia.keepAwake();
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
         init();
     };
@@ -158,8 +148,38 @@
         });
     }
 
+    var setUpScroller = function() {
+        $('.auto-scroller .add').click(function() {
+            settings.scrollSpeed -= 50;
+            setInterval(function() {
+                var pos = $('#lyrics').scrollTop();
+                $('#lyrics').scrollTop(pos + 2);
+            }, settings.scrollSpeed);
+        });
+        $('.auto-scroller .minus').click(function() {
+            settings.scrollSpeed += 50;
+            setInterval(function() {
+                var pos = $('#lyrics').scrollTop();
+                $('#lyrics').scrollTop(pos + 2);
+            }, settings.scrollSpeed);
+        });
+    }
+
     var setUpHymnals = function() {
         refreshNgRepeat('ngRepeats[4]');
+        $('.cards .mdl-card .hymnal-info').click(function (e) {
+            var target = $(e.target);
+            if (target.is('span.mdl-button__ripple-container'))
+                target = target.parent();
+            var id = target.attr('data-id');
+            var hymnal = hymnalList.find(function (k) {
+                return k.id == id;
+            });
+            var dialog = $('#dialogHymnal');
+            dialog.find('[data-bind="name"]').text(hymnal.name);
+            dialog.find('[data-bind="image"]').css('background-image', 'url("images/hymnals/' + hymnal.image + '")');
+            toggleDialog(dialog, "show");
+        })
 
         $('.cards .mdl-card a').click(function(e) {
             e.preventDefault();
@@ -180,12 +200,18 @@
                     setUpListItem(e1);
                 });
 
+
                 gotoHymn(e);
                 $('#mySpinner').css('display', 'none');
                 $('.mdl-layout__drawer-button[role="button"]').css('display', 'block');
                 $('.mdl-layout__header-row').css('display', 'flex');
             }, 20)
         });
+    }
+
+    var toggleDialog = function (element, toggle) {
+        element.toggle(toggle);
+        $('.custom-obfuscator').toggle(toggle);
     }
 
     var setUpListItem = function(e) {
@@ -217,16 +243,15 @@
             gotoHymn(e);
     }
 
-    var goToSection = function(element) {
-        var target = "";
-        if (element) {
+    var goToSection = function (element) {
+        var target = null;
+        if (element)
             target = $(element).attr('href');
-        } else {
+        else 
             target = "#lyrics";
-        }
+
         $('.mdl-layout__content > .page-content > section').removeClass('active');
         $(target).addClass('active');
-        $(target).scrollTop(0);
         if (target == "#lyrics") {
             $('#btnInput, #btnPlay, #btnBookmark').removeClass('hidden');
         } else {
@@ -313,6 +338,13 @@
             'z-index': 400,
             'display': 'none'
         });
+
+        var scollerHeight = $('.auto-scroller').height();
+        $('.auto-scroller').css({
+            'position': 'fixed',
+            'top': parseFloat((winHeight / 2) - (scollerHeight / 2)).toFixed(2) + 'px',
+            'right': '5px'
+        })
     }
 
     var readDesription = function() {
@@ -335,10 +367,10 @@
         })
     }
 
-    var startScrolling = function(elem) {
+    var startScrolling = function (elem) {
         var time = $('#rngScrollSpeed').val();
         stopScrolling();
-        scrollAnimate = setInterval(function() {
+        scrollAnimate = setInterval(function () {
             var pos = elem.scrollTop();
             elem.scrollTop(++pos);
             if (elem.scrollTop() + elem.innerHeight() >= elem[0].scrollHeight) {
@@ -348,11 +380,10 @@
         }, 100 * time);
     }
 
-    var stopScrolling = function() {
+    var stopScrolling = function () {
         if (scrollAnimate > 0) {
             clearInterval(scrollAnimate);
             scrollAnimate = 0;
-            $('#hymnLyrics').off('scroll mousedown wheel DOMMouseScroll mousewheel touchmove');
         }
     }
 
@@ -369,24 +400,19 @@
         readRevision();
         getHymnalData('files/hymnals.json');
 
-        delete Hammer.defaults.cssProps.userSelect;
-
         var contentElem = $('.mdl-layout__content > .page-content');
         var myHammer = new Hammer(contentElem[0]);
-        myHammer.on("panright", function(ev) {
-            if (!$(ev.target).is($('#rngScrollSpeed'))) {
-                if ($('header.mdl-layout__header').css('display') != "none" && $('.mdl-layout__drawer-button').css('display') != 'none')
-                    $('.mdl-layout__drawer-button').trigger('click');
-            }
+        myHammer.add(new Hammer.Swipe());
+        myHammer.on("panright", function (ev) {
+            if ($('header.mdl-layout__header').css('display') != "none" && $('.mdl-layout__drawer-button').css('display') != 'none')
+                $('.mdl-layout__drawer-button').trigger('click');
         });
-
-        var hammerLyrics = new Hammer($('#hymnLyrics')[0], {
-            touchAction: 'pan-y'
-        });
+		
+		var hammerLyrics = new Hammer($('#hymnLyrics')[0]);
         hammerLyrics.get('pinch').set({
             enable: true
         })
-        hammerLyrics.on('pinchmove pinchend', function(evt) {
+        hammerLyrics.on('pinchmove pinchend', function (evt) {
             //evt.preventDefault();
             var orig_font = $('#hymnLyrics').css('font-size');
             switch (evt.type) {
@@ -394,15 +420,14 @@
                     var newFont = fontSize * evt.scale;
                     if (newFont >= 18 && newFont <= 40) {
                         $('#hymnLyrics').css('font-size', newFont + 'px');
-                        settings.font = newFont;
+                        settings.font =  newFont;
                     }
                     break;
                 case 'pinchend':
                     fontSize = parseFloat($('#hymnLyrics').css('font-size'));
                     settings.font = fontSize;
             }
-        });
-
+        });		
 
         $('.mdl-textfield.mdl-textfield--expandable label').click(function() {
             $(this).parent().toggleClass('is-focused');
@@ -458,10 +483,11 @@
             }
         });
 
-        $('#hymnLyrics').click(function() {
+        $('#hymnLyrics').click(function () {
             if ($('#btnInput').hasClass('hidden')) {
                 $('.page-content').css('padding-bottom', '70px');
-            } else {
+            }
+            else {
                 $('.page-content').css('padding-bottom', '0px');
             }
             $('#mainHeader, #lyricFooter').toggle();
@@ -469,10 +495,10 @@
 
         });
 
-        $('#rngScrollSpeed').change(function() {
+        $('#rngScrollSpeed').change(function () {
             var val = parseFloat($(this).val()).toFixed(2);
             $('#scrollVal').text(val);
-            if ($('#btnScroller i').hasClass('fa-stop'))
+            if($('#btnScroller i').hasClass('fa-stop'))
                 startScrolling($('#lyrics'));
         })
 
@@ -505,27 +531,35 @@
                 icon.text('bookmark');
                 toggleBookmark(settings.currentHymn, "add", icon);
             } else {
+                //$('#dialogBkmk, .custom-obfuscator').toggle();
                 icon.text('bookmark_border');
                 toggleBookmark(settings.currentHymn, "remove", icon);
             }
         });
 
-        $('.hymn-footer').click(function(e) {
+        $('.hymn-footer').click(function (e) {
             var target = $(e.target);
             if (!target.is('button')) {
                 gotoHymn();
             }
         });
 
-        $('#btnScroller').click(function() {
+        $('#btnScroller').click(function () {
             var icon = $(this).find('i');
             if (icon.hasClass('fa-angle-double-down')) {
                 icon.toggleClass('fa-angle-double-down fa-stop');
                 startScrolling($('#lyrics'));
-            } else {
+            }
+            else {
                 icon.toggleClass('fa-angle-double-down fa-stop');
                 stopScrolling();
             }
+        });
+
+        $('.custom-obfuscator').click(function () {
+            toggleDialog($('dialog').filter(function () {
+                return $(this).css('display') != 'none';
+            }), "hide");
         })
     }
 
@@ -546,6 +580,7 @@
                 itemString = itemString.replace(/\{\{/g, "");
                 itemString = itemString.replace(/\}\}/g, "");
                 var item = $(itemString);
+                
                 if (prepend != undefined) {
                     if (!prepend)
                         ngRepeat.append(item);
@@ -553,6 +588,18 @@
                         ngRepeat.prepend(item);
                 } else {
                     ngRepeat.append(item);
+                }
+                var icon = item.find('i.material-icons').filter(function () {
+                    return this.innerText == 'bookmark_border';
+                });
+                var bkmkNum = icon.attr('data-num');
+                var bkmkHymnal = icon.attr('data-hymnal');
+                var bkmk = bookmarksList.find(function(value){
+                    return value.num == bkmkNum && value.hymnalID == bkmkHymnal;
+                });
+
+                if (bkmk) {
+                    icon.innerText = "bookmark";
                 }
             });
         }
@@ -573,12 +620,13 @@
         })
     }
 
-    var gotoHymn = function(e) {
-        var number, elem = null;
+    var gotoHymn = function (e) {
+        var number;
         if (e) {
-            elem = $(e.currentTarget);
+            var elem = $(e.currentTarget);
             number = elem.attr('data-num');
-        } else {
+        }
+        else {
             number = settings.currentHymn.num;
         }
         hymnList["hymnal" + settings.currentHymnal.id].forEach(function(value, index) {
@@ -600,7 +648,6 @@
             recentList = recentList.slice((recentList.length - recentLength + 1), recentList.length);
         }
         recentList.push(settings.currentHymn);
-
         refreshNgRepeat('ngRepeats[1]', true);
 
         $('#listRecent li').click(function(e) {
@@ -666,12 +713,14 @@
         }
     }
 
-    var toggleBookmark = function(data, mode, icon) {
+    var toggleBookmark = function (data, mode, icon) {
+        var icon2 = $('i.material-icons[data-num="' + data.number + '"][data-hymnal="' + data.hymnalID + '"]');
         if (mode == "add") {
             icon.text('bookmark');
             bookmarksList.push(data);
             $('#snckBookmark .mdl-snackbar__text').text('Bookmark added');
             $('#snckBookmark').addClass('mdl-snackbar--active');
+            icon2.text('bookmark');
             setTimeout(function() {
                 $('#snckBookmark').removeClass('mdl-snackbar--active');
             }, 3000);
@@ -685,6 +734,7 @@
             });
             $('#snckBookmark .mdl-snackbar__text').text('Bookmark removed');
             $('#snckBookmark').addClass('mdl-snackbar--active');
+            icon2.text('bookmark_border');
             setTimeout(function() {
                 $('#snckBookmark').removeClass('mdl-snackbar--active');
             }, 3000);

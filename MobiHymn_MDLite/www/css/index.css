@@ -288,18 +288,21 @@ body {
     .cards .mdl-card .mdl-button {
       background: inherit; }
 
-#hymnLyrics {
+#lyrics > h2 {
+  font-family: 'TangerineBold';
+  font-size: 3.1rem;
+  padding: 0 5px; }
+#lyrics #hymnLyrics {
   line-height: 175%;
   padding: 0 5px;
   margin: 0;
   font-family: inherit;
   letter-spacing: 0.12em; }
-
-#hymnLyrics.indent-first-letter .hymn-stanza .first-letter {
-  float: left;
-  width: 0.7em;
-  font-size: 340%;
-  line-height: 100%; }
+  #lyrics #hymnLyrics.indent-first-letter .hymn-stanza .first-letter {
+    float: left;
+    width: 0.7em;
+    font-size: 340%;
+    line-height: 100%; }
 
 .table-results {
   overflow: hidden;

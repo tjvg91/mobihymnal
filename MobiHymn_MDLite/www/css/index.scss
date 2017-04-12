@@ -134,7 +134,6 @@
     font-family: 'TangerineBold';
     src: url('../mdlite/font/tangerine/Tangerine_Bold.ttf') format('truetype');
 }
-
 html, body {
     height:100%;
     overflow:auto;
@@ -403,20 +402,27 @@ body{
     }
 }
 
-#hymnLyrics{
-    line-height: 175%;
-    padding: 0 5px;
-    margin: 0;
-    font-family: inherit;
-    letter-spacing: 0.12em;
-}
+#lyrics{
+    & > h2{
+        font-family: 'TangerineBold';
+        font-size: 3.1rem;
+        padding: 0 5px;
+    }
+    #hymnLyrics {
+        line-height: 175%;
+        padding: 0 5px;
+        margin: 0;
+        font-family: inherit;
+        letter-spacing: 0.12em;
 
-#hymnLyrics.indent-first-letter .hymn-stanza{
-    .first-letter{
-        float: left;
-        width: 0.7em;
-        font-size: 340%;
-        line-height: 100%;
+        &.indent-first-letter .hymn-stanza{
+            .first-letter{
+                float: left;
+                width: 0.7em;
+                font-size: 340%;
+                line-height: 100%;
+            }
+        }
     }
 }
 

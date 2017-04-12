@@ -355,7 +355,6 @@ body{
 
 .home-title{
     text-align: center;
-    text-decoration: underline;
     margin: 0 0 1rem;
     color: #efefef;
     font-family: 'Tangerine';
@@ -381,7 +380,6 @@ body{
                 color: #efefef;
                 font-family: 'Tangerine';
                 font-size: 2.1rem;
-                text-shadow: -1px 5px 4px rgb(255,235,59);
             }
         }
 
@@ -391,9 +389,7 @@ body{
 
         .mdl-card__supporting-text{
             color: #efefef;
-            font-family: 'Tangerine';
-            font-size: 2.1rem;
-            text-shadow: -1px 5px 4px rgb(255,235,59);
+            font-size: 1.2rem;
         }
 
         .mdl-button{

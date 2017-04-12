@@ -275,12 +275,13 @@ body {
       .cards .mdl-card .mdl-card__title .mdl-card__title-text {
         color: #efefef;
         font-family: 'Tangerine';
-        font-size: 2.1rem; }
+        font-size: 2.1rem;
+        text-shadow: 3px 8px 5px #131313; }
     .cards .mdl-card .mdl-card__menu {
       z-index: 5; }
     .cards .mdl-card .mdl-card__supporting-text {
       color: #efefef;
-      font-size: 1.2rem; }
+      font-size: 1rem; }
     .cards .mdl-card .mdl-button {
       background: inherit; }
 

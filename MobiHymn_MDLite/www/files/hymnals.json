@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "Trinity Hymnal: Baptist Edition",
-      "image": "hymnal1.jpg",
+      "image": "images/hymnals/hymnal1.jpg",
       "count": "800",
       "lastNum": "774",
       "color": "blue",
@@ -12,7 +12,7 @@
     {
       "id": "2",
       "name": "Trinity Hymnal: Baptist Edition (Extended)",
-      "image": "hymnal2.jpg",
+      "image": "images/hymnals/hymnal2.jpg",
       "count": "816",
       "lastNum": "793",
       "color": "blue",

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="com.mobihymnal" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US" android-versionCode="1">
   <name>MobiHymnal</name>
   <description>MobiHymnal is for those who want to read the lyrics of the trinity hymn from the blue Trinity Hymnal: Baptist Edition with the addition of the hymns from Grace Hymns words edition 1975. In addition the user can opt to play the hymn.</description>
@@ -119,4 +119,8 @@
   <preference name="InAppBrowserStorageEnabled" value="True" />
   <preference name="SuppressesIncrementalRendering" value="True" />
   <access origin="*" />
+  <vs:toolsetVersion>6.3.1</vs:toolsetVersion>
+  <engine name="android" spec="5.2.1" />
+  <engine name="ios" spec="4.2.0" />
+  <engine name="windows" spec="4.4.2" />
 </widget>

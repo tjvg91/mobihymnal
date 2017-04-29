@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="com.mobihymnal.beta" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US" android-versionCode="1">
   <name>MobiHymn Beta</name>
   <description>MobiHymnal is for those who want to read the lyrics of a desired trinity hymn. In addition the user can opt to play the hymn.</description>
@@ -128,4 +128,8 @@
   <plugin name="cordova-plugin-app-event" version="1.2.0" />
   <plugin name="cordova-plugin-device" version="1.1.1" />
   <plugin name="cordova-plugin-splashscreen" version="3.2.2" />
+  <vs:toolsetVersion>6.3.1</vs:toolsetVersion>
+  <engine name="android" spec="5.2.1" />
+  <engine name="ios" spec="4.2.0" />
+  <engine name="windows" spec="4.4.2" />
 </widget>

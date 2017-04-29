@@ -42,6 +42,7 @@
 
     var winWidth, winHeight;
     var scrollAnimate = 0;
+    var android, ios;
 
     var fontTypes = ['Konsens', 'Roboto', 'Tangerine', /*'Cookie', 'Gloria Hallelujah', 'Great Vibes', 'Indie Flower', 'Kaushan Script', 'Lobster', 'Pacifico', 'Rock Salt', 'Satisfy', 'Unifraktur Cook Bold', 'Clicker Script', 'Rancho', 'Parisienne', 'Pangolin', 'Petit Formal Script', 'Yesteryear', 'BerkshireSwash', 'Montez', 'Norican', 'Griffy'*/ ];
 
@@ -105,9 +106,28 @@
         // Handle the Cordova pause and resume events
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
+        
+        navigator.splashscreen.hide();
 
+        android = new RegExp('Android');
+        ios = new RegExp('iPod|iPhone|iPad');
+
+        // Handle the Cordova pause and resume events
+        document.addEventListener('pause', onPause.bind(this), false);
+        document.addEventListener('resume', onResume.bind(this), false);
+
+        document.addEventListener("searchbutton", onSearchKeyDown.bind(this), false);
+
+        if (!ios.test(navigator.userAgent))
+            document.addEventListener("backbutton", onBackButtonDown.bind(this), false);
+
+        //keep awake
+        window.plugins.insomnia.keepAwake();
+
+        console.log('sulud1');
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
         init();
+        console.log('sulud2');
     };
 
     function onPause() {
@@ -117,6 +137,14 @@
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
     };
+
+    function onSearchKeyDown() {
+        searchTerm($('#searchHymn').val());
+    }
+
+    function onBackButtonDown() {
+
+    }
 
     var setUpNavigation = function() {
         if ($('.mdl-layout__content > section.active').children('.mdl-layout__tab-panel').length > 0) {
@@ -324,7 +352,8 @@
                 });
 
             },
-            error: function(err) {
+            error: function (err) {
+                console.log(err); 
                 var storage = firebase.storage();
                 var pathReference = storage.ref('hymnals.json').getDownloadURL().then(function(url) {
                     var a = $('<a></a>');
@@ -462,6 +491,8 @@
     var init = function() {
         winWidth = $(window).width();
         winHeight = $(window).height();
+
+        console.log('sulud');
 
         //setUpFireBase();
         setUpNavigation();
@@ -936,8 +967,4 @@
             return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
         })
     }
-
-    $(document).ready(function() {
-        init();
-    });
 })(jQuery);

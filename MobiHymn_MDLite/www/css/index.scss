@@ -263,7 +263,7 @@ body {
 @media screen and (max-width: 1024px) {
     .mdl-layout__header-row {
         height: 56px;
-        padding: 0 0 0 52px !important;
+        padding: 0 16px 0 52px !important;
     }
 }
 
@@ -356,11 +356,11 @@ input[type="range"] {
     .search-clearer {
         font-size: 22px;
         position: absolute;
-        top: 27px;
-        right: 15px;
+        top: 30px;
+        right: 5px;
     }
-    .mdl-navigation__link{
-        font-size: 1.6em;
+    .mdl-navigation__link {
+        font-size: 28px !important;
     }
 }
 
@@ -380,18 +380,17 @@ input[type="range"] {
     .mdl-layout-title {
         color: #efefef;
         font-family: KonsensSemibold;
-        font-size: 2em;
         .title-white {
             color: #FFFFFF;
         }
         .title-yellow {
             color: #FFF300;
-            margin-left: -7px;
+            margin-left: -5px;
         }
     }
     .mdl-navigation__link {
         color: #efefef !important;
-        font-size: 1.6em !important;
+        font-size: 20px !important;
         &:hover {
             background-color: transparent !important;
             color: #FFF300 !important;
@@ -400,18 +399,16 @@ input[type="range"] {
 }
 
 .mdl-layout__content {
-    background-image: url('../images/Congregation Singing.jpg');
-    background-repeat: no-repeat;
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/Congregation Singing.jpg') no-repeat;
     background-size: cover;
     margin: 0 0 0 -2px;
-}
-
-.mdl-layout__content>.page-content>section {
-    height: 100%;
-    color: #efefef;
-    overflow-y: auto;
-    &:not(.active) {
-        display: none;
+    &>.page-content>section {
+        height: 100%;
+        color: #efefef;
+        overflow-y: auto;
+        &:not(.active) {
+            display: none;
+        }
     }
 }
 
@@ -461,8 +458,8 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-image: url('../images/Congregation Singing.jpg');
-    background-repeat: no-repeat;
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/Congregation Singing.jpg') no-repeat;
+    background-size: cover;
     background-size: cover;
     z-index: 2000;
     font-family: KonsensSemibold;
@@ -514,7 +511,6 @@ body {
     flex-wrap: wrap;
     width: 100%;
     padding: 0 10px;
-    height: 200px;
     .card-container {
         position: relative;
         margin: 0 auto 20px;
@@ -572,7 +568,6 @@ body {
 }
 
 #lyrics {
-    margin: 5px 0 0 0;
     #hymnTitle {
         padding: 0;
     }

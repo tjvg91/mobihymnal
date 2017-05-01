@@ -3,89 +3,116 @@
     transform: scale(1); }
   100% {
     transform: scale(0); } }
+
 @keyframes scale-up {
   0% {
     transform: scale(0); }
   100% {
     transform: scale(1); } }
+
 @font-face {
   font-family: 'KonsensBold';
   src: url("../mdlite/font/konsens/KonsensBold.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensBold-Italic';
   src: url("../mdlite/font/konsens/KonsensBold-Italic.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensBook';
   src: url("../mdlite/font/konsens/KonsensBook.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensBook-Italic';
   src: url("../mdlite/font/konsens/KonsensBook-Italic.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensExtrabold';
   src: url("../mdlite/font/konsens/KonsensExtrabold.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensExtrabold-Italic';
   src: url("../mdlite/font/konsens/KonsensExtrabold-Italic.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensHeavy';
   src: url("../mdlite/font/konsens/KonsensHeavy.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensHeavy-Italic';
   src: url("../mdlite/font/konsens/KonsensHeavy-Italic.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensLight';
   src: url("../mdlite/font/konsens/KonsensLight.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensLight-Italic';
   src: url("../mdlite/font/konsens/KonsensLight-Italic.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensMedium';
   src: url("../mdlite/font/konsens/KonsensMedium.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensMedium-Italic';
   src: url("../mdlite/font/konsens/KonsensMedium-Italic.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'Konsens';
   src: url("../mdlite/font/konsens/KonsensRegular.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensRegular-Italic';
   src: url("../mdlite/font/konsens/KonsensRegular-Italic.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensSemibold';
   src: url("../mdlite/font/konsens/KonsensSemibold.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensSemibold-Italic';
   src: url("../mdlite/font/konsens/KonsensSemibold-Italic.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensUltrabold';
   src: url("../mdlite/font/konsens/KonsensUltrabold.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'KonsensUltrabold-Italic';
   src: url("../mdlite/font/konsens/KonsensUltrabold-Italic.ttf") format("truetype"); }
+
 * {
   -webkit-tap-highlight-color: transparent; }
 
 @font-face {
   font-family: 'Roboto-Bold';
   src: url("../mdlite/font/roboto/Roboto-Bold.eot") format("embedded-opentype"), url("../mdlite/font/roboto/Roboto-Bold.ttf") format("truetype"), url("../mdlite/font/roboto/Roboto-Bold.woff") format("woff"); }
+
 @font-face {
   font-family: 'Roboto-Light';
   src: url("../mdlite/font/roboto/Roboto-Light.eot") format("embedded-opentype"), url("../mdlite/font/roboto/Roboto-Light.ttf") format("truetype"), url("../mdlite/font/roboto/Roboto-Light.woff") format("woff"); }
+
 @font-face {
   font-family: 'Roboto-Medium';
   src: url("../mdlite/font/roboto/Roboto-Medium.eot") format("embedded-opentype"), url("../mdlite/font/roboto/Roboto-Medium.ttf") format("truetype"), url("../mdlite/font/roboto/Roboto-Medium.woff") format("woff"); }
+
 @font-face {
   font-family: 'Roboto-Regular';
   src: url("../mdlite/font/roboto/Roboto-Regular.eot") format("embedded-opentype"), url("../mdlite/font/roboto/Roboto-Regular.ttf") format("truetype"), url("../mdlite/font/roboto/Roboto-Regular.woff") format("woff"); }
+
 @font-face {
   font-family: 'Roboto-Thin';
   src: url("../mdlite/font/roboto/Roboto-Thin.eot") format("embedded-opentype"), url("../mdlite/font/roboto/Roboto-Thin.ttf") format("truetype"), url("../mdlite/font/roboto/Roboto-Thin.woff") format("woff"); }
+
 @font-face {
   font-family: 'Tangerine';
   src: url("../mdlite/font/tangerine/Tangerine_Regular.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'TangerineBold';
   src: url("../mdlite/font/tangerine/Tangerine_Bold.ttf") format("truetype"); }
+
 /*@font-face {
     font-family: 'Cookie';
     src: url('../mdlite/font/cookie/Cookie-Regular.ttf') format('truetype');
@@ -184,7 +211,8 @@ body {
 @media screen and (max-width: 1024px) {
   .mdl-layout__header-row {
     height: 56px;
-    padding: 0 0 0 52px !important; } }
+    padding: 0 16px 0 52px !important; } }
+
 input[type="number"],
 input[type="text"] {
   color: #efefef; }
@@ -208,6 +236,7 @@ input[type="range"] {
 .mdl-layout__content > .page-content #home {
   background: #0d0d0d;
   padding: 10px 0 0; }
+
 .mdl-layout__content > .page-content .mdl-mini-footer {
   padding: 17px 16px !important;
   background: -moz-linear-gradient(top, #2b2c2f 0%, #000000 100%);
@@ -256,14 +285,15 @@ input[type="range"] {
   .mdl-layout__header .search-clearer {
     font-size: 22px;
     position: absolute;
-    top: 27px;
-    right: 15px; }
+    top: 30px;
+    right: 5px; }
   .mdl-layout__header .mdl-navigation__link {
-    font-size: 1.6em; }
+    font-size: 28px !important; }
 
 @media screen and (max-width: 1024px) {
   .mdl-layout--fixed-header > .mdl-layout__header {
     display: block; } }
+
 .mdl-layout__drawer {
   background-position: center top !important;
   border: none;
@@ -273,32 +303,29 @@ input[type="range"] {
   border-right: none !important; }
   .mdl-layout__drawer .mdl-layout-title {
     color: #efefef;
-    font-family: KonsensSemibold;
-    font-size: 2em; }
+    font-family: KonsensSemibold; }
     .mdl-layout__drawer .mdl-layout-title .title-white {
       color: #FFFFFF; }
     .mdl-layout__drawer .mdl-layout-title .title-yellow {
       color: #FFF300;
-      margin-left: -7px; }
+      margin-left: -5px; }
   .mdl-layout__drawer .mdl-navigation__link {
     color: #efefef !important;
-    font-size: 1.6em !important; }
+    font-size: 20px !important; }
     .mdl-layout__drawer .mdl-navigation__link:hover {
       background-color: transparent !important;
       color: #FFF300 !important; }
 
 .mdl-layout__content {
-  background-image: url("../images/Congregation Singing.jpg");
-  background-repeat: no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../images/Congregation Singing.jpg") no-repeat;
   background-size: cover;
   margin: 0 0 0 -2px; }
-
-.mdl-layout__content > .page-content > section {
-  height: 100%;
-  color: #efefef;
-  overflow-y: auto; }
-  .mdl-layout__content > .page-content > section:not(.active) {
-    display: none; }
+  .mdl-layout__content > .page-content > section {
+    height: 100%;
+    color: #efefef;
+    overflow-y: auto; }
+    .mdl-layout__content > .page-content > section:not(.active) {
+      display: none; }
 
 .input-form > .mdl-textfield {
   padding: 16px 20px;
@@ -339,8 +366,8 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: url("../images/Congregation Singing.jpg");
-  background-repeat: no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../images/Congregation Singing.jpg") no-repeat;
+  background-size: cover;
   background-size: cover;
   z-index: 2000;
   font-family: KonsensSemibold;
@@ -383,8 +410,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0 10px;
-  height: 200px; }
+  padding: 0 10px; }
   .cards .card-container {
     position: relative;
     margin: 0 auto 20px;
@@ -430,20 +456,19 @@ body {
       .cards .card-container .mdl-card .mdl-button {
         background: inherit; }
 
-#lyrics {
-  margin: 5px 0 0 0; }
-  #lyrics #hymnTitle {
-    padding: 0; }
-  #lyrics #hymnLyrics {
-    line-height: 175%;
-    padding: 0 5px;
-    margin: 0;
-    letter-spacing: 0.12em; }
-    #lyrics #hymnLyrics.indent-first-letter .hymn-stanza .first-letter {
-      float: left;
-      width: 0.7em;
-      font-size: 340%;
-      line-height: 100%; }
+#lyrics #hymnTitle {
+  padding: 0; }
+
+#lyrics #hymnLyrics {
+  line-height: 175%;
+  padding: 0 5px;
+  margin: 0;
+  letter-spacing: 0.12em; }
+  #lyrics #hymnLyrics.indent-first-letter .hymn-stanza .first-letter {
+    float: left;
+    width: 0.7em;
+    font-size: 340%;
+    line-height: 100%; }
 
 .table-results {
   overflow: hidden;
@@ -452,6 +477,7 @@ body {
 #input .mdl-list .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-avatar {
   font-size: 32px;
   padding: 4px; }
+
 #input .mdl-list .mdl-list__item .mdl-list__item-primary-content span {
   color: #efefef; }
 
@@ -499,10 +525,13 @@ body {
   #customizer .mdl-grid .image-container .text {
     font-size: 16px;
     text-align: center; }
+
 #customizer .mdl-grid .mdl-tabs .mdl-tabs__tab-bar a {
   color: #efefef; }
+
 #customizer .mdl-grid .mdl-tabs .mdl-tabs__panel {
   padding: 20px 10px; }
+
 #customizer .mdl-list .mdl-list__item {
   flex-wrap: wrap; }
   #customizer .mdl-list .mdl-list__item .mdl-list__item-tertiary-content {
@@ -510,6 +539,7 @@ body {
     margin: 20px 0 0;
     text-align: center;
     min-height: 34.5px; }
+
 #customizer .palette {
   display: flex;
   flex-wrap: wrap;
@@ -602,27 +632,33 @@ body {
   text-align: center; }
   #about .mdl-layout-title img {
     padding: 10px 0 10px 10px; }
+
 #about #description {
   text-align: center;
   padding: 0 10px;
   font-size: 20px; }
+
 #about .revision-title {
   font-weight: bold;
   margin: 50px 0 5px;
   color: #ffeb3b; }
+
 #about .revision-title,
 #about #revision-list {
   text-align: center;
   padding: 0 10px; }
+
 #about #revision-list {
   font-size: 20px; }
   #about #revision-list .revision {
     text-decoration: underline; }
+
 #about .author {
   margin: 50px 0 5px;
   text-align: center;
   font-weight: bold;
   color: #ffeb3b; }
+
 #about .author-image {
   width: 100px;
   height: 100px;
@@ -630,9 +666,11 @@ body {
   margin: 0 auto;
   background: #ffffff;
   display: block; }
+
 #about .author-name {
   text-align: center;
   margin: 5px 0 0; }
+
 #about .author-desc {
   text-align: center;
   font-size: 12px; }
@@ -660,11 +698,13 @@ body {
   .mdl-snackbar.mdl-snackbar--active {
     -webkit-transform: translate(-50%, -68px);
     transform: translate(-50%, -68px); } }
+
 @media (max-width: 479px) {
   .mdl-snackbar.mdl-snackbar--active {
     width: auto;
     -webkit-transform: translate(23%, -68px) !important;
     transform: translate(23%, -68px) !important; } }
+
 .hymn-stanza + .hymn-stanza:nth-child(2):before {
   content: "Stanza 2:"; }
 
@@ -718,5 +758,3 @@ body {
 
 .hymn-refrain + .hymn-stanza:nth-child(19):before {
   content: "Stanza 10:"; }
-
-/*# sourceMappingURL=index.css.map */
